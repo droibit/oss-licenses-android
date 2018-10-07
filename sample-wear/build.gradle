@@ -1,14 +1,15 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 apply plugin: 'com.google.android.gms.oss-licenses-plugin'
 
 android {
-  compileSdkVersion 28
+  compileSdkVersion rootProject.ext.compileSdkVersion
   defaultConfig {
     applicationId "com.github.droibit.oss_licenses.sample"
     minSdkVersion 24
-    targetSdkVersion 28
+    targetSdkVersion rootProject.ext.targetSdkVersion
     versionCode 1
     versionName "1.0"
   }
@@ -21,6 +22,8 @@ android {
 }
 
 dependencies {
+  implementation project(":parser")
+
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   implementation 'com.google.android.support:wearable:2.3.0'
   implementation 'com.google.android.gms:play-services-wearable:16.0.1'
@@ -29,4 +32,7 @@ dependencies {
   implementation 'androidx.recyclerview:recyclerview:1.0.0'
   implementation 'androidx.wear:wear:1.0.0'
   compileOnly 'com.google.android.wearable:wearable:2.3.0'
+
+  compile "com.google.dagger:dagger:$dagger_version"
+  kapt "com.google.dagger:dagger-compiler:$dagger_version"
 }
