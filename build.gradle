@@ -43,4 +43,5 @@ task clean(type: Delete) {
 ext {
   compileSdkVersion = 28
   targetSdkVersion = 28
+  versionName = "0.0.1"
 }
