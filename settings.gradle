@@ -1,1 +1,1 @@
-include ':sample-wear', ':parser'
+include ':sample-wear', ':parser', ':ui-wear'

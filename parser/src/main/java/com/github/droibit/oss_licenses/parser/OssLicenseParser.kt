@@ -89,7 +89,7 @@ object OssLicenseParser {
                       bufferedLicense.skip(1)
                     }
                 OssLicense(
-                    name = library,
+                    libraryName = library,
                     license = license
                 )
               }
