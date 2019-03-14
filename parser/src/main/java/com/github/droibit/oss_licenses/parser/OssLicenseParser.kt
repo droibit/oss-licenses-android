@@ -5,6 +5,8 @@ import androidx.annotation.RestrictTo
 import androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP
 import okio.Okio
 import okio.Source
+import okio.buffer
+import okio.source
 import java.io.IOException
 import kotlin.coroutines.suspendCoroutine
 
@@ -42,8 +44,8 @@ object OssLicenseParser {
     return suspendCoroutine {
       val result: Result<List<OssLicense>> = try {
         val ossLicense = parse(
-            srcLicenses = Okio.source(res.openRawResource(licensesResId)),
-            srcLicensesMetadata = Okio.source(res.openRawResource(licensesMetaDataResId)),
+            srcLicenses = res.openRawResource(licensesResId).source(),
+            srcLicensesMetadata = res.openRawResource(licensesMetaDataResId).source(),
             ignoreLibraries = ignoreLibraries
         )
         Result.success(ossLicense)
@@ -60,7 +62,7 @@ object OssLicenseParser {
     ignoreLibraries: List<String>
   ): List<OssLicense> {
 
-    val licenseMetadata = Okio.buffer(srcLicensesMetadata)
+    val licenseMetadata = srcLicensesMetadata.buffer()
         .use {
           mutableListOf<Pair<String, Long>>().apply {
             while (true) {
@@ -72,14 +74,14 @@ object OssLicenseParser {
           }
         }
 
-    return Okio.buffer(srcLicenses)
+    return srcLicenses.buffer()
         .use { bufferedLicense ->
 
           licenseMetadata.asSequence()
               .filterNot { (library, licenseByteCount) ->
                 (buildInIgnorePredicate(library) || library in ignoreLibraries)
                     .also {
-                      // -1 means the number of bytes of line break.
+                      // +1 means the number of bytes of line break.
                       if (it) bufferedLicense.skip(licenseByteCount + 1L)
                     }
               }
