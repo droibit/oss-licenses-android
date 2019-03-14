@@ -30,9 +30,9 @@ dependencies {
 
   implementation "androidx.annotation:annotation:${androidx.annotation_version}"
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-  api "androidx.fragment:fragment:${androidx.fragment_version}"
-  api "androidx.recyclerview:recyclerview:${androidx.recyclerview_version}"
-  api "androidx.wear:wear:${androidx.wear_version}"
+  api 'androidx.fragment:fragment:1.0.0'
+  api 'androidx.recyclerview:recyclerview:1.0.0'
+  api 'androidx.wear:wear:1.0.0'
 
   testImplementation 'junit:junit:4.12'
 }

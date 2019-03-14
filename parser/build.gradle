@@ -29,7 +29,7 @@ dependencies {
   implementation "androidx.annotation:annotation:${androidx.annotation_version}"
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
-  api "com.squareup.okio:okio:1.15.0"
+  api "com.squareup.okio:okio:1.16.0"
   testImplementation 'junit:junit:4.12'
 }
 
