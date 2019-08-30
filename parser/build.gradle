@@ -29,14 +29,14 @@ dependencies {
   implementation "androidx.annotation:annotation:${androidx.annotation_version}"
   implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
   api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
-  api "com.squareup.okio:okio:2.2.2"
+  api "com.squareup.okio:okio:2.4.0"
   testImplementation 'junit:junit:4.12'
 }
 
 // build a jar with source files
 task sourcesJar(type: Jar) {
   from android.sourceSets.main.java.srcDirs
-  classifier = 'sources'
+  archiveClassifier.set("sources")
 }
 
 artifacts {
