@@ -3,7 +3,6 @@ package com.github.droibit.oss_licenses.parser
 import android.content.Context
 import androidx.annotation.RestrictTo
 import androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP
-import okio.Okio
 import okio.Source
 import okio.buffer
 import okio.source
@@ -76,7 +75,6 @@ object OssLicenseParser {
 
     return srcLicenses.buffer()
         .use { bufferedLicense ->
-
           licenseMetadata.asSequence()
               .filterNot { (library, licenseByteCount) ->
                 (buildInIgnorePredicate(library) || library in ignoreLibraries)
