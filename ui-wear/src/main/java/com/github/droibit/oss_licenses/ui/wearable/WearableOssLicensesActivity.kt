@@ -5,11 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
 
-class WearableOssLicensesActivity : FragmentActivity() {
+class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_oss_licenses) {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_wearable_oss_licenses)
 
     if (savedInstanceState == null) {
       val ignoreLibraries = requireNotNull(intent.getStringArrayListExtra(EXTRA_IGNORE_LIBRARIES))

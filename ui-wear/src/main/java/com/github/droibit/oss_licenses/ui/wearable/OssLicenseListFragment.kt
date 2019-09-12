@@ -61,7 +61,8 @@ internal class OssLicenseListFragment : Fragment(), CoroutineScope {
   override fun onActivityCreated(savedInstanceState: Bundle?) {
     super.onActivityCreated(savedInstanceState)
 
-    val ignoreLibraries = requireNotNull(arguments!!.getStringArrayList(ARG_IGNORE_LIBRARIES))
+    val ignoreLibraries =
+      requireNotNull(requireArguments().getStringArrayList(ARG_IGNORE_LIBRARIES))
     launch {
       val parsedOssLicenses = OssLicenseParser.parse(requireContext(), ignoreLibraries)
       ossLicenses.postValue(parsedOssLicenses)
@@ -94,7 +95,7 @@ private class OssLicenseListAdapter(
   private val onItemClickListener: (OssLicense) -> Unit
 ) : RecyclerView.Adapter<ViewHolder>() {
 
-  private val inflater = LayoutInflater.from(context)
+  private val inflater: LayoutInflater = LayoutInflater.from(context)
 
   private val ossLicenses = mutableListOf<OssLicense>()
 
