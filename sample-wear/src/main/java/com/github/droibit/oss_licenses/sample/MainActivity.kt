@@ -5,11 +5,10 @@ import androidx.fragment.app.FragmentActivity
 import com.github.droibit.oss_licenses.ui.wearable.WearableOssLicensesActivity
 import kotlinx.android.synthetic.main.activity_main.show
 
-class MainActivity : FragmentActivity() {
+class MainActivity : FragmentActivity(R.layout.activity_main) {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_main)
 
     show.setOnClickListener {
       val intent = WearableOssLicensesActivity.createIntent(
