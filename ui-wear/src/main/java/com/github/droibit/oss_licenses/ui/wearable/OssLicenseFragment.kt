@@ -11,13 +11,11 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 
 internal class OssLicenseFragment : Fragment() {
 
-  private lateinit var swipeDismissLayout: SwipeDismissFrameLayout
-
   private val swipeDismissCallback = object : SwipeDismissFrameLayout.Callback() {
     override fun onDismissed(layout: SwipeDismissFrameLayout) {
       // Prevent flicker on screen.
       layout.visibility = View.INVISIBLE
-      requireFragmentManager().popBackStack()
+      parentFragmentManager.popBackStack()
     }
   }
 
@@ -26,13 +24,9 @@ internal class OssLicenseFragment : Fragment() {
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View? {
-    val inflatedView = inflater.inflate(R.layout.fragment_oss_license, container, false)
-    return SwipeDismissFrameLayout(requireContext()).apply {
-      addView(inflatedView)
-      addCallback(swipeDismissCallback)
-    }
+    return inflater.inflate(R.layout.fragment_oss_license, container, false)
         .also {
-          this.swipeDismissLayout = it
+          (it as SwipeDismissFrameLayout).addCallback(swipeDismissCallback)
         }
   }
 
@@ -42,7 +36,7 @@ internal class OssLicenseFragment : Fragment() {
   ) {
     super.onViewCreated(view, savedInstanceState)
 
-    val ossLicense = requireNotNull(arguments).getSerializable(ARG_OSS_LICENSE) as OssLicense
+    val ossLicense = requireArguments().getSerializable(ARG_OSS_LICENSE) as OssLicense
     view.findViewById<TextView>(R.id.oss_name)
         .text = ossLicense.libraryName
     view.findViewById<TextView>(R.id.oss_license)
@@ -50,7 +44,7 @@ internal class OssLicenseFragment : Fragment() {
   }
 
   override fun onDestroyView() {
-    swipeDismissLayout.removeCallback(swipeDismissCallback)
+    (view as SwipeDismissFrameLayout).removeCallback(swipeDismissCallback)
     super.onDestroyView()
   }
 

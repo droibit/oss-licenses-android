@@ -14,7 +14,7 @@ class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_
       val ignoreLibraries = requireNotNull(intent.getStringArrayListExtra(EXTRA_IGNORE_LIBRARIES))
       supportFragmentManager.beginTransaction()
           .replace(R.id.oss_licenses_content, OssLicenseListFragment.newInstance(ignoreLibraries))
-          .commitNow()
+          .commit()
     }
   }
 

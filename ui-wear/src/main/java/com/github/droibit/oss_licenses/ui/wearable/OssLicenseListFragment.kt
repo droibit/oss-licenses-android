@@ -42,9 +42,14 @@ internal class OssLicenseListFragment : Fragment(), CoroutineScope {
     super.onViewCreated(view, savedInstanceState)
 
     val adapter = OssLicenseListAdapter(requireContext()) {
-      requireFragmentManager().beginTransaction()
-          .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
-          .add(R.id.oss_licenses_content, OssLicenseFragment.newInstance(ossLicense = it))
+      parentFragmentManager.beginTransaction()
+          .setCustomAnimations(
+              R.anim.fragment_open_enter,
+              R.anim.fragment_open_exit,
+              R.anim.fragment_fade_enter,
+              R.anim.fragment_fade_exit
+          )
+          .replace(R.id.oss_licenses_content, OssLicenseFragment.newInstance(ossLicense = it))
           .addToBackStack(null)
           .commit()
     }
@@ -53,7 +58,7 @@ internal class OssLicenseListFragment : Fragment(), CoroutineScope {
           it.adapter = adapter
           it.setHasFixedSize(true)
         }
-    ossLicenses.observe(this, Observer {
+    ossLicenses.observe(viewLifecycleOwner, Observer {
       adapter.update(it)
     })
   }
