@@ -8,7 +8,6 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.parser.OssLicenseParser
-import com.github.droibit.oss_licenses.ui.wearable.R.anim
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -37,12 +36,13 @@ class OssLicenseListFragment : Fragment(R.layout.fragment_oss_license_list),
       OssLicenseListAdapter(
           requireContext()
       ) {
+
         parentFragmentManager.beginTransaction()
             .setCustomAnimations(
-                anim.fragment_open_enter,
-                anim.fragment_open_exit,
-                anim.fragment_fade_enter,
-                anim.fragment_fade_exit
+                androidx.fragment.R.anim.fragment_close_enter,
+                androidx.fragment.R.anim.fragment_open_exit,
+                androidx.fragment.R.anim.fragment_fade_enter,
+                androidx.fragment.R.anim.fragment_fade_exit
             )
             .replace(R.id.oss_licenses_content, OssLicenseFragment.newInstance(ossLicense = it))
             .addToBackStack(null)
