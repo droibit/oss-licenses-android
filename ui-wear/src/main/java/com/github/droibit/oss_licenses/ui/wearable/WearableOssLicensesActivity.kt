@@ -23,6 +23,8 @@ class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_
     private const val EXTRA_IGNORE_LIBRARIES =
       "com.github.droibit.oss_licenses.ui.wearable.EXTRA_IGNORE_LIBRARIES"
 
+    @JvmStatic
+    @JvmOverloads
     fun createIntent(
       context: Context,
       ignoreLibraries: List<String> = emptyList()
