@@ -2,12 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.github.droibit.oss_licenses.ui.wearable">
 
-  <application>
-    <activity
-        android:name=".WearableOssLicensesActivity"
-        android:exported="false"
-        android:theme="@style/Theme.Wearable">
-    </activity>
-  </application>
+    <application>
+        <activity
+            android:name=".WearableOssLicensesActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.DeviceDefault">
+
+        </activity>
+    </application>
 
 </manifest>

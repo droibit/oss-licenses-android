@@ -7,28 +7,32 @@ import androidx.fragment.app.FragmentActivity
 
 class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_oss_licenses) {
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
 
-    if (savedInstanceState == null) {
-      val ignoreLibraries = requireNotNull(intent.getStringArrayListExtra(EXTRA_IGNORE_LIBRARIES))
-      supportFragmentManager.beginTransaction()
-          .replace(R.id.oss_licenses_content, OssLicenseListFragment.newInstance(ignoreLibraries))
-          .commit()
+        if (savedInstanceState == null) {
+            val ignoreLibraries =
+                requireNotNull(intent.getStringArrayListExtra(EXTRA_IGNORE_LIBRARIES))
+            supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.oss_licenses_content,
+                    OssLicenseListFragment.newInstance(ignoreLibraries)
+                )
+                .commit()
+        }
     }
-  }
 
-  companion object {
+    companion object {
 
-    private const val EXTRA_IGNORE_LIBRARIES =
-      "com.github.droibit.oss_licenses.ui.wearable.EXTRA_IGNORE_LIBRARIES"
+        private const val EXTRA_IGNORE_LIBRARIES =
+            "com.github.droibit.oss_licenses.ui.wearable.EXTRA_IGNORE_LIBRARIES"
 
-    @JvmStatic
-    @JvmOverloads
-    fun createIntent(
-      context: Context,
-      ignoreLibraries: List<String> = emptyList()
-    ): Intent = Intent(context, WearableOssLicensesActivity::class.java)
-        .putStringArrayListExtra(EXTRA_IGNORE_LIBRARIES, ArrayList(ignoreLibraries))
-  }
+        @JvmStatic
+        @JvmOverloads
+        fun createIntent(
+            context: Context,
+            ignoreLibraries: List<String> = emptyList()
+        ): Intent = Intent(context, WearableOssLicensesActivity::class.java)
+            .putStringArrayListExtra(EXTRA_IGNORE_LIBRARIES, ArrayList(ignoreLibraries))
+    }
 }
