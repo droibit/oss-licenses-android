@@ -33,7 +33,6 @@ allprojects {
 }
 
 ext {
-    compileSdkVersion = 30
-    targetSdkVersion = 30
-    versionName = "0.1.0"
+    compileSdkVersion = 31
+    targetSdkVersion = 31
 }
