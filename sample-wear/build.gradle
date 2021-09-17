@@ -31,19 +31,14 @@ android {
 dependencies {
     implementation project(":ui-wear")
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-
     implementation "androidx.fragment:fragment-ktx:${androidx.fragment_version}"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:${androidx.lifecycle_version}"
     implementation "androidx.recyclerview:recyclerview:${androidx.recyclerview_version}"
     implementation "androidx.wear:wear:${androidx.wear_version}"
 
-    def wearable_version = "2.8.1"
-    implementation "com.google.android.support:wearable:$wearable_version"
-    compileOnly "com.google.android.wearable:wearable:$wearable_version"
-    implementation 'com.google.android.gms:play-services-wearable:17.0.0'
+    implementation 'com.google.android.gms:play-services-wearable:17.1.0'
 
-    def dagger_version = "2.34"
+    def dagger_version = "2.38.1"
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
 }

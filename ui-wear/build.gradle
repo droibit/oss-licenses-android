@@ -28,7 +28,6 @@ dependencies {
     api project(":parser")
 
     implementation "androidx.annotation:annotation:${androidx.annotation_version}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation "androidx.fragment:fragment:${androidx.fragment_version}"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:${androidx.lifecycle_version}"
     implementation "androidx.recyclerview:recyclerview:${androidx.recyclerview_version}"
