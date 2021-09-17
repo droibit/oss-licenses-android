@@ -6,9 +6,7 @@
         <activity
             android:name=".WearableOssLicensesActivity"
             android:exported="false"
-            android:theme="@android:style/Theme.DeviceDefault">
-
-        </activity>
+            android:theme="@android:style/Theme.DeviceDefault" />
     </application>
 
 </manifest>
