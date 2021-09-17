@@ -65,9 +65,9 @@ object OssLicenseParser {
                 mutableListOf<Pair<String, Long>>().apply {
                     while (true) {
                         val line = it.readUtf8Line() ?: break
-                        this.add(with(line.split(" ")) {
-                            this[1] to this[0].split(":")[1].toLong()
-                        })
+                        val licenseByteCount = line.substringBefore(" ").split(":")[1]
+                        val name = line.substringAfter(" ")
+                        this.add(name to licenseByteCount.toLong())
                     }
                 }
             }
@@ -92,6 +92,7 @@ object OssLicenseParser {
                             license = license
                         )
                     }
+                    .sortedBy { it.libraryName }
                     .toList()
             }
     }
