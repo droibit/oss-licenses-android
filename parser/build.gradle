@@ -29,7 +29,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
-    api "com.squareup.okio:okio:2.10.0"
+    api "com.squareup.okio:okio:3.1.0"
 
     testImplementation 'junit:junit:4.13.2'
 }
