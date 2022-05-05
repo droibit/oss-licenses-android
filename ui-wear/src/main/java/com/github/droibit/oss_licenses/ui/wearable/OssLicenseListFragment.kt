@@ -61,7 +61,7 @@ internal class OssLicenseListFragment : Fragment(R.layout.fragment_oss_license_l
                 it.setHasFixedSize(true)
             }
         ossLicenses.observe(viewLifecycleOwner) {
-            adapter.update(it)
+            adapter.submitList(it)
         }
     }
 

@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.wearable.R.layout
@@ -12,40 +14,37 @@ import com.github.droibit.oss_licenses.ui.wearable.R.layout
 internal class OssLicenseListAdapter(
     context: Context,
     private val onItemClickListener: (OssLicense) -> Unit
-) : RecyclerView.Adapter<ViewHolder>() {
+) : ListAdapter<OssLicense, ViewHolder>(DIFF_CALLBACK) {
+    private val inflater: LayoutInflater = LayoutInflater.from(context)
 
-    private val inflater: LayoutInflater =
-        LayoutInflater.from(context)
 
-    private val ossLicenses = mutableListOf<OssLicense>()
-
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): ViewHolder = ViewHolder(
-        itemView = inflater.inflate(
-            layout.list_item_oss_license,
-            parent, false
-        )
-    ).also { vh ->
-        vh.itemView.setOnClickListener {
-            onItemClickListener.invoke(ossLicenses[vh.bindingAdapterPosition])
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(
+            itemView = inflater.inflate(
+                layout.list_item_oss_license,
+                parent, false
+            )
+        ).also { vh ->
+            vh.itemView.setOnClickListener {
+                onItemClickListener.invoke(getItem(vh.bindingAdapterPosition))
+            }
         }
     }
 
-    override fun getItemCount(): Int = ossLicenses.size
-
-    override fun onBindViewHolder(
-        holder: ViewHolder,
-        position: Int
-    ) {
-        holder.text.text = ossLicenses[position].libraryName
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.text.text = getItem(position).libraryName
     }
 
-    fun update(ossLicenses: List<OssLicense>) {
-        this.ossLicenses.clear()
-        this.ossLicenses.addAll(ossLicenses)
-        this.notifyDataSetChanged()
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<OssLicense>() {
+            override fun areItemsTheSame(oldItem: OssLicense, newItem: OssLicense): Boolean {
+                return oldItem.libraryName == newItem.libraryName
+            }
+
+            override fun areContentsTheSame(oldItem: OssLicense, newItem: OssLicense): Boolean {
+                return oldItem == newItem
+            }
+        }
     }
 }
 
