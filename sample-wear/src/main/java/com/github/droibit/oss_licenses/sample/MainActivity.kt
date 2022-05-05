@@ -17,7 +17,20 @@ class MainActivity : FragmentActivity() {
         binding.show.setOnClickListener {
             val intent = WearableOssLicensesActivity.createIntent(
                 this,
-                listOf("com.google.errorprone:javac-shaded-9-dev-r4023-3")
+                setOf(
+                    "kotlinx-coroutines-bom",
+                    "Android Tracing",
+                    "Animal Sniffer",
+                    "Checker Framework Annotations",
+                    "Error Prone",
+                    "Guava JDK5",
+                    "Guava JDK7",
+                    "J2ObjC",
+                    "JSR 305",
+                    "JsInterop Annotations",
+                    "apksig",
+                    "JSpecify"
+                )
             )
             startActivity(intent)
         }

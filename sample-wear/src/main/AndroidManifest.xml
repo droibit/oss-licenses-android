@@ -3,8 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.github.droibit.oss_licenses.sample">
 
-    <uses-feature android:name="android.hardware.type.watch" />
-
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -34,5 +32,7 @@
             android:name="com.google.android.wearable"
             android:required="true" />
     </application>
+
+    <uses-feature android:name="android.hardware.type.watch" />
 
 </manifest>
