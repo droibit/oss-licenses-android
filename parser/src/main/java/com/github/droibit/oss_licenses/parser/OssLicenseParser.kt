@@ -15,18 +15,10 @@ private const val RES_LICENSES = "third_party_licenses"
 @RestrictTo(LIBRARY_GROUP)
 object OssLicenseParser {
 
-    val buildInIgnorePredicate: (String) -> Boolean = {
-        it.startsWith("com.android.tools") || it in buildInIgnoreLibraries
-    }
-
-    internal val buildInIgnoreLibraries = listOf(
-        "org.codehaus.groovy:groovy-all"
-    )
-
     @Throws(IOException::class)
     suspend fun parse(
         context: Context,
-        ignoreLibraries: List<String> = emptyList()
+        ignoreLibraries: Set<String> = emptySet()
     ): List<OssLicense> {
         val appContext = context.applicationContext
         val res = appContext.resources
@@ -42,12 +34,12 @@ object OssLicenseParser {
 
         return suspendCoroutine {
             val result: Result<List<OssLicense>> = try {
-                val ossLicense = parse(
+                val ossLicenses = parse(
                     srcLicenses = res.openRawResource(licensesResId).source(),
                     srcLicensesMetadata = res.openRawResource(licensesMetaDataResId).source(),
                     ignoreLibraries = ignoreLibraries
                 )
-                Result.success(ossLicense)
+                Result.success(ossLicenses)
             } catch (e: IOException) {
                 Result.failure(e)
             }
@@ -58,42 +50,40 @@ object OssLicenseParser {
     internal fun parse(
         srcLicenses: Source,
         srcLicensesMetadata: Source,
-        ignoreLibraries: List<String>
+        ignoreLibraries: Set<String>
     ): List<OssLicense> {
         val licenseMetadata = srcLicensesMetadata.buffer()
             .use {
-                mutableListOf<Pair<String, Long>>().apply {
+                buildList {
                     while (true) {
                         val line = it.readUtf8Line() ?: break
-                        val licenseByteCount = line.substringBefore(" ").split(":")[1]
-                        val name = line.substringAfter(" ")
-                        this.add(name to licenseByteCount.toLong())
+                        val licenseByteRange = line.substringBefore(" ").split(":")
+                        val metadata = OssLicenseMetadata(
+                            name = line.substringAfter(" "),
+                            beginIndex = licenseByteRange[0].toInt(),
+                            byteCount = licenseByteRange[1].toInt()
+                        )
+                        add(metadata)
                     }
                 }
             }
+        val licenses = srcLicenses.buffer().use {
+            it.readByteString()
+        }
 
-        return srcLicenses.buffer()
-            .use { bufferedLicense ->
-                licenseMetadata.asSequence()
-                    .filterNot { (library, licenseByteCount) ->
-                        (buildInIgnorePredicate(library) || library in ignoreLibraries)
-                            .also {
-                                // +1 means the number of bytes of line break.
-                                if (it) bufferedLicense.skip(licenseByteCount + 1L)
-                            }
-                    }
-                    .map { (library, licenseByteCount) ->
-                        val license = bufferedLicense.readUtf8(licenseByteCount)
-                            .also {
-                                bufferedLicense.skip(1)
-                            }
-                        OssLicense(
-                            libraryName = library,
-                            license = license
-                        )
-                    }
-                    .sortedBy { it.libraryName }
-                    .toList()
+        return licenseMetadata
+            .filterNot { it.name in ignoreLibraries }
+            .map { metadata ->
+                val license = licenses.substring(
+                    metadata.beginIndex,
+                    metadata.beginIndex + metadata.byteCount
+                )
+                OssLicense(
+                    libraryName = metadata.name,
+                    license = license.utf8()
+                )
             }
+            .distinct()
+            .sortedBy { it.libraryName }
     }
 }

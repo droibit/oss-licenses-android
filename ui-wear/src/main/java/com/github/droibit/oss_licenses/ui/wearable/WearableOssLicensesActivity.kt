@@ -31,7 +31,7 @@ class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_
         @JvmOverloads
         fun createIntent(
             context: Context,
-            ignoreLibraries: List<String> = emptyList()
+            ignoreLibraries: Set<String> = emptySet()
         ): Intent = Intent(context, WearableOssLicensesActivity::class.java)
             .putStringArrayListExtra(EXTRA_IGNORE_LIBRARIES, ArrayList(ignoreLibraries))
     }

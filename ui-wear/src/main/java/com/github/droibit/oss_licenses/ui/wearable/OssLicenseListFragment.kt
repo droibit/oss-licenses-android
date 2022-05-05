@@ -24,7 +24,8 @@ internal class OssLicenseListFragment : Fragment(R.layout.fragment_oss_license_l
 
         lifecycleScope.launch {
             @Suppress("BlockingMethodInNonBlockingContext")
-            val parsedOssLicenses = OssLicenseParser.parse(requireContext(), ignoreLibraries)
+            val parsedOssLicenses =
+                OssLicenseParser.parse(requireContext(), ignoreLibraries.toSet())
             ossLicenses.postValue(parsedOssLicenses)
         }
     }
