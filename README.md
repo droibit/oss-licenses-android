@@ -1,7 +1,25 @@
 # OSS Licenses
 [![jitpack.io](https://jitpack.io/v/droibit/oss-licenses-android.svg)](https://jitpack.io/#droibit/oss-licenses-android)
 
-WIP
+- WIP
+
+## Download
+Add the following code to your build.gradle.
+
+```gradle
+allprojects {
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+  }
+}
+
+dependencies {
+    implementation 'com.github.droibit.oss-licenses-android:parser:0.3.0'
+    // or
+    implementation 'com.github.droibit.oss-licenses-android:ui-wear:0.3.0'
+}
+```
 
 ## License
 
