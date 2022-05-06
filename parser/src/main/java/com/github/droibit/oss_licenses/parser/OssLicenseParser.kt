@@ -57,9 +57,13 @@ object OssLicenseParser {
                 buildList {
                     while (true) {
                         val line = it.readUtf8Line() ?: break
+                        val name = line.substringAfter(" ")
+                        if (name in ignoreLibraries) {
+                            continue
+                        }
                         val licenseByteRange = line.substringBefore(" ").split(":")
                         val metadata = OssLicenseMetadata(
-                            name = line.substringAfter(" "),
+                            name = name,
                             beginIndex = licenseByteRange[0].toInt(),
                             byteCount = licenseByteRange[1].toInt()
                         )
@@ -72,7 +76,6 @@ object OssLicenseParser {
         }
 
         return licenseMetadata
-            .filterNot { it.name in ignoreLibraries }
             .map { metadata ->
                 val license = licenses.substring(
                     metadata.beginIndex,
@@ -84,6 +87,6 @@ object OssLicenseParser {
                 )
             }
             .distinct()
-            .sortedBy { it.libraryName }
+            .sortedBy { it.libraryName.uppercase() }
     }
 }
