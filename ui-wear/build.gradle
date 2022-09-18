@@ -6,11 +6,11 @@ plugins {
 
 android {
     namespace 'com.github.droibit.oss_licenses.ui.wearable'
-    compileSdk rootProject.ext.compileSdkVersion
+    compileSdk rootProject.ext.compileSdk
 
     defaultConfig {
         minSdk 24
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        targetSdkVersion rootProject.ext.targetSdk
     }
 
     buildTypes {

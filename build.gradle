@@ -11,6 +11,6 @@ plugins {
 }
 
 ext {
-    compileSdkVersion = 31
-    targetSdkVersion = 31
+    compileSdk = 33
+    targetSdk = 33
 }

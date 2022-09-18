@@ -6,11 +6,11 @@ plugins {
 
 android {
     namespace 'com.github.droibit.oss_licenses.parser'
-    compileSdk rootProject.ext.compileSdkVersion
+    compileSdk rootProject.ext.compileSdk
 
     defaultConfig {
         minSdk 19
-        targetSdk rootProject.ext.targetSdkVersion
+        targetSdk rootProject.ext.targetSdk
     }
 
     buildTypes {

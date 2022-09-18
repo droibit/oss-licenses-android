@@ -6,12 +6,12 @@ plugins {
 }
 
 android {
-    compileSdk rootProject.ext.compileSdkVersion
+    compileSdk rootProject.ext.compileSdk
 
     defaultConfig {
         applicationId "com.github.droibit.oss_licenses.sample"
         minSdk 24
-        targetSdk rootProject.ext.targetSdkVersion
+        targetSdk rootProject.ext.targetSdk
         versionCode 1
         versionName "1.0"
     }
