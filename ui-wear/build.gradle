@@ -5,6 +5,7 @@ plugins {
 }
 
 android {
+    namespace 'com.github.droibit.oss_licenses.ui.wearable'
     compileSdk rootProject.ext.compileSdkVersion
 
     defaultConfig {
@@ -20,7 +21,7 @@ android {
     }
 
     buildFeatures {
-        buildConfig = false
+        buildConfig false
     }
 }
 
