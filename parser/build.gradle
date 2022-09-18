@@ -26,13 +26,12 @@ android {
 }
 
 dependencies {
-    implementation "androidx.annotation:annotation:${androidx.annotation_version}"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation libs.androidx.annotation
 
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
-    api "com.squareup.okio:okio:3.1.0"
+    api libs.kotlin.coroutines.core
+    api libs.okio
 
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation libs.junit
 }
 
 afterEvaluate {

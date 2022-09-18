@@ -1,0 +1,30 @@
+[versions]
+android-gradle-plugin = "7.3.0"
+kotlin = "1.7.10"
+kotlin-coroutines = "1.6.4"
+dagger = "2.43.2"
+
+[libraries]
+# plugins.
+plugin-ossLicense = { module = "com.google.android.gms:oss-licenses-plugin", version = "0.10.5" }
+
+# other dependencies.
+kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+kotlin-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlin-coroutines" }
+
+androidx-annotation = { module = "androidx.annotation:annotation", version = "1.4.0" }
+androidx-fragment = { module = "androidx.fragment:fragment-ktx", version = "1.5.2" }
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version = "2.5.1" }
+androidx-recyclerView = { module = "androidx.recyclerview:recyclerview", version = "1.2.1" }
+androidx-wear = { module = "androidx.wear:wear", version = "1.2.0" }
+playServices-wearable = { module = "com.google.android.gms:play-services-wearable", version = "17.1.0" }
+dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
+dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
+okio = { module = "com.squareup.okio:okio", version = "3.2.0" }
+
+junit = { module = "junit:junit", version = "4.13.2" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
+android-library = { id = "com.android.library", version.ref = "android-gradle-plugin" }
+kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

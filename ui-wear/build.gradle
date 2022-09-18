@@ -28,11 +28,11 @@ android {
 dependencies {
     api project(":parser")
 
-    implementation "androidx.annotation:annotation:${androidx.annotation_version}"
-    implementation "androidx.fragment:fragment:${androidx.fragment_version}"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:${androidx.lifecycle_version}"
-    implementation "androidx.recyclerview:recyclerview:${androidx.recyclerview_version}"
-    implementation "androidx.wear:wear:${androidx.wear_version}"
+    implementation libs.androidx.annotation
+    implementation libs.androidx.fragment
+    implementation libs.androidx.lifecycle.runtime
+    implementation libs.androidx.recyclerView
+    implementation libs.androidx.wear
 }
 
 afterEvaluate {
