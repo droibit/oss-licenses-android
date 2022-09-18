@@ -14,5 +14,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-
-include ':sample-wear', ':parser', ':ui-wear'
+include ':parser'
+include ':sample:wear'
+include ':ui:wear'
