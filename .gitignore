@@ -7,14 +7,21 @@ local.properties
 *.iws
 .idea/*
 !.idea/runConfigurations/
+!.idea/codeStyles/
 
 # Android Studio files
 /captures
 .externalNativeBuild/
 projectFilesBackup/
+.cxx
 
 # Gradle files
 /.gradle
 /build
+
+# Android app
+*.apk
+*.aab
+*.apks
 
 .DS_Store

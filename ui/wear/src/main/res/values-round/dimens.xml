@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="oss_licenses_inner_frame_layout_padding">2dp</dimen>
+  <dimen name="oss_licenses_inner_frame_layout_padding">2dp</dimen>
 </resources>

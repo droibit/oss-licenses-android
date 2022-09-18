@@ -16,64 +16,63 @@ private const val ARG_IGNORE_LIBRARIES = "ARG_IGNORE_LIBRARIES"
 
 internal class OssLicenseListFragment : Fragment(R.layout.fragment_oss_license_list) {
 
-    private val ossLicenses = MutableLiveData<List<OssLicense>>()
+  private val ossLicenses = MutableLiveData<List<OssLicense>>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
 
-        val ignoreLibraries =
-            requireNotNull(requireArguments().getStringArrayList(ARG_IGNORE_LIBRARIES))
+    val ignoreLibraries =
+      requireNotNull(requireArguments().getStringArrayList(ARG_IGNORE_LIBRARIES))
 
-        lifecycleScope.launch {
-            @Suppress("BlockingMethodInNonBlockingContext")
-            val parsedOssLicenses = withContext(Dispatchers.IO) {
-                OssLicenseParser.parse(requireContext(), ignoreLibraries.toSet())
-            }
-            ossLicenses.postValue(parsedOssLicenses)
-        }
+    lifecycleScope.launch {
+      @Suppress("BlockingMethodInNonBlockingContext")
+      val parsedOssLicenses = withContext(Dispatchers.IO) {
+        OssLicenseParser.parse(requireContext(), ignoreLibraries.toSet())
+      }
+      ossLicenses.postValue(parsedOssLicenses)
     }
+  }
 
-    override fun onViewCreated(
-        view: View,
-        savedInstanceState: Bundle?
-    ) {
-        super.onViewCreated(view, savedInstanceState)
+  override fun onViewCreated(
+    view: View,
+    savedInstanceState: Bundle?,
+  ) {
+    super.onViewCreated(view, savedInstanceState)
 
-        val adapter =
-            OssLicenseListAdapter(
-                requireContext()
-            ) {
-
-                parentFragmentManager.beginTransaction()
-                    .setCustomAnimations(
-                        androidx.fragment.R.animator.fragment_close_enter,
-                        androidx.fragment.R.animator.fragment_open_exit,
-                        androidx.fragment.R.animator.fragment_fade_enter,
-                        androidx.fragment.R.animator.fragment_fade_exit
-                    )
-                    .replace(
-                        R.id.oss_licenses_content,
-                        OssLicenseFragment.newInstance(ossLicense = it)
-                    )
-                    .addToBackStack(null)
-                    .commit()
-            }
-        view.findViewById<RecyclerView>(R.id.oss_licenses_list)
-            .also {
-                it.adapter = adapter
-                it.setHasFixedSize(true)
-            }
-        ossLicenses.observe(viewLifecycleOwner) {
-            adapter.submitList(it)
-        }
+    val adapter =
+      OssLicenseListAdapter(
+        requireContext(),
+      ) {
+        parentFragmentManager.beginTransaction()
+          .setCustomAnimations(
+            androidx.fragment.R.animator.fragment_close_enter,
+            androidx.fragment.R.animator.fragment_open_exit,
+            androidx.fragment.R.animator.fragment_fade_enter,
+            androidx.fragment.R.animator.fragment_fade_exit,
+          )
+          .replace(
+            R.id.oss_licenses_content,
+            OssLicenseFragment.newInstance(ossLicense = it),
+          )
+          .addToBackStack(null)
+          .commit()
+      }
+    view.findViewById<RecyclerView>(R.id.oss_licenses_list)
+      .also {
+        it.adapter = adapter
+        it.setHasFixedSize(true)
+      }
+    ossLicenses.observe(viewLifecycleOwner) {
+      adapter.submitList(it)
     }
+  }
 
-    companion object {
+  companion object {
 
-        fun newInstance(ignoreLibraries: List<String>) = OssLicenseListFragment().apply {
-            arguments = Bundle(1).also {
-                it.putStringArrayList(ARG_IGNORE_LIBRARIES, ArrayList(ignoreLibraries))
-            }
-        }
+    fun newInstance(ignoreLibraries: List<String>) = OssLicenseListFragment().apply {
+      arguments = Bundle(1).also {
+        it.putStringArrayList(ARG_IGNORE_LIBRARIES, ArrayList(ignoreLibraries))
+      }
     }
+  }
 }

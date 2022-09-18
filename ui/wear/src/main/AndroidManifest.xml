@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <application>
-        <activity
-            android:name="com.github.droibit.oss_licenses.ui.wearable.WearableOssLicensesActivity"
-            android:exported="false"
-            android:theme="@android:style/Theme.DeviceDefault" />
-    </application>
+  <application>
+    <activity
+      android:name="com.github.droibit.oss_licenses.ui.wearable.WearableOssLicensesActivity"
+      android:exported="false"
+      android:theme="@android:style/Theme.DeviceDefault" />
+  </application>
 
 </manifest>

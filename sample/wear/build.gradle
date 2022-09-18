@@ -1,48 +1,48 @@
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-    id 'com.google.android.gms.oss-licenses-plugin'
+  id 'com.android.application'
+  id 'kotlin-android'
+  id 'kotlin-kapt'
+  id 'com.google.android.gms.oss-licenses-plugin'
 }
 
 android {
-    compileSdk rootProject.ext.compileSdk
+  compileSdk rootProject.ext.compileSdk
 
-    defaultConfig {
-        applicationId "com.github.droibit.oss_licenses.sample"
-        minSdk 24
-        targetSdk rootProject.ext.targetSdk
-        versionCode 1
-        versionName "1.0"
-    }
+  defaultConfig {
+    applicationId "com.github.droibit.oss_licenses.sample"
+    minSdk 24
+    targetSdk rootProject.ext.targetSdk
+    versionCode 1
+    versionName "1.0"
+  }
 
-    buildTypes {
-        debug {
-            debuggable true
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-        release {
-            minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
+  buildTypes {
+    debug {
+      debuggable true
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
+    release {
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+  }
 
-    buildFeatures {
-        viewBinding true
-    }
+  buildFeatures {
+    viewBinding true
+  }
 }
 
 dependencies {
-    implementation project(":ui:wear")
+  implementation project(":ui:wear")
 
-    implementation libs.androidx.fragment
-    implementation libs.androidx.lifecycle.runtime
-    implementation libs.androidx.recyclerView
-    implementation libs.androidx.wear
+  implementation libs.androidx.fragment
+  implementation libs.androidx.lifecycle.runtime
+  implementation libs.androidx.recyclerView
+  implementation libs.androidx.wear
 
-    implementation libs.playServices.wearable
+  implementation libs.playServices.wearable
 
-    implementation libs.dagger
-    kapt libs.dagger.compiler
+  implementation libs.dagger
+  kapt libs.dagger.compiler
 }

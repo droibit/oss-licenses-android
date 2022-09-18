@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.wear.widget.SwipeDismissFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
+
+  <androidx.wear.widget.BoxInsetLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    tools:context=".WearableOssLicensesActivity"
+    tools:deviceIds="wear">
 
-    <androidx.wear.widget.BoxInsetLayout
+    <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:boxedEdges="all"
+      tools:ignore="MissingPrefix">
+
+      <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/black"
-        tools:context=".WearableOssLicensesActivity"
-        tools:deviceIds="wear">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/oss_licenses_inner_frame_layout_padding">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:boxedEdges="all"
-            tools:ignore="MissingPrefix">
+        <TextView
+          android:id="@+id/oss_name"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginBottom="8dp"
+          android:gravity="center_vertical"
+          android:minLines="1"
+          android:textAppearance="?android:attr/textAppearanceMedium"
+          android:textStyle="bold"
+          tools:text="androidx.arch.core:core-common"
+          tools:textColor="@android:color/white" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/oss_licenses_inner_frame_layout_padding">
+        <TextView
+          android:id="@+id/oss_license"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:minHeight="?android:attr/listPreferredItemHeightSmall"
+          android:minLines="1"
+          android:textAppearance="?android:attr/textAppearanceSmall"
+          tools:text="http://www.apache.org/licenses/LICENSE-2.0.txt"
+          tools:textColor="@android:color/white" />
 
-                <TextView
-                    android:id="@+id/oss_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:gravity="center_vertical"
-                    android:minLines="1"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textStyle="bold"
-                    tools:text="androidx.arch.core:core-common"
-                    tools:textColor="@android:color/white" />
+      </LinearLayout>
 
-                <TextView
-                    android:id="@+id/oss_license"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="?android:attr/listPreferredItemHeightSmall"
-                    android:minLines="1"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    tools:text="http://www.apache.org/licenses/LICENSE-2.0.txt"
-                    tools:textColor="@android:color/white" />
+    </ScrollView>
 
-            </LinearLayout>
-
-        </ScrollView>
-
-    </androidx.wear.widget.BoxInsetLayout>
+  </androidx.wear.widget.BoxInsetLayout>
 </androidx.wear.widget.SwipeDismissFrameLayout>
