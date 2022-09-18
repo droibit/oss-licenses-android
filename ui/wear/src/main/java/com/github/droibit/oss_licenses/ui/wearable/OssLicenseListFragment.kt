@@ -8,7 +8,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.parser.OssLicenseParser
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 private const val ARG_IGNORE_LIBRARIES = "ARG_IGNORE_LIBRARIES"
 
@@ -24,8 +26,9 @@ internal class OssLicenseListFragment : Fragment(R.layout.fragment_oss_license_l
 
         lifecycleScope.launch {
             @Suppress("BlockingMethodInNonBlockingContext")
-            val parsedOssLicenses =
+            val parsedOssLicenses = withContext(Dispatchers.IO) {
                 OssLicenseParser.parse(requireContext(), ignoreLibraries.toSet())
+            }
             ossLicenses.postValue(parsedOssLicenses)
         }
     }
