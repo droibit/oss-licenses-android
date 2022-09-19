@@ -14,8 +14,10 @@ dependencyResolutionManagement {
     mavenCentral()
   }
 }
+
 include ':parser'
 include ':sample-mobile'
 include ':sample-wear'
 include ':ui-compose'
+include ':ui-viewmodel'
 include ':ui-wear'

@@ -14,6 +14,7 @@ import androidx.navigation.navArgument
 import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseGraph.KEY_LIBRARY_NAME
 import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseGraph.ROUTE_DETAIL
 import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseGraph.ROUTE_LIST
+import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 
 internal object OssLicenseGraph {
   const val ROUTE_LIST = "license_list"

@@ -10,6 +10,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseGraph
+import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel.Companion.EXTRA_IGNORE_LIBRARIES
 
 class OssLicensesActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,9 +24,6 @@ class OssLicensesActivity : ComponentActivity() {
   }
 
   companion object {
-
-    internal const val EXTRA_IGNORE_LIBRARIES =
-      "com.github.droibit.oss_licenses.ui.compose.EXTRA_IGNORE_LIBRARIES"
 
     @JvmStatic
     @JvmOverloads

@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-  namespace 'com.github.droibit.oss_licenses.ui.compose'
+  namespace 'com.github.droibit.oss_licenses.ui.viewmodel'
   compileSdk rootProject.ext.compileSdk
 
   defaultConfig {
@@ -22,28 +22,13 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
-
-  buildFeatures {
-    compose true
-    buildConfig false
-  }
-
-  composeOptions {
-    kotlinCompilerExtensionVersion libs.versions.androidx.compose.compiler.get()
-  }
-
-  packagingOptions {
-    exclude 'META-INF/core_debug.kotlin_module'
-  }
 }
 
 dependencies {
-  api project(":ui-viewmodel")
+  api project(":parser")
 
-  implementation libs.androidx.activity.compose
-  implementation libs.androidx.navigation.compose
-  implementation libs.bundles.androidx.compose.ui.material3
-  debugImplementation libs.androidx.compose.ui.tooling
+  implementation libs.kotlin.coroutines.core
+  implementation libs.bundles.androidx.lifecycle.viewModel
 }
 
 afterEvaluate {

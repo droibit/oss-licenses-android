@@ -16,6 +16,8 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
@@ -24,6 +26,7 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.compose.R
 import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseGraph.Directions.toDetail
 import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseGraph.ROUTE_LIST
+import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 
 @Composable
 internal fun OssLicenseListScreen(
@@ -54,8 +57,9 @@ internal fun OssLicenseListScreen(
       )
     },
   ) { innerPadding ->
+    val licenses by viewModel.licenses.collectAsState()
     OssLicenseList(
-      licenses = viewModel.licenses,
+      licenses = licenses,
       modifier = Modifier
         .padding(innerPadding)
         .fillMaxSize(),

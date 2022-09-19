@@ -1,29 +1,32 @@
-package com.github.droibit.oss_licenses.ui.compose.internal
+package com.github.droibit.oss_licenses.ui.viewmodel
 
 import android.app.Application
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
+import androidx.annotation.RestrictTo
+import androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP
+import androidx.annotation.UiThread
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.parser.OssLicenseParser
-import com.github.droibit.oss_licenses.ui.compose.OssLicensesActivity.Companion.EXTRA_IGNORE_LIBRARIES
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+@RestrictTo(LIBRARY_GROUP)
 class OssLicenseViewModel(
   application: Application,
   private val parser: OssLicenseParser,
   private val ignoreLibraries: Set<String>,
   private val dispatcher: CoroutineDispatcher,
+  private val licensesSink: MutableStateFlow<List<OssLicense>>,
 ) : AndroidViewModel(application) {
 
-  var licenses by mutableStateOf<List<OssLicense>>(emptyList())
-    private set
+  val licenses: StateFlow<List<OssLicense>>
+    get() = licensesSink
 
   @Suppress("unused")
   constructor(
@@ -34,18 +37,25 @@ class OssLicenseViewModel(
     OssLicenseParser(application),
     savedStateHandle.getStringSet(EXTRA_IGNORE_LIBRARIES),
     Dispatchers.IO,
+    licensesSink = MutableStateFlow(emptyList()),
   )
 
   fun ensureLicenses() {
     viewModelScope.launch {
-      licenses = withContext(dispatcher) {
+      licensesSink.value = withContext(dispatcher) {
         parser.parse(ignoreLibraries)
       }
     }
   }
 
+  @UiThread
   fun getLicense(name: String): OssLicense {
-    return licenses.first { it.libraryName == name }
+    return licenses.value.first { it.libraryName == name }
+  }
+
+  companion object {
+    const val EXTRA_IGNORE_LIBRARIES =
+      "com.github.droibit.oss_licenses.ui.viewomdel.EXTRA_IGNORE_LIBRARIES"
   }
 }
 
