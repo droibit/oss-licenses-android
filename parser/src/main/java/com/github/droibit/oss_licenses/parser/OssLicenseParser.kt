@@ -13,13 +13,12 @@ private const val RES_LICENSES_METADATA = "third_party_license_metadata"
 private const val RES_LICENSES = "third_party_licenses"
 
 @RestrictTo(LIBRARY_GROUP)
-object OssLicenseParser {
+class OssLicenseParser(
+  private val context: Context,
+) {
 
   @Throws(IOException::class)
-  suspend fun parse(
-    context: Context,
-    ignoreLibraries: Set<String> = emptySet(),
-  ): List<OssLicense> {
+  suspend fun parse(ignoreLibraries: Set<String> = emptySet()): List<OssLicense> {
     val appContext = context.applicationContext
     val res = appContext.resources
 

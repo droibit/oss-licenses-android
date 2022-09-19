@@ -15,6 +15,7 @@ dependencyResolutionManagement {
   }
 }
 include ':parser'
+include ':sample:mobile'
 include ':sample:wear'
 include ':ui:wear'
 include ':ui:compose'
