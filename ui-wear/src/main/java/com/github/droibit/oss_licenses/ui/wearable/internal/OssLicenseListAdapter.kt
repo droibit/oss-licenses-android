@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wearable
+package com.github.droibit.oss_licenses.ui.wearable.internal
 
 import android.content.Context
 import android.view.LayoutInflater

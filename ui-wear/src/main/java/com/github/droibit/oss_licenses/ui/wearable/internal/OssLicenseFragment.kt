@@ -1,11 +1,13 @@
-package com.github.droibit.oss_licenses.ui.wearable
+package com.github.droibit.oss_licenses.ui.wearable.internal
 
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.wear.widget.SwipeDismissFrameLayout
 import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.wearable.R
 
 private const val ARG_OSS_LICENSE = "ARG_OSS_LICENSE"
 
@@ -42,9 +44,9 @@ internal class OssLicenseFragment : Fragment(R.layout.fragment_oss_license) {
   companion object {
 
     fun newInstance(ossLicense: OssLicense) = OssLicenseFragment().apply {
-      arguments = Bundle(1).also {
-        it.putSerializable(ARG_OSS_LICENSE, ossLicense)
-      }
+      arguments = bundleOf(
+        ARG_OSS_LICENSE to ossLicense,
+      )
     }
   }
 }

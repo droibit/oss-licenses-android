@@ -26,11 +26,12 @@ android {
 }
 
 dependencies {
-  api project(":parser")
+  api project(":ui-viewmodel")
 
   implementation libs.androidx.annotation
   implementation libs.androidx.fragment
   implementation libs.androidx.lifecycle.runtime
+  implementation libs.androidx.lifecycle.viewModel
   implementation libs.androidx.recyclerView
   implementation libs.androidx.wear
 }

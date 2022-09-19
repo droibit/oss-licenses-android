@@ -3,29 +3,31 @@ package com.github.droibit.oss_licenses.ui.wearable
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
+import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
+import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel.Companion.EXTRA_IGNORE_LIBRARIES
+import com.github.droibit.oss_licenses.ui.wearable.internal.OssLicenseListFragment
 
 class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_oss_licenses) {
+  private val viewModel: OssLicenseViewModel by viewModels()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
     if (savedInstanceState == null) {
-      val ignoreLibraries =
-        requireNotNull(intent.getStringArrayListExtra(EXTRA_IGNORE_LIBRARIES))
+      viewModel.ensureLicenses()
+
       supportFragmentManager.beginTransaction()
         .replace(
           R.id.oss_licenses_content,
-          OssLicenseListFragment.newInstance(ignoreLibraries),
+          OssLicenseListFragment.newInstance(),
         )
         .commit()
     }
   }
 
   companion object {
-
-    private const val EXTRA_IGNORE_LIBRARIES =
-      "com.github.droibit.oss_licenses.ui.wearable.EXTRA_IGNORE_LIBRARIES"
 
     @JvmStatic
     @JvmOverloads

@@ -1,37 +1,18 @@
-package com.github.droibit.oss_licenses.ui.wearable
+package com.github.droibit.oss_licenses.ui.wearable.internal
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.MutableLiveData
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
-import com.github.droibit.oss_licenses.parser.OssLicense
-import com.github.droibit.oss_licenses.parser.OssLicenseParser
-import kotlinx.coroutines.Dispatchers
+import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
+import com.github.droibit.oss_licenses.ui.wearable.R
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-
-private const val ARG_IGNORE_LIBRARIES = "ARG_IGNORE_LIBRARIES"
 
 internal class OssLicenseListFragment : Fragment(R.layout.fragment_oss_license_list) {
-
-  private val ossLicenses = MutableLiveData<List<OssLicense>>()
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-
-    val ignoreLibraries =
-      requireNotNull(requireArguments().getStringArrayList(ARG_IGNORE_LIBRARIES))
-
-    lifecycleScope.launch {
-      @Suppress("BlockingMethodInNonBlockingContext")
-      val parsedOssLicenses = withContext(Dispatchers.IO) {
-        OssLicenseParser(requireContext()).parse(ignoreLibraries.toSet())
-      }
-      ossLicenses.postValue(parsedOssLicenses)
-    }
-  }
+  private val viewModel: OssLicenseViewModel by activityViewModels()
 
   override fun onViewCreated(
     view: View,
@@ -62,17 +43,17 @@ internal class OssLicenseListFragment : Fragment(R.layout.fragment_oss_license_l
         it.adapter = adapter
         it.setHasFixedSize(true)
       }
-    ossLicenses.observe(viewLifecycleOwner) {
-      adapter.submitList(it)
+
+    viewLifecycleOwner.lifecycleScope.launch {
+      viewModel.licenses.flowWithLifecycle(viewLifecycleOwner.lifecycle)
+        .collect {
+          adapter.submitList(it)
+        }
     }
   }
 
   companion object {
 
-    fun newInstance(ignoreLibraries: List<String>) = OssLicenseListFragment().apply {
-      arguments = Bundle(1).also {
-        it.putStringArrayList(ARG_IGNORE_LIBRARIES, ArrayList(ignoreLibraries))
-      }
-    }
+    fun newInstance() = OssLicenseListFragment()
   }
 }
