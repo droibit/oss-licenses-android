@@ -25,13 +25,14 @@ class OssLicenseViewModel(
   var licenses by mutableStateOf<List<OssLicense>>(emptyList())
     private set
 
+  @Suppress("unused")
   constructor(
     application: Application,
     savedStateHandle: SavedStateHandle,
   ) : this(
     application,
     OssLicenseParser(application),
-    savedStateHandle.getAsSet(EXTRA_IGNORE_LIBRARIES),
+    savedStateHandle.getStringSet(EXTRA_IGNORE_LIBRARIES),
     Dispatchers.IO,
   )
 
@@ -48,7 +49,7 @@ class OssLicenseViewModel(
   }
 }
 
-private fun SavedStateHandle.getAsSet(key: String): Set<String> {
-  val value = get<List<String>>(EXTRA_IGNORE_LIBRARIES)
+private fun SavedStateHandle.getStringSet(key: String): Set<String> {
+  val value = get<List<String>>(key)
   return value?.toSet() ?: emptySet()
 }
