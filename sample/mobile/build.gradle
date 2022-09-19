@@ -1,0 +1,50 @@
+plugins {
+  id 'com.android.application'
+  id 'org.jetbrains.kotlin.android'
+  id 'com.google.android.gms.oss-licenses-plugin'
+}
+
+android {
+  namespace 'com.github.droibit.oss_licenses.sample'
+  compileSdk rootProject.ext.compileSdk
+
+  defaultConfig {
+    applicationId "com.github.droibit.oss_licenses.sample"
+    minSdk 24
+    targetSdkVersion rootProject.ext.targetSdk
+    versionCode 1
+    versionName "0.0.1"
+
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  buildTypes {
+    debug {
+      debuggable true
+      minifyEnabled false
+    }
+    release {
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  buildFeatures {
+    compose true
+  }
+
+  composeOptions {
+    kotlinCompilerExtensionVersion libs.versions.androidx.compose.compiler.get()
+  }
+}
+
+dependencies {
+  api project(":ui:compose")
+
+  implementation libs.androidx.activity.compose
+  implementation libs.androidx.navigation.compose
+  implementation libs.bundles.androidx.compose.ui.material3
+  debugImplementation libs.androidx.compose.ui.tooling
+
+  implementation libs.dagger
+}
