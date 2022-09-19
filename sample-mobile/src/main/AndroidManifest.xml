@@ -17,9 +17,6 @@
       </intent-filter>
     </activity>
 
-    <activity
-      android:name="com.github.droibit.oss_licenses.ui.compose.OssLicensesActivity"
-      android:exported="false" />
   </application>
 
 </manifest>
