@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wearable.internal
+package com.github.droibit.oss_licenses.ui.wear.internal
 
 import android.os.Bundle
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.wear.widget.SwipeDismissFrameLayout
 import com.github.droibit.oss_licenses.parser.OssLicense
-import com.github.droibit.oss_licenses.ui.wearable.R
+import com.github.droibit.oss_licenses.ui.wear.R
 
 private const val ARG_OSS_LICENSE = "ARG_OSS_LICENSE"
 

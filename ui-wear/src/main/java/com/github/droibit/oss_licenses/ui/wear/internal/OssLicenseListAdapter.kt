@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wearable.internal
+package com.github.droibit.oss_licenses.ui.wear.internal
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.github.droibit.oss_licenses.parser.OssLicense
-import com.github.droibit.oss_licenses.ui.wearable.R.layout
+import com.github.droibit.oss_licenses.ui.wear.R
 
 internal class OssLicenseListAdapter(
   context: Context,
@@ -20,7 +20,7 @@ internal class OssLicenseListAdapter(
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
     return ViewHolder(
       itemView = inflater.inflate(
-        layout.list_item_oss_license,
+        R.layout.list_item_oss_license,
         parent,
         false,
       ),

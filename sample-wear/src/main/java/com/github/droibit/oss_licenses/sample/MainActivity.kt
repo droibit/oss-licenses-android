@@ -3,7 +3,7 @@ package com.github.droibit.oss_licenses.sample
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
 import com.github.droibit.oss_licenses.sample.databinding.ActivityMainBinding
-import com.github.droibit.oss_licenses.ui.wearable.WearableOssLicensesActivity
+import com.github.droibit.oss_licenses.ui.wear.WearableOssLicensesActivity
 
 class MainActivity : FragmentActivity() {
 

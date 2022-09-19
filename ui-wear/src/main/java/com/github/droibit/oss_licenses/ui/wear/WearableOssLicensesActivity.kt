@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wearable
+package com.github.droibit.oss_licenses.ui.wear
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,7 @@ import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel.Companion.EXTRA_IGNORE_LIBRARIES
-import com.github.droibit.oss_licenses.ui.wearable.internal.OssLicenseListFragment
+import com.github.droibit.oss_licenses.ui.wear.internal.OssLicenseListFragment
 
 class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_oss_licenses) {
   private val viewModel: OssLicenseViewModel by viewModels()

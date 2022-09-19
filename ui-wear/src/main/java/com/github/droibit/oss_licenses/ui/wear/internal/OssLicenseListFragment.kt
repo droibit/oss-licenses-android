@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wearable.internal
+package com.github.droibit.oss_licenses.ui.wear.internal
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
-import com.github.droibit.oss_licenses.ui.wearable.R
+import com.github.droibit.oss_licenses.ui.wear.R
 import kotlinx.coroutines.launch
 
 internal class OssLicenseListFragment : Fragment(R.layout.fragment_oss_license_list) {

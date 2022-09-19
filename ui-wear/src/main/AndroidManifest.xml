@@ -3,7 +3,7 @@
 
   <application>
     <activity
-      android:name="com.github.droibit.oss_licenses.ui.wearable.WearableOssLicensesActivity"
+      android:name=".WearableOssLicensesActivity"
       android:exported="false"
       android:theme="@android:style/Theme.DeviceDefault" />
   </application>
