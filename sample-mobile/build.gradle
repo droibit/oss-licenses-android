@@ -42,7 +42,7 @@ android {
 }
 
 dependencies {
-  api project(":ui:compose")
+  api project(":ui-compose")
 
   implementation libs.androidx.activity.compose
   implementation libs.androidx.navigation.compose

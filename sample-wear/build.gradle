@@ -33,7 +33,7 @@ android {
 }
 
 dependencies {
-  implementation project(":ui:wear")
+  implementation project(":ui-wear")
 
   implementation libs.androidx.fragment
   implementation libs.androidx.lifecycle.runtime
