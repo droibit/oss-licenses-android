@@ -10,7 +10,7 @@ android {
 
   defaultConfig {
     applicationId "com.github.droibit.oss_licenses.sample"
-    minSdk 24
+    minSdk 25
     targetSdk rootProject.ext.targetSdk
     versionCode 1
     versionName "1.0"
@@ -18,22 +18,42 @@ android {
 
   buildTypes {
     debug {
-      debuggable true
+      debuggable false
       minifyEnabled false
+      shrinkResources false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
     release {
       minifyEnabled true
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+      shrinkResources true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
 
   buildFeatures {
-    viewBinding true
+    compose true
+  }
+
+  composeOptions {
+    kotlinCompilerExtensionVersion libs.versions.androidx.compose.compiler.get()
+  }
+
+  kotlinOptions {
+    freeCompilerArgs += [
+      "-opt-in=androidx.wear.compose.material.ExperimentalWearMaterialApi",
+      "-opt-in=androidx.compose.ui.ExperimentalComposeUiApi",
+    ]
   }
 }
 
 dependencies {
   implementation project(":ui-wear")
+  implementation project(":ui-wear-compose")
+
+  implementation libs.androidx.activity.compose
+  implementation libs.bundles.androidx.wear.compose
+  implementation libs.androidx.compose.ui.tooling.preview
+  debugImplementation libs.androidx.compose.ui.tooling
 
   implementation libs.androidx.fragment
   implementation libs.androidx.lifecycle.runtime

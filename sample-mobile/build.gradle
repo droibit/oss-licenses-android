@@ -39,6 +39,10 @@ android {
   composeOptions {
     kotlinCompilerExtensionVersion libs.versions.androidx.compose.compiler.get()
   }
+
+  kotlinOptions {
+    freeCompilerArgs += '-opt-in=androidx.compose.material3.ExperimentalMaterial3Api'
+  }
 }
 
 dependencies {
@@ -46,7 +50,7 @@ dependencies {
 
   implementation libs.androidx.activity.compose
   implementation libs.androidx.navigation.compose
-  implementation libs.bundles.androidx.compose.ui.material3
+  implementation libs.bundles.androidx.compose.material3
   debugImplementation libs.androidx.compose.ui.tooling
 
   implementation libs.dagger
