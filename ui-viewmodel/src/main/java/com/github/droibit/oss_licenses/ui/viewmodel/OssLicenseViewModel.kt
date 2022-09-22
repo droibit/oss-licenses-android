@@ -42,6 +42,9 @@ class OssLicenseViewModel(
 
   fun ensureLicenses() {
     viewModelScope.launch {
+      if (licensesSink.value.isNotEmpty()) {
+        return@launch
+      }
       licensesSink.value = withContext(dispatcher) {
         parser.parse(ignoreLibraries)
       }

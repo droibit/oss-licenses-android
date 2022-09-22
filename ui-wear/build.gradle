@@ -10,7 +10,7 @@ android {
 
   defaultConfig {
     minSdk 24
-    targetSdkVersion rootProject.ext.targetSdk
+    targetSdk rootProject.ext.targetSdk
   }
 
   buildTypes {
@@ -22,6 +22,15 @@ android {
 
   buildFeatures {
     buildConfig false
+  }
+
+  packagingOptions {
+    resources {
+      excludes += [
+        "/META-INF/{AL2.0,LGPL2.1}",
+        "/META-INF/core_debug.kotlin_module"
+      ]
+    }
   }
 }
 

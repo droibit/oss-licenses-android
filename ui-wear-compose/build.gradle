@@ -1,16 +1,16 @@
 plugins {
-  id 'com.android.library'
-  id 'org.jetbrains.kotlin.android'
-  id 'maven-publish'
+  id "com.android.library"
+  id "org.jetbrains.kotlin.android"
+  id "maven-publish"
 }
 
 android {
-  namespace 'com.github.droibit.oss_licenses.ui.compose'
+  namespace "com.github.droibit.oss_licenses.ui.wear.compose"
   compileSdk rootProject.ext.compileSdk
 
   defaultConfig {
-    minSdk 24
-    targetSdkVersion rootProject.ext.targetSdk
+    minSdk 25
+    targetSdk rootProject.ext.targetSdk
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles "consumer-rules.pro"
@@ -19,7 +19,7 @@ android {
   buildTypes {
     release {
       minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+      proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
     }
   }
 
@@ -33,7 +33,10 @@ android {
   }
 
   kotlinOptions {
-    freeCompilerArgs += '-opt-in=androidx.compose.material3.ExperimentalMaterial3Api'
+    freeCompilerArgs += [
+      "-opt-in=androidx.wear.compose.material.ExperimentalWearMaterialApi",
+      "-opt-in=androidx.compose.ui.ExperimentalComposeUiApi",
+    ]
   }
 
   packagingOptions {
@@ -51,8 +54,10 @@ dependencies {
 
   implementation libs.androidx.activity.compose
   implementation libs.androidx.navigation.compose
-  implementation libs.bundles.androidx.compose.material3
-  debugImplementation libs.androidx.compose.ui.tooling
+  implementation libs.bundles.androidx.wear.compose
+  implementation libs.androidx.wear.compose.navigation
+  implementation libs.androidx.compose.ui.tooling
+  debugImplementation libs.androidx.compose.ui.tooling.preview
 }
 
 afterEvaluate {
@@ -73,3 +78,4 @@ afterEvaluate {
     }
   }
 }
+
