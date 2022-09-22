@@ -18,8 +18,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.compose.R
-import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseGraph.Directions.toDetail
-import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseGraph.ROUTE_LIST
+import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseNavGraph.Directions.toDetail
+import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseNavGraph.ROUTE_LIST
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 
 @Composable

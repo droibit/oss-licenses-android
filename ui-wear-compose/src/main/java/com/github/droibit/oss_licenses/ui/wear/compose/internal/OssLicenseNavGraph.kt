@@ -3,7 +3,6 @@ package com.github.droibit.oss_licenses.ui.wear.compose.internal
 import android.util.Base64
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.navArgument

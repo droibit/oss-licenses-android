@@ -13,10 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.github.droibit.oss_licenses.parser.OssLicense
 
 @Composable
@@ -59,19 +57,5 @@ internal fun OssLicenseDetailScreen(
         ),
       )
     }
-  }
-}
-
-@Preview
-@Composable
-private fun OssLicenseDetailScreenPreview() {
-  MaterialTheme {
-    OssLicenseDetailScreen(
-      navController = rememberNavController(),
-      license = OssLicense(
-        libraryName = "OSS Licenses",
-        license = "https://www.apache.org/licenses/LICENSE-2.0.txt",
-      ),
-    )
   }
 }

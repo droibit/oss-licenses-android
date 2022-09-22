@@ -2,21 +2,19 @@ package com.github.droibit.oss_licenses.ui.compose.internal
 
 import android.util.Base64
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseGraph.KEY_LIBRARY_NAME
-import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseGraph.ROUTE_DETAIL
-import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseGraph.ROUTE_LIST
+import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseNavGraph.KEY_LIBRARY_NAME
+import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseNavGraph.ROUTE_DETAIL
+import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseNavGraph.ROUTE_LIST
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 
-internal object OssLicenseGraph {
+internal object OssLicenseNavGraph {
   const val ROUTE_LIST = "license_list"
   const val ROUTE_DETAIL = "license_detail"
 
@@ -34,15 +32,11 @@ internal object OssLicenseGraph {
 }
 
 @Composable
-internal fun OssLicenseGraph(
+internal fun OssLicenseNavGraph(
+  viewModel: OssLicenseViewModel,
   modifier: Modifier = Modifier,
   navController: NavHostController = rememberNavController(),
-  viewModel: OssLicenseViewModel = viewModel(),
 ) {
-  LaunchedEffect(viewModel) {
-    viewModel.ensureLicenses()
-  }
-
   NavHost(
     navController = navController,
     startDestination = ROUTE_LIST,
