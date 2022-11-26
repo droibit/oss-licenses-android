@@ -9,12 +9,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.ListHeader
+import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.ScalingLazyColumn
 import androidx.wear.compose.material.ScalingLazyListState
@@ -33,12 +33,19 @@ internal fun OssLicenseListScreen(
   modifier: Modifier = Modifier,
   viewModel: OssLicenseViewModel,
 ) {
-  Scaffold(modifier = modifier) {
+  val listState = rememberScalingLazyListState()
+  Scaffold(
+    modifier = modifier,
+    positionIndicator = {
+      PositionIndicator(scalingLazyListState = listState)
+    },
+  ) {
     val licenses by viewModel.licenses.collectAsState()
     OssLicenseList(
       licenses = licenses,
       modifier = Modifier
         .fillMaxSize(),
+      listState = listState,
       onItemClick = { license ->
         with(navController) {
           if (currentDestination?.route == ROUTE_LIST) {
@@ -54,7 +61,7 @@ internal fun OssLicenseListScreen(
 internal fun OssLicenseList(
   licenses: List<OssLicense>,
   modifier: Modifier = Modifier,
-  listState: ScalingLazyListState = rememberScalingLazyListState(),
+  listState: ScalingLazyListState,
   onItemClick: (OssLicense) -> Unit = {},
 ) {
   val focusRequester = remember { FocusRequester() }

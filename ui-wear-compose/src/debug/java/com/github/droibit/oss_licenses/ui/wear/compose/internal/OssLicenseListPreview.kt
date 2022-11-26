@@ -7,6 +7,7 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Scaffold
+import androidx.wear.compose.material.rememberScalingLazyListState
 import com.github.droibit.oss_licenses.parser.OssLicense
 
 @Preview(
@@ -35,6 +36,7 @@ fun OssLicenseListPreview() {
           OssLicense("wear-compose", ""),
         ),
         modifier = Modifier.fillMaxSize(),
+        listState = rememberScalingLazyListState(),
       )
     }
   }
