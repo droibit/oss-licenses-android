@@ -62,7 +62,7 @@ internal fun OssLicenseList(
   licenses: List<OssLicense>,
   modifier: Modifier = Modifier,
   listState: ScalingLazyListState,
-  onItemClick: (OssLicense) -> Unit = {},
+  onItemClick: (OssLicense) -> Unit,
 ) {
   val focusRequester = remember { FocusRequester() }
   LaunchedEffect(Unit) {

@@ -2,11 +2,13 @@ package com.github.droibit.oss_licenses.sample
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.FragmentActivity
 import androidx.wear.compose.material.Chip
+import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.ScalingLazyColumn
 import androidx.wear.compose.material.Text
@@ -44,10 +46,14 @@ class MainActivity : FragmentActivity() {
             modifier = Modifier.fillMaxSize(),
           ) {
             item {
+              Spacer(modifier = Modifier.fillMaxSize())
+            }
+            item {
               Chip(
                 label = {
-                  Text(text = "Show")
+                  Text(text = "Show(Android View)")
                 },
+                colors = ChipDefaults.secondaryChipColors(),
                 onClick = {
                   val intent = WearableOssLicensesActivity.createIntent(
                     this@MainActivity,
@@ -63,6 +69,7 @@ class MainActivity : FragmentActivity() {
                 label = {
                   Text(text = "Show(Compose)")
                 },
+                colors = ChipDefaults.secondaryChipColors(),
                 onClick = {
                   val intent = WearableComposeOssLicensesActivity.createIntent(
                     this@MainActivity,

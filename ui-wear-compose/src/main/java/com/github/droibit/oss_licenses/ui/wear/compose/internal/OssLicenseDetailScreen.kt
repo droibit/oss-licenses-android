@@ -40,7 +40,7 @@ fun OssLicenseDetailScreen(
     }
 
     val rounded = LocalConfiguration.current.isScreenRound
-    val contentPadding = if (rounded) PaddingValues(32.dp, 24.dp) else PaddingValues(4.dp, 4.dp)
+    val contentPadding = if (rounded) PaddingValues(32.dp, 24.dp) else PaddingValues(8.dp)
 
     LazyColumn(
       modifier = Modifier

@@ -37,6 +37,7 @@ fun OssLicenseListPreview() {
         ),
         modifier = Modifier.fillMaxSize(),
         listState = rememberScalingLazyListState(),
+        onItemClick = {},
       )
     }
   }

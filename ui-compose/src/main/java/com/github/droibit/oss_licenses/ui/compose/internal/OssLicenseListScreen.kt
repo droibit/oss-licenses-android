@@ -62,7 +62,7 @@ internal fun OssLicenseListScreen(
 private fun OssLicenseList(
   licenses: List<OssLicense>,
   modifier: Modifier = Modifier,
-  onItemClick: (OssLicense) -> Unit = {},
+  onItemClick: (OssLicense) -> Unit,
 ) {
   LazyColumn(
     modifier = modifier,
@@ -86,7 +86,7 @@ private fun OssLicenseList(
 private fun OssLicenseItem(
   modifier: Modifier = Modifier,
   license: OssLicense,
-  onClick: () -> Unit = {},
+  onClick: () -> Unit,
 ) {
   ListItem(
     headlineText = {
