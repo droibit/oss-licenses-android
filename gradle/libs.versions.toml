@@ -1,38 +1,38 @@
 [versions]
-android-gradle-plugin = "7.3.1"
-kotlin = "1.7.10"
+android-gradle-plugin = "8.0.0"
+kotlin = "1.8.20"
 kotlin-coroutines = "1.6.4"
-androidx-compose = "1.3.1"
-androidx-compose-compiler = "1.3.1"
-androidx-lifecycle = "2.5.1"
+androidx-compose-compiler = "1.4.6"
+androidx-lifecycle = "2.6.1"
 androidx-navigation = "2.5.3"
-androidx-wear-compose = "1.1.0-rc01"
-dagger = "2.44.2"
+androidx-wear-compose = "1.1.2"
+dagger = "2.45"
 ktlint = "0.46.1"
-spotless = "6.11.0"
+spotless = "6.18.0"
 compileSdk = "33"
 targetSdk = "33"
 
 [libraries]
 # plugins.
-plugin-ossLicense = { module = "com.google.android.gms:oss-licenses-plugin", version = "0.10.5" }
+plugin-ossLicense = { module = "com.google.android.gms:oss-licenses-plugin", version = "0.10.6" }
 
 # other dependencies.
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
 kotlin-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlin-coroutines" }
-androidx-annotation = { module = "androidx.annotation:annotation", version = "1.5.0" }
-androidx-activity-compose = { module = "androidx.activity:activity-compose", version = "1.6.1" }
-androidx-compose-ui = { module = "androidx.compose.ui:ui", version.ref = "androidx-compose" }
-androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "androidx-compose" }
-androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "androidx-compose" }
-androidx-compose-material3 = { module = "androidx.compose.material3:material3", version = "1.0.1" }
-androidx-fragment = { module = "androidx.fragment:fragment-ktx", version = "1.5.4" }
+androidx-annotation = { module = "androidx.annotation:annotation", version = "1.6.0" }
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version = "1.7.1" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version = "2023.04.01" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui" }
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
+androidx-fragment = { module = "androidx.fragment:fragment-ktx", version = "1.5.7" }
 androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewModel-savedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "androidx-lifecycle" }
 androidx-navigation-runtime = { module = "androidx.navigation:navigation-runtime-ktx", version.ref = "androidx-navigation" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
-androidx-recyclerView = { module = "androidx.recyclerview:recyclerview", version = "1.2.1" }
+androidx-recyclerView = { module = "androidx.recyclerview:recyclerview", version = "1.3.0" }
 androidx-wear = { module = "androidx.wear:wear", version = "1.2.0" }
 androidx-wear-compose-foundation = { module = "androidx.wear.compose:compose-foundation", version.ref = "androidx-wear-compose" }
 androidx-wear-compose-material = { module = "androidx.wear.compose:compose-material", version.ref = "androidx-wear-compose" }
@@ -40,7 +40,7 @@ androidx-wear-compose-navigation = { module = "androidx.wear.compose:compose-nav
 playServices-wearable = { module = "com.google.android.gms:play-services-wearable", version = "18.0.0" }
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
-okio = { module = "com.squareup.okio:okio", version = "3.2.0" }
+okio = { module = "com.squareup.okio:okio", version = "3.3.0" }
 junit = { module = "junit:junit", version = "4.13.2" }
 
 [bundles]
@@ -50,6 +50,7 @@ androidx-compose-material3 = [
   "androidx-compose-material3",
 ]
 androidx-wear-compose = [
+  "androidx-compose-ui-tooling-preview",
   "androidx-wear-compose-foundation",
   "androidx-wear-compose-material",
 ]

@@ -7,6 +7,7 @@ plugins {
 
 android {
   compileSdk = libs.versions.compileSdk.get().toInt()
+  namespace = "com.github.droibit.oss_licenses.sample"
 
   defaultConfig {
     applicationId = "com.github.droibit.oss_licenses.sample"
@@ -53,8 +54,8 @@ dependencies {
   implementation(project(":ui-wear-compose"))
 
   implementation(libs.androidx.activity.compose)
+  implementation(platform(libs.androidx.compose.bom))
   implementation(libs.bundles.androidx.wear.compose)
-  implementation(libs.androidx.compose.ui.tooling.preview)
   debugImplementation(libs.androidx.compose.ui.tooling)
 
   implementation(libs.androidx.fragment)

@@ -53,8 +53,10 @@ dependencies {
   api(project(":ui-compose"))
 
   implementation(libs.androidx.activity.compose)
-  implementation(libs.androidx.navigation.compose)
+  implementation(platform(libs.androidx.compose.bom))
   implementation(libs.bundles.androidx.compose.material3)
+  implementation(libs.androidx.navigation.compose)
+
   debugImplementation(libs.androidx.compose.ui.tooling)
 
   implementation(libs.dagger)

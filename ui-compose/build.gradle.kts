@@ -28,7 +28,7 @@ android {
     )
   }
 
-  packagingOptions {
+  packaging {
     resources {
       excludes += listOf(
         "/META-INF/{AL2.0,LGPL2.1}",
@@ -42,10 +42,11 @@ dependencies {
   api(project(":ui-viewmodel"))
 
   implementation(libs.androidx.activity.compose)
-  implementation(libs.androidx.navigation.compose)
+  implementation(platform(libs.androidx.compose.bom))
   implementation(libs.bundles.androidx.compose.material3)
-  implementation(libs.androidx.compose.ui.tooling)
-  debugImplementation(libs.androidx.compose.ui.tooling.preview)
+  implementation(libs.androidx.navigation.compose)
+
+  debugImplementation(libs.androidx.compose.ui.tooling)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")
