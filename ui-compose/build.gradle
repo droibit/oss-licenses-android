@@ -6,11 +6,10 @@ plugins {
 
 android {
   namespace 'com.github.droibit.oss_licenses.ui.compose'
-  compileSdk rootProject.ext.compileSdk
+  compileSdk libs.versions.compileSdk.get().toInteger()
 
   defaultConfig {
     minSdk 24
-    targetSdkVersion rootProject.ext.targetSdk
 
     testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     consumerProguardFiles "consumer-rules.pro"
@@ -25,7 +24,6 @@ android {
 
   buildFeatures {
     compose true
-    buildConfig false
   }
 
   composeOptions {

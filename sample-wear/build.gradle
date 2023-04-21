@@ -6,12 +6,12 @@ plugins {
 }
 
 android {
-  compileSdk rootProject.ext.compileSdk
+  compileSdk libs.versions.compileSdk.get().toInteger()
 
   defaultConfig {
     applicationId "com.github.droibit.oss_licenses.sample"
     minSdk 25
-    targetSdk rootProject.ext.targetSdk
+    targetSdk libs.versions.targetSdk.get().toInteger()
     versionCode 1
     versionName "1.0"
   }
@@ -32,6 +32,7 @@ android {
 
   buildFeatures {
     compose true
+    buildConfig true
   }
 
   composeOptions {

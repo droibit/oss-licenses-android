@@ -10,6 +10,8 @@ androidx-wear-compose = "1.1.0-rc01"
 dagger = "2.44.2"
 ktlint = "0.46.1"
 spotless = "6.11.0"
+compileSdk = "33"
+targetSdk = "33"
 
 [libraries]
 # plugins.

@@ -6,11 +6,10 @@ plugins {
 
 android {
   namespace 'com.github.droibit.oss_licenses.parser'
-  compileSdk rootProject.ext.compileSdk
+  compileSdk libs.versions.compileSdk.get().toInteger()
 
   defaultConfig {
     minSdk 19
-    targetSdk rootProject.ext.targetSdk
   }
 
   buildTypes {
@@ -18,10 +17,6 @@ android {
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
-  }
-
-  buildFeatures {
-    buildConfig false
   }
 }
 
