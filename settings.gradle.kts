@@ -15,10 +15,12 @@ dependencyResolutionManagement {
   }
 }
 
-include ':parser'
-include ':sample-mobile'
-include ':sample-wear'
-include ':ui-compose'
-include ':ui-viewmodel'
-include ':ui-wear'
-include ':ui-wear-compose'
+include(
+  ":parser",
+  ":sample-mobile",
+  ":sample-wear",
+  ":ui-compose",
+  ":ui-viewmodel",
+  ":ui-wear",
+  ":ui-wear-compose",
+)
