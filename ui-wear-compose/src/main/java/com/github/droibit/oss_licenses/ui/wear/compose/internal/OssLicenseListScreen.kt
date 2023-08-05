@@ -3,24 +3,25 @@ package com.github.droibit.oss_licenses.ui.wear.compose.internal
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavController
+import androidx.wear.compose.foundation.ExperimentalWearFoundationApi
+import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
+import androidx.wear.compose.foundation.lazy.ScalingLazyListState
+import androidx.wear.compose.foundation.lazy.items
+import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
+import androidx.wear.compose.foundation.rememberActiveFocusRequester
 import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.ListHeader
 import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
-import androidx.wear.compose.material.ScalingLazyColumn
-import androidx.wear.compose.material.ScalingLazyListState
 import androidx.wear.compose.material.Text
-import androidx.wear.compose.material.items
-import androidx.wear.compose.material.rememberScalingLazyListState
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 import com.github.droibit.oss_licenses.ui.wear.compose.R
@@ -30,10 +31,10 @@ import com.github.droibit.oss_licenses.ui.wear.compose.internal.OssLicenseNavGra
 @Composable
 internal fun OssLicenseListScreen(
   navController: NavController,
-  modifier: Modifier = Modifier,
   viewModel: OssLicenseViewModel,
+  modifier: Modifier = Modifier,
+  listState: ScalingLazyListState = rememberScalingLazyListState(),
 ) {
-  val listState = rememberScalingLazyListState()
   Scaffold(
     modifier = modifier,
     positionIndicator = {
@@ -57,17 +58,15 @@ internal fun OssLicenseListScreen(
   }
 }
 
+@OptIn(ExperimentalWearFoundationApi::class)
 @Composable
 internal fun OssLicenseList(
   licenses: List<OssLicense>,
-  modifier: Modifier = Modifier,
   listState: ScalingLazyListState,
   onItemClick: (OssLicense) -> Unit,
+  modifier: Modifier = Modifier,
+  focusRequester: FocusRequester = rememberActiveFocusRequester(),
 ) {
-  val focusRequester = remember { FocusRequester() }
-  LaunchedEffect(Unit) {
-    focusRequester.requestFocus()
-  }
   ScalingLazyColumn(
     modifier = modifier
       .rotaryScrollable(focusRequester, listState),
@@ -75,8 +74,11 @@ internal fun OssLicenseList(
   ) {
     if (licenses.isNotEmpty()) {
       item {
-        ListHeader() {
-          Text(text = stringResource(id = R.string.oss_licenses_title))
+        ListHeader {
+          Text(
+            text = stringResource(id = R.string.oss_licenses_title),
+            textAlign = TextAlign.Center,
+          )
         }
       }
     }
@@ -96,8 +98,8 @@ internal fun OssLicenseList(
 
 @Composable
 internal fun OssLicenseItem(
-  modifier: Modifier = Modifier,
   license: OssLicense,
+  modifier: Modifier = Modifier,
   onClick: () -> Unit = {},
 ) {
   Chip(

@@ -89,7 +89,7 @@ private fun OssLicenseItem(
   onClick: () -> Unit,
 ) {
   ListItem(
-    headlineText = {
+    headlineContent = {
       Text(text = license.libraryName)
     },
     modifier = modifier.clickable(onClick = onClick),

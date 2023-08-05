@@ -15,6 +15,8 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.wear.compose.foundation.ExperimentalWearFoundationApi
+import androidx.wear.compose.foundation.rememberActiveFocusRequester
 import androidx.wear.compose.material.ListHeader
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.PositionIndicator
@@ -22,21 +24,20 @@ import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
 import com.github.droibit.oss_licenses.parser.OssLicense
 
+@OptIn(ExperimentalWearFoundationApi::class)
 @Composable
 fun OssLicenseDetailScreen(
   license: OssLicense,
   modifier: Modifier = Modifier,
+  listState: LazyListState = rememberLazyListState(),
+  focusRequester: FocusRequester = rememberActiveFocusRequester(),
 ) {
-  val listState = rememberLazyListState()
   Scaffold(
     modifier = modifier,
     positionIndicator = {
       PositionIndicator(lazyListState = listState)
     },
   ) {
-    val focusRequester = remember { FocusRequester() }
-    LaunchedEffect(Unit) {
-      focusRequester.requestFocus()
     }
 
     val rounded = LocalConfiguration.current.isScreenRound
