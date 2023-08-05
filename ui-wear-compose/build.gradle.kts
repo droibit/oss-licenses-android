@@ -48,6 +48,7 @@ dependencies {
   implementation(libs.androidx.navigation.compose)
   implementation(libs.androidx.wear.compose.navigation)
   debugImplementation(libs.androidx.compose.ui.tooling)
+  debugImplementation(libs.androidx.wear.compose.ui.tooling)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")

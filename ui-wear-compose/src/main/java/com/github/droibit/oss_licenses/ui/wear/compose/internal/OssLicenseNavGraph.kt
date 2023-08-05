@@ -33,9 +33,9 @@ internal object OssLicenseNavGraph {
 
 @Composable
 internal fun OssLicenseNavGraph(
+  viewModel: OssLicenseViewModel,
   modifier: Modifier = Modifier,
   navController: NavHostController = rememberSwipeDismissableNavController(),
-  viewModel: OssLicenseViewModel,
 ) {
   SwipeDismissableNavHost(
     navController = navController,
