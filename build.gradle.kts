@@ -1,5 +1,5 @@
-import com.android.build.gradle.BasePlugin
 import com.android.build.gradle.BaseExtension
+import com.android.build.gradle.BasePlugin
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
@@ -33,16 +33,19 @@ subprojects {
           targetExclude("$buildDir/**/*.kt")
           targetExclude("**/generated/**/*.kt")
           // Spotless doesn't read .editorconfig yet: https://github.com/diffplug/spotless/issues/142
-          ktlint(libs.versions.ktlint.get()).editorConfigOverride(mapOf(
-            "disabled_rules"                              to "package-name",
-            "insert_final_newline"                        to "true",
-            "end_of_line"                                 to "lf",
-            "charset"                                     to "utf-8",
-            "indent_size"                                 to "2",
-            "ij_kotlin_allow_trailing_comma"              to "true",
-            "ij_kotlin_allow_trailing_comma_on_call_site" to "true",
-            "ij_kotlin_imports_layout"                    to "*",
-          ))
+          ktlint(libs.versions.ktlint.get()).editorConfigOverride(
+            mapOf(
+              "disabled_rules" to "package-name",
+              "insert_final_newline" to "true",
+              "end_of_line" to "lf",
+              "charset" to "utf-8",
+              "indent_size" to "2",
+              "ij_kotlin_allow_trailing_comma" to "true",
+              "ij_kotlin_allow_trailing_comma_on_call_site" to "true",
+              "ij_kotlin_imports_layout" to "*",
+              "ktlint_experimental" to "disabled",
+            ),
+          )
         }
 
         format("xml") {

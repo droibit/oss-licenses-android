@@ -17,7 +17,7 @@ import com.github.droibit.oss_licenses.sample.theme.WearAppTheme
 import com.github.droibit.oss_licenses.ui.wear.WearableOssLicensesActivity
 import com.github.droibit.oss_licenses.ui.wear.compose.WearableOssLicensesActivity as WearableComposeOssLicensesActivity
 
-private val ignoreLibraries = setOf(
+private val IgnoreLibraries = setOf(
   "kotlinx-coroutines-bom",
   "Android Tracing",
   "Animal Sniffer",
@@ -57,7 +57,7 @@ class MainActivity : FragmentActivity() {
                 onClick = {
                   val intent = WearableOssLicensesActivity.createIntent(
                     this@MainActivity,
-                    ignoreLibraries,
+                    IgnoreLibraries,
                   )
                   startActivity(intent)
                 },
@@ -73,7 +73,7 @@ class MainActivity : FragmentActivity() {
                 onClick = {
                   val intent = WearableComposeOssLicensesActivity.createIntent(
                     this@MainActivity,
-                    ignoreLibraries,
+                    IgnoreLibraries,
                   )
                   startActivity(intent)
                 },
