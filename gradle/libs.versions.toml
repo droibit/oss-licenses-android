@@ -41,7 +41,7 @@ androidx-wear-compose-ui-tooling = { module = "androidx.wear.compose:compose-ui-
 playServices-wearable = { module = "com.google.android.gms:play-services-wearable", version = "18.0.0" }
 dagger = { module = "com.google.dagger:dagger", version.ref = "dagger" }
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "dagger" }
-okio = { module = "com.squareup.okio:okio", version = "3.3.0" }
+okio = { module = "com.squareup.okio:okio", version = "3.7.0" }
 junit = { module = "junit:junit", version = "4.13.2" }
 
 [bundles]
