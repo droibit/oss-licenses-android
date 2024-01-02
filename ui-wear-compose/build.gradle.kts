@@ -40,7 +40,7 @@ android {
 }
 
 dependencies {
-  api(project(":ui-viewmodel"))
+  api(projects.uiViewmodel)
 
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))

@@ -15,7 +15,7 @@ android {
 }
 
 dependencies {
-  api(project(":parser"))
+  api(projects.parser)
 
   implementation(libs.kotlin.coroutines.core)
   implementation(libs.bundles.androidx.lifecycle.viewModel)

@@ -19,13 +19,13 @@ android {
   }
 
   buildTypes {
-    getByName("debug") {
+    debug {
       isDebuggable = true
       isMinifyEnabled = false
       isShrinkResources = false
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
-    getByName("release") {
+    release {
       isMinifyEnabled = true
       isShrinkResources = true
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -50,7 +50,7 @@ android {
 }
 
 dependencies {
-  api(project(":ui-compose"))
+  implementation(projects.uiCompose)
 
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))

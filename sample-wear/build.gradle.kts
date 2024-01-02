@@ -18,13 +18,13 @@ android {
   }
 
   buildTypes {
-    getByName("debug") {
+    debug {
       isDebuggable = true
       isMinifyEnabled = false
       isShrinkResources = false
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
     }
-    getByName("release") {
+    release {
       isMinifyEnabled = true
       isShrinkResources = true
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -50,8 +50,8 @@ android {
 }
 
 dependencies {
-  implementation(project(":ui-wear"))
-  implementation(project(":ui-wear-compose"))
+  implementation(projects.uiWear)
+  implementation(projects.uiWearCompose)
 
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))

@@ -22,7 +22,7 @@ android {
 }
 
 dependencies {
-  api(project(":ui-viewmodel"))
+  api(projects.uiViewmodel)
 
   implementation(libs.androidx.annotation)
   implementation(libs.androidx.fragment)
