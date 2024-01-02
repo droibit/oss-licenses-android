@@ -1,5 +1,6 @@
 package com.github.droibit.oss_licenses.parser
 
+import android.annotation.SuppressLint
 import android.content.Context
 import androidx.annotation.RestrictTo
 import androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP
@@ -17,6 +18,7 @@ class OssLicenseParser(
   private val context: Context,
 ) {
 
+  @SuppressLint("DiscouragedApi")
   @Throws(IOException::class)
   suspend fun parse(ignoreLibraries: Set<String> = emptySet()): List<OssLicense> {
     val appContext = context.applicationContext
