@@ -21,6 +21,7 @@ android {
 
 dependencies {
   implementation(libs.androidx.annotation)
+  implementation(libs.androidx.core)
 
   api(libs.kotlin.coroutines.core)
   api(libs.okio)
