@@ -19,8 +19,8 @@ include(
   ":parser",
   ":sample-mobile",
   ":sample-wear",
-  ":ui-compose",
+  ":ui-compose-material3",
   ":ui-viewmodel",
   ":ui-wear",
-  ":ui-wear-compose",
+  ":ui-wear-compose-material",
 )

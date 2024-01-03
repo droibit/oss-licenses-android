@@ -17,9 +17,9 @@ allprojects {
 dependencies {
     implementation 'com.github.droibit.oss-licenses-android:parser:0.5.0'
     // or
-    implementation 'com.github.droibit.oss-licenses-android:ui-wear-compose:0.5.0'
+    implementation 'com.github.droibit.oss-licenses-android:ui-wear-compose-material:0.5.0'
     // or
-    implementation 'com.github.droibit.oss-licenses-android:ui-compose:0.5.0'
+    implementation 'com.github.droibit.oss-licenses-android:ui-compose-material3:0.5.0'
 }
 ```
 

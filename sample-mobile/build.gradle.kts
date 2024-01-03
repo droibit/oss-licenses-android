@@ -50,7 +50,7 @@ android {
 }
 
 dependencies {
-  implementation(projects.uiCompose)
+  implementation(projects.uiComposeMaterial3)
 
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))

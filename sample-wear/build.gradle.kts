@@ -50,7 +50,7 @@ android {
 
 dependencies {
   implementation(projects.uiWear)
-  implementation(projects.uiWearCompose)
+  implementation(projects.uiWearComposeMaterial)
 
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))
