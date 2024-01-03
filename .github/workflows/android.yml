@@ -20,5 +20,9 @@ jobs:
       with:
         distribution: 'zulu'
         java-version: 17
+    - name: Copy CI gradle.properties
+      run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
     - name: Build projects
       run: ./gradlew assembleDebug
+    - name: Run ktlint
+      run: ./gradlew spotlessCheck
