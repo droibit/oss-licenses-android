@@ -1,6 +1,5 @@
 package com.github.droibit.oss_licenses.sample
 
-import com.github.droibit.oss_licenses.ui.wear.compose.WearableOssLicensesActivity as WearableComposeOssLicensesActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Spacer
@@ -15,6 +14,7 @@ import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import com.github.droibit.oss_licenses.sample.theme.WearAppTheme
 import com.github.droibit.oss_licenses.ui.wear.WearableOssLicensesActivity
+import com.github.droibit.oss_licenses.ui.wear.compose.WearableOssLicensesActivity as WearableComposeOssLicensesActivity
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.compose.layout.ScalingLazyColumn
 import com.google.android.horologist.compose.layout.rememberColumnState
