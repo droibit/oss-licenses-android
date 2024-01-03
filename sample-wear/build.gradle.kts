@@ -55,6 +55,7 @@ dependencies {
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))
   implementation(libs.bundles.androidx.wear.compose)
+  implementation(libs.horologist.compose.layout)
   debugImplementation(libs.androidx.compose.ui.tooling)
 
   implementation(libs.androidx.fragment)

@@ -1,5 +1,6 @@
 package com.github.droibit.oss_licenses.sample
 
+import com.github.droibit.oss_licenses.ui.wear.compose.WearableOssLicensesActivity as WearableComposeOssLicensesActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Spacer
@@ -7,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.FragmentActivity
-import androidx.wear.compose.foundation.lazy.ScalingLazyColumn
 import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.Scaffold
@@ -15,7 +15,9 @@ import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import com.github.droibit.oss_licenses.sample.theme.WearAppTheme
 import com.github.droibit.oss_licenses.ui.wear.WearableOssLicensesActivity
-import com.github.droibit.oss_licenses.ui.wear.compose.WearableOssLicensesActivity as WearableComposeOssLicensesActivity
+import com.google.android.horologist.annotations.ExperimentalHorologistApi
+import com.google.android.horologist.compose.layout.ScalingLazyColumn
+import com.google.android.horologist.compose.layout.rememberColumnState
 
 private val IgnoreLibraries = setOf(
   "kotlinx-coroutines-bom",
@@ -32,6 +34,7 @@ private val IgnoreLibraries = setOf(
   "JSpecify",
 )
 
+@OptIn(ExperimentalHorologistApi::class)
 class MainActivity : FragmentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -43,6 +46,7 @@ class MainActivity : FragmentActivity() {
           },
         ) {
           ScalingLazyColumn(
+            columnState = rememberColumnState(),
             modifier = Modifier.fillMaxSize(),
           ) {
             item {
@@ -51,7 +55,7 @@ class MainActivity : FragmentActivity() {
             item {
               Chip(
                 label = {
-                  Text(text = "Show(Android View)")
+                  Text(text = "Show (Android View)")
                 },
                 colors = ChipDefaults.secondaryChipColors(),
                 onClick = {
@@ -67,7 +71,7 @@ class MainActivity : FragmentActivity() {
             item {
               Chip(
                 label = {
-                  Text(text = "Show(Compose)")
+                  Text(text = "Show (Compose)")
                 },
                 colors = ChipDefaults.secondaryChipColors(),
                 onClick = {
