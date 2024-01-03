@@ -1,7 +1,6 @@
 plugins {
   id("com.android.application")
   id("kotlin-android")
-  id("kotlin-kapt")
   id("com.google.android.gms.oss-licenses-plugin")
 }
 
@@ -66,5 +65,4 @@ dependencies {
   implementation(libs.playServices.wearable)
 
   implementation(libs.dagger)
-  kapt(libs.dagger.compiler)
 }
