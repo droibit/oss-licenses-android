@@ -15,8 +15,6 @@ import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import com.github.droibit.oss_licenses.sample.theme.WearAppTheme
 import com.github.droibit.oss_licenses.ui.wear.WearableOssLicensesActivity
-import com.github.droibit.oss_licenses.ui.wear.compose.WearableOssLicensesActivity as WearableComposeM2OssLicensesActivity
-import com.github.droibit.oss_licenses.ui.wear.compose.material3.WearableOssLicensesActivity as WearableComposeM3OssLicensesActivity
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.compose.layout.ScalingLazyColumn
 import com.google.android.horologist.compose.layout.rememberColumnState
@@ -70,7 +68,7 @@ class MainActivity : FragmentActivity() {
               ListItem(
                 label = "Show (Compose M2)",
                 onClick = {
-                  val intent = WearableComposeM2OssLicensesActivity.createIntent(
+                  val intent = com.github.droibit.oss_licenses.ui.wear.compose.material.WearableOssLicensesActivity.createIntent(
                     this@MainActivity,
                     IgnoreLibraries,
                   )
@@ -82,7 +80,7 @@ class MainActivity : FragmentActivity() {
               ListItem(
                 label = "Show (Compose M3)",
                 onClick = {
-                  val intent = WearableComposeM3OssLicensesActivity.createIntent(
+                  val intent = com.github.droibit.oss_licenses.ui.wear.compose.material3.WearableOssLicensesActivity.createIntent(
                     this@MainActivity,
                     IgnoreLibraries,
                   )

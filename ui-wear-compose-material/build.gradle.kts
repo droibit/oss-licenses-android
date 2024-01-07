@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-  namespace = "com.github.droibit.oss_licenses.ui.wear.compose"
+  namespace = "com.github.droibit.oss_licenses.ui.wear.compose.material"
   compileSdk = libs.versions.compileSdk.get().toInt()
 
   defaultConfig {

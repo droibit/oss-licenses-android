@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wear.compose.internal
+package com.github.droibit.oss_licenses.ui.wear.compose.material.internal
 
 import androidx.compose.runtime.Composable
 import androidx.wear.compose.material.MaterialTheme

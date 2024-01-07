@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wear.compose.internal
+package com.github.droibit.oss_licenses.ui.wear.compose.material.internal
 
 import android.util.Base64
 import androidx.compose.runtime.Composable
@@ -10,9 +10,9 @@ import androidx.wear.compose.navigation.SwipeDismissableNavHost
 import androidx.wear.compose.navigation.composable
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
-import com.github.droibit.oss_licenses.ui.wear.compose.internal.OssLicenseNavGraph.KEY_LIBRARY_NAME
-import com.github.droibit.oss_licenses.ui.wear.compose.internal.OssLicenseNavGraph.ROUTE_DETAIL
-import com.github.droibit.oss_licenses.ui.wear.compose.internal.OssLicenseNavGraph.ROUTE_LIST
+import com.github.droibit.oss_licenses.ui.wear.compose.material.internal.OssLicenseNavGraph.KEY_LIBRARY_NAME
+import com.github.droibit.oss_licenses.ui.wear.compose.material.internal.OssLicenseNavGraph.ROUTE_DETAIL
+import com.github.droibit.oss_licenses.ui.wear.compose.material.internal.OssLicenseNavGraph.ROUTE_LIST
 
 internal object OssLicenseNavGraph {
   const val ROUTE_LIST = "license_list"

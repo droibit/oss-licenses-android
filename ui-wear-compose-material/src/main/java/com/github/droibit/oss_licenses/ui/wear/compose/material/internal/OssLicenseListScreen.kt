@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wear.compose.internal
+package com.github.droibit.oss_licenses.ui.wear.compose.material.internal
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,9 +24,9 @@ import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
-import com.github.droibit.oss_licenses.ui.wear.compose.R
-import com.github.droibit.oss_licenses.ui.wear.compose.internal.OssLicenseNavGraph.Directions.toDetail
-import com.github.droibit.oss_licenses.ui.wear.compose.internal.OssLicenseNavGraph.ROUTE_LIST
+import com.github.droibit.oss_licenses.ui.wear.compose.material.R
+import com.github.droibit.oss_licenses.ui.wear.compose.material.internal.OssLicenseNavGraph.Directions.toDetail
+import com.github.droibit.oss_licenses.ui.wear.compose.material.internal.OssLicenseNavGraph.ROUTE_LIST
 
 @Composable
 internal fun OssLicenseListScreen(
