@@ -44,10 +44,11 @@ dependencies {
 
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))
-  implementation(libs.bundles.androidx.wear.compose)
-  implementation(libs.androidx.navigation.compose)
-  implementation(libs.androidx.wear.compose.navigation)
+  implementation(libs.bundles.androidx.wear.compose.material)
+  implementation(libs.bundles.androidx.wear.compose.navigation)
+
   debugImplementation(libs.androidx.compose.ui.tooling)
+  debugImplementation(libs.androidx.compose.ui.tooling.preview)
   debugImplementation(libs.androidx.wear.compose.ui.tooling)
 }
 

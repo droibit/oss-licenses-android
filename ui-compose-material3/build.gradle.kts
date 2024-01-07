@@ -43,10 +43,11 @@ dependencies {
 
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))
-  implementation(libs.bundles.androidx.compose.material3)
+  implementation(libs.androidx.compose.material3)
   implementation(libs.androidx.navigation.compose)
 
   debugImplementation(libs.androidx.compose.ui.tooling)
+  debugImplementation(libs.androidx.compose.ui.tooling.preview)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")
