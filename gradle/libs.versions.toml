@@ -11,7 +11,7 @@ dagger = "2.50"
 ktlint = "0.48.0"
 spotless = "6.23.3"
 compileSdk = "34"
-targetSdk = "33"
+targetSdk = "34"
 
 [libraries]
 # plugins.
