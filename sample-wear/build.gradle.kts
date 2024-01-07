@@ -18,7 +18,7 @@ android {
 
   buildTypes {
     debug {
-      isDebuggable = true
+      isDebuggable = false
       isMinifyEnabled = false
       isShrinkResources = false
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
@@ -51,12 +51,13 @@ android {
 dependencies {
   implementation(projects.uiWear)
   implementation(projects.uiWearComposeMaterial)
+  implementation(projects.uiWearComposeMaterial3)
 
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))
-  implementation(libs.bundles.androidx.wear.compose)
+  implementation(libs.bundles.androidx.wear.compose.material)
+  implementation(libs.bundles.androidx.wear.compose.material3)
   implementation(libs.horologist.compose.layout)
-  debugImplementation(libs.androidx.compose.ui.tooling)
 
   implementation(libs.androidx.fragment)
   implementation(libs.androidx.lifecycle.runtime)

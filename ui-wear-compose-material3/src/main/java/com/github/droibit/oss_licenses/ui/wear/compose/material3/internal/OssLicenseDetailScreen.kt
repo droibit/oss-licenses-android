@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wear.compose.internal
+package com.github.droibit.oss_licenses.ui.wear.compose.material3.internal
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,11 +19,9 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.foundation.ExperimentalWearFoundationApi
 import androidx.wear.compose.foundation.rememberActiveFocusRequester
-import androidx.wear.compose.material.ListHeader
-import androidx.wear.compose.material.MaterialTheme
-import androidx.wear.compose.material.PositionIndicator
-import androidx.wear.compose.material.Scaffold
-import androidx.wear.compose.material.Text
+import androidx.wear.compose.material3.ListHeader
+import androidx.wear.compose.material3.MaterialTheme
+import androidx.wear.compose.material3.Text
 import com.github.droibit.oss_licenses.parser.OssLicense
 import kotlin.math.sqrt
 
@@ -37,9 +35,9 @@ fun OssLicenseDetailScreen(
 ) {
   Scaffold(
     modifier = modifier,
-    positionIndicator = {
-      PositionIndicator(lazyListState = listState)
-    },
+    // positionIndicator = {
+    //   PositionIndicator(lazyListState = listState)
+    // },
   ) {
     val configuration = LocalConfiguration.current
     val inset = remember(configuration) {
@@ -76,7 +74,7 @@ fun OssLicenseDetailScreen(
           text = license.license,
           modifier = Modifier
             .fillMaxWidth(),
-          style = MaterialTheme.typography.caption1.copy(
+          style = MaterialTheme.typography.bodyMedium.copy(
             fontFamily = FontFamily.Monospace,
           ),
         )

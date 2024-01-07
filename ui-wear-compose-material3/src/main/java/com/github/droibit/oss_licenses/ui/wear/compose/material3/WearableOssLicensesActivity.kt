@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wear.compose
+package com.github.droibit.oss_licenses.ui.wear.compose.material3
 
 import android.content.Context
 import android.content.Intent
@@ -6,10 +6,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.wear.compose.material.MaterialTheme
+import androidx.wear.compose.material3.MaterialTheme
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel.Companion.EXTRA_IGNORE_LIBRARIES
-import com.github.droibit.oss_licenses.ui.wear.compose.internal.OssLicenseNavGraph
+import com.github.droibit.oss_licenses.ui.wear.compose.material3.internal.OssLicenseNavGraph
 
 class WearableOssLicensesActivity : ComponentActivity() {
   private val viewModel: OssLicenseViewModel by viewModels()

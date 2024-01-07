@@ -1,5 +1,6 @@
 package com.github.droibit.oss_licenses.ui.compose.internal
 
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -22,6 +23,7 @@ internal fun OssLicenseDetailScreen(
   navController: NavController,
   license: OssLicense,
   modifier: Modifier = Modifier,
+  scrollState: ScrollState = rememberScrollState(),
 ) {
   Scaffold(
     modifier = modifier,
@@ -44,7 +46,7 @@ internal fun OssLicenseDetailScreen(
       modifier = Modifier
         .padding(innerPadding)
         .fillMaxSize()
-        .verticalScroll(rememberScrollState()),
+        .verticalScroll(scrollState),
     ) {
       Text(
         text = license.license,

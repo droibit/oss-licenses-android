@@ -5,6 +5,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.FragmentActivity
 import androidx.wear.compose.material.Chip
@@ -14,7 +15,8 @@ import androidx.wear.compose.material.Text
 import androidx.wear.compose.material.TimeText
 import com.github.droibit.oss_licenses.sample.theme.WearAppTheme
 import com.github.droibit.oss_licenses.ui.wear.WearableOssLicensesActivity
-import com.github.droibit.oss_licenses.ui.wear.compose.WearableOssLicensesActivity as WearableComposeOssLicensesActivity
+import com.github.droibit.oss_licenses.ui.wear.compose.WearableOssLicensesActivity as WearableComposeM2OssLicensesActivity
+import com.github.droibit.oss_licenses.ui.wear.compose.material3.WearableOssLicensesActivity as WearableComposeM3OssLicensesActivity
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.compose.layout.ScalingLazyColumn
 import com.google.android.horologist.compose.layout.rememberColumnState
@@ -53,11 +55,8 @@ class MainActivity : FragmentActivity() {
               Spacer(modifier = Modifier.fillMaxSize())
             }
             item {
-              Chip(
-                label = {
-                  Text(text = "Show (Android View)")
-                },
-                colors = ChipDefaults.secondaryChipColors(),
+              ListItem(
+                label = "Show (Android View)",
                 onClick = {
                   val intent = WearableOssLicensesActivity.createIntent(
                     this@MainActivity,
@@ -65,23 +64,30 @@ class MainActivity : FragmentActivity() {
                   )
                   startActivity(intent)
                 },
-                modifier = Modifier.fillMaxWidth(),
               )
             }
             item {
-              Chip(
-                label = {
-                  Text(text = "Show (Compose)")
-                },
-                colors = ChipDefaults.secondaryChipColors(),
+              ListItem(
+                label = "Show (Compose M2)",
                 onClick = {
-                  val intent = WearableComposeOssLicensesActivity.createIntent(
+                  val intent = WearableComposeM2OssLicensesActivity.createIntent(
                     this@MainActivity,
                     IgnoreLibraries,
                   )
                   startActivity(intent)
                 },
-                modifier = Modifier.fillMaxWidth(),
+              )
+            }
+            item {
+              ListItem(
+                label = "Show (Compose M3)",
+                onClick = {
+                  val intent = WearableComposeM3OssLicensesActivity.createIntent(
+                    this@MainActivity,
+                    IgnoreLibraries,
+                  )
+                  startActivity(intent)
+                },
               )
             }
           }
@@ -89,4 +95,20 @@ class MainActivity : FragmentActivity() {
       }
     }
   }
+}
+
+@Composable
+private fun ListItem(
+  label: String,
+  onClick: () -> Unit,
+  modifier: Modifier = Modifier,
+) {
+  Chip(
+    label = {
+      Text(text = label)
+    },
+    colors = ChipDefaults.secondaryChipColors(),
+    onClick = onClick,
+    modifier = modifier.fillMaxWidth(),
+  )
 }

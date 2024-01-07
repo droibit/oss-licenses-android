@@ -23,4 +23,5 @@ include(
   ":ui-viewmodel",
   ":ui-wear",
   ":ui-wear-compose-material",
+  ":ui-wear-compose-material3",
 )
