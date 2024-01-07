@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wear.compose.material.internal
+package com.github.droibit.oss_licenses.ui.wear.compose.core
 
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.gestures.ScrollableState

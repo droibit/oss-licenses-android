@@ -21,25 +21,18 @@ android {
     kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
   }
 
- kotlinOptions {
-   freeCompilerArgs = listOf(
-     *freeCompilerArgs.toTypedArray(),
-     "-opt-in=androidx.wear.compose.material.ExperimentalWearMaterialApi",
-     "-opt-in=androidx.compose.ui.ExperimentalComposeUiApi",
-   )
- }
-
- packaging {
-   resources {
-     excludes += listOf(
-       "/META-INF/{AL2.0,LGPL2.1}",
-       "/META-INF/core_debug.kotlin_module"
-     )
-   }
- }
+  packaging {
+    resources {
+      excludes += listOf(
+        "/META-INF/{AL2.0,LGPL2.1}",
+        "/META-INF/core_debug.kotlin_module",
+      )
+    }
+  }
 }
 
 dependencies {
+  api(projects.uiWearComposeCore)
   api(projects.uiViewmodel)
   api(projects.uiComposeNavigation)
 

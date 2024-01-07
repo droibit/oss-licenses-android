@@ -13,7 +13,7 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 fun OssLicenseListPreview() {
   MaterialTheme {
     Scaffold {
-      OssLicenseList(
+      OssLicenseListImpl(
         licenses = listOf(
           OssLicense("activity-compose", ""),
           OssLicense("compose-foundation", ""),

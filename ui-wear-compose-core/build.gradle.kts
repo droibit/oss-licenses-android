@@ -5,27 +5,29 @@ plugins {
 }
 
 android {
-  namespace = "com.github.droibit.oss_licenses.ui.compose.navigation"
+  namespace = "com.github.droibit.oss_licenses.ui.wear.compose.core"
   compileSdk = libs.versions.compileSdk.get().toInt()
 
   defaultConfig {
-    minSdk = 24
+    minSdk = 25
 
     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
-  packaging {
-    resources {
-      excludes += listOf(
-        "/META-INF/{AL2.0,LGPL2.1}",
-        "/META-INF/core_debug.kotlin_module"
-      )
-    }
+  buildFeatures {
+    compose = true
+  }
+
+  composeOptions {
+    kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
   }
 }
 
 dependencies {
-  implementation(libs.androidx.navigation.compose)
+  implementation(projects.uiViewmodel)
+
+  implementation(platform(libs.androidx.compose.bom))
+  implementation(libs.androidx.wear.compose.foundation)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")

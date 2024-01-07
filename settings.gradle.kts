@@ -23,6 +23,7 @@ include(
   ":ui-compose-navigation",
   ":ui-viewmodel",
   ":ui-wear",
+  ":ui-wear-compose-core",
   ":ui-wear-compose-material",
   ":ui-wear-compose-material3",
 )
