@@ -22,10 +22,9 @@ import androidx.wear.compose.material3.ListHeader
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
 import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.compose.navigation.navigateToDetail
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 import com.github.droibit.oss_licenses.ui.wear.compose.material3.R
-import com.github.droibit.oss_licenses.ui.wear.compose.material3.internal.OssLicenseNavGraph.Directions.toDetail
-import com.github.droibit.oss_licenses.ui.wear.compose.material3.internal.OssLicenseNavGraph.ROUTE_LIST
 
 @Composable
 internal fun OssLicenseListScreen(
@@ -47,11 +46,7 @@ internal fun OssLicenseListScreen(
         .fillMaxSize(),
       listState = listState,
       onItemClick = { license ->
-        with(navController) {
-          if (currentDestination?.route == ROUTE_LIST) {
-            navigate(toDetail(license.libraryName))
-          }
-        }
+        navController.navigateToDetail(license.libraryName)
       },
     )
   }
