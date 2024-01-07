@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.compose.internal
+package com.github.droibit.oss_licenses.ui.compose.material3.internal
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,9 +17,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.github.droibit.oss_licenses.parser.OssLicense
-import com.github.droibit.oss_licenses.ui.compose.R
-import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseNavGraph.Directions.toDetail
-import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseNavGraph.ROUTE_LIST
+import com.github.droibit.oss_licenses.ui.compose.material3.R
+import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicenseNavGraph.Directions.toDetail
+import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicenseNavGraph.ROUTE_LIST
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 
 @Composable

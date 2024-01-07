@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.compose.internal
+package com.github.droibit.oss_licenses.ui.compose.material3.internal
 
 import android.util.Base64
 import androidx.compose.runtime.Composable
@@ -9,9 +9,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseNavGraph.KEY_LIBRARY_NAME
-import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseNavGraph.ROUTE_DETAIL
-import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseNavGraph.ROUTE_LIST
+import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicenseNavGraph.KEY_LIBRARY_NAME
+import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicenseNavGraph.ROUTE_DETAIL
+import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicenseNavGraph.ROUTE_LIST
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 
 internal object OssLicenseNavGraph {

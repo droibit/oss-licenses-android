@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.compose.internal
+package com.github.droibit.oss_licenses.ui.compose.material3.internal
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable

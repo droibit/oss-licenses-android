@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.compose
+package com.github.droibit.oss_licenses.ui.compose.material3
 
 import android.content.Context
 import android.content.Intent
@@ -10,7 +10,7 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
-import com.github.droibit.oss_licenses.ui.compose.internal.OssLicenseNavGraph
+import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicenseNavGraph
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel.Companion.EXTRA_IGNORE_LIBRARIES
 

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-  namespace = "com.github.droibit.oss_licenses.ui.compose"
+  namespace = "com.github.droibit.oss_licenses.ui.compose.material3"
   compileSdk = libs.versions.compileSdk.get().toInt()
 
   defaultConfig {

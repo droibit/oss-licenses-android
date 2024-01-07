@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.github.droibit.oss_licenses.sample.ui.Theme
-import com.github.droibit.oss_licenses.ui.compose.OssLicensesActivity
+import com.github.droibit.oss_licenses.ui.compose.material3.OssLicensesActivity
 
 class MainActivity : ComponentActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {

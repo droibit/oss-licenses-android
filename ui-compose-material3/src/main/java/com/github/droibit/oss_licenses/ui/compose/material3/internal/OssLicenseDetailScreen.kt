@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.compose.internal
+package com.github.droibit.oss_licenses.ui.compose.material3.internal
 
 import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.layout.Column

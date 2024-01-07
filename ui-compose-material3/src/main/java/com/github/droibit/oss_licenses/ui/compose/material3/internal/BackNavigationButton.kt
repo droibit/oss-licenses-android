@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.compose.internal
+package com.github.droibit.oss_licenses.ui.compose.material3.internal
 
 import android.app.Activity
 import androidx.compose.material.icons.Icons
