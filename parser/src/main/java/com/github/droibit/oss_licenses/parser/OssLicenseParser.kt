@@ -5,9 +5,11 @@ import android.content.Context
 import androidx.annotation.RestrictTo
 import androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP
 import androidx.core.content.res.ResourcesCompat.ID_NULL
+import java.io.ByteArrayOutputStream
 import java.io.IOException
 import okio.Source
 import okio.buffer
+import okio.sink
 import okio.source
 
 private const val RES_LICENSES_METADATA = "third_party_license_metadata"
@@ -33,20 +35,20 @@ class OssLicenseParser(
     }
 
     return parse(
-      srcLicenses = res.openRawResource(licensesResId).source(),
-      srcLicensesMetadata = res.openRawResource(licensesMetaDataResId).source(),
+      licensesSource = res.openRawResource(licensesResId).source(),
+      licensesMetadataSource = res.openRawResource(licensesMetaDataResId).source(),
       ignoreLibraries = ignoreLibraries,
     )
   }
 
   internal fun parse(
-    srcLicenses: Source,
-    srcLicensesMetadata: Source,
-    ignoreLibraries: Set<String>,
+    licensesSource: Source,
+    licensesMetadataSource: Source,
+    ignoreLibraries: Set<String> = emptySet(),
   ): List<OssLicense> {
-    val licenseMetadata = srcLicensesMetadata.buffer()
+    val licenseMetadata = licensesMetadataSource.buffer()
       .use {
-        buildList {
+        buildSet {
           while (true) {
             val line = it.readUtf8Line() ?: break
             val name = line.substringAfter(" ")
@@ -63,7 +65,8 @@ class OssLicenseParser(
           }
         }
       }
-    val licenses = srcLicenses.buffer().use {
+
+    val licenses = licensesSource.buffer().use {
       it.readByteString()
     }
 
@@ -78,7 +81,6 @@ class OssLicenseParser(
           license = license.utf8(),
         )
       }
-      .distinct()
       .sortedBy { it.libraryName.uppercase() }
   }
 }

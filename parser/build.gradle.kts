@@ -23,10 +23,13 @@ dependencies {
   implementation(libs.androidx.annotation)
   implementation(libs.androidx.core)
 
+  api(platform(libs.kotlin.coroutines.bom))
   api(libs.kotlin.coroutines.core)
   api(libs.okio)
 
   testImplementation(libs.junit)
+  testImplementation(libs.truth)
+  testImplementation(libs.mockito.kotlin)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")
