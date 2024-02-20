@@ -33,11 +33,11 @@ class OssLicenseParserTest {
     47:47 Dagger
     47:47 kotlinx-coroutines-core
     47:47 kotlinx-coroutines-bom
-  """.trimIndent()
+    """.trimIndent()
     val licenses = """
     http://www.apache.org/licenses/LICENSE-2.0.txt
     https://www.apache.org/licenses/LICENSE-2.0.txt
-  """.trimIndent()
+    """.trimIndent()
     val licenseMetadataSource = licenseMetadata.byteInputStream().source()
     val licensesSource = licenses.byteInputStream().source()
 

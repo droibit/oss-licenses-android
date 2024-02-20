@@ -5,11 +5,9 @@ import android.content.Context
 import androidx.annotation.RestrictTo
 import androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP
 import androidx.core.content.res.ResourcesCompat.ID_NULL
-import java.io.ByteArrayOutputStream
 import java.io.IOException
 import okio.Source
 import okio.buffer
-import okio.sink
 import okio.source
 
 private const val RES_LICENSES_METADATA = "third_party_license_metadata"
