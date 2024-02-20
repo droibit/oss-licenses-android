@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import androidx.annotation.RestrictTo
 import androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP
+import androidx.annotation.WorkerThread
 import androidx.core.content.res.ResourcesCompat.ID_NULL
 import java.io.IOException
 import okio.Source
@@ -18,6 +19,7 @@ class OssLicenseParser(
   private val context: Context,
 ) {
   @SuppressLint("DiscouragedApi")
+  @WorkerThread
   @Throws(IOException::class)
   fun parse(ignoreLibraries: Set<String> = emptySet()): List<OssLicense> {
     val appContext = context.applicationContext
@@ -45,19 +47,19 @@ class OssLicenseParser(
     ignoreLibraries: Set<String> = emptySet(),
   ): List<OssLicense> {
     val licenseMetadata = licensesMetadataSource.buffer()
-      .use {
+      .use { source ->
         buildSet {
           while (true) {
-            val line = it.readUtf8Line() ?: break
-            val name = line.substringAfter(" ")
+            val line = source.readUtf8Line() ?: break
+            val (byteRange, name) = line.split(" ", limit = 2)
             if (name in ignoreLibraries) {
               continue
             }
-            val licenseByteRange = line.substringBefore(" ").split(":")
+            val (beginIndex, byteCount) = byteRange.split(":").map(String::toInt)
             val metadata = OssLicenseMetadata(
               name = name,
-              beginIndex = licenseByteRange[0].toInt(),
-              byteCount = licenseByteRange[1].toInt(),
+              beginIndex = beginIndex,
+              byteCount = byteCount,
             )
             add(metadata)
           }
@@ -72,7 +74,7 @@ class OssLicenseParser(
       .map { metadata ->
         val license = licenses.substring(
           metadata.beginIndex,
-          metadata.beginIndex + metadata.byteCount,
+          metadata.endIndex,
         )
         OssLicense(
           libraryName = metadata.name,
@@ -82,3 +84,4 @@ class OssLicenseParser(
       .sortedBy { it.libraryName.uppercase() }
   }
 }
+
