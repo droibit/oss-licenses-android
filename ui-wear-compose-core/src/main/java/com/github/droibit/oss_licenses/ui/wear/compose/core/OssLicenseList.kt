@@ -1,5 +1,6 @@
 package com.github.droibit.oss_licenses.ui.wear.compose.core
 
+import androidx.annotation.RestrictTo
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
@@ -12,6 +13,7 @@ import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.foundation.rememberActiveFocusRequester
 import com.github.droibit.oss_licenses.parser.OssLicense
 
+@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 @OptIn(ExperimentalWearFoundationApi::class)
 @Composable
 fun OssLicenseList(

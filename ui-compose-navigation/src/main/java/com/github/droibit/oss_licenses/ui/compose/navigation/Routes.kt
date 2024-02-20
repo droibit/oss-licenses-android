@@ -9,10 +9,16 @@ import androidx.navigation.navArgument
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 object Routes {
+  /**
+   * Route for the license list screen.
+   */
   object LicenseList {
     const val ROUTE = "license_list"
   }
 
+  /**
+   * Route for the license detail screen.
+   */
   object LicenseDetail {
     private const val PATH = "license_detail"
     private const val KEY_LIBRARY_NAME = "library_name"
@@ -25,6 +31,9 @@ object Routes {
         },
       )
 
+    /**
+     * Creates a deep link to the license detail screen.
+     */
     fun toDetail(libraryName: String): String {
       val encoded = Base64.encodeToString(
         libraryName.toByteArray(),
@@ -33,6 +42,9 @@ object Routes {
       return "$PATH?$KEY_LIBRARY_NAME=$encoded"
     }
 
+    /**
+     * Extracts the library name from the [Bundle] arguments.
+     */
     fun getLibraryName(args: Bundle): String {
       val libraryName = Base64.decode(
         requireNotNull(args.getString(KEY_LIBRARY_NAME)),

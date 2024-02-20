@@ -1,5 +1,6 @@
 package com.github.droibit.oss_licenses.ui.wear.compose.core
 
+import androidx.annotation.RestrictTo
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -19,6 +20,7 @@ import androidx.wear.compose.foundation.rememberActiveFocusRequester
 import com.github.droibit.oss_licenses.parser.OssLicense
 import kotlin.math.sqrt
 
+@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 @OptIn(ExperimentalWearFoundationApi::class)
 @Composable
 fun OssLicenseDetail(

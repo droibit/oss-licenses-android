@@ -14,6 +14,9 @@ import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicenseN
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel.Companion.EXTRA_IGNORE_LIBRARIES
 
+/**
+ * An activity that displays open source licenses.
+ */
 class OssLicensesActivity : ComponentActivity() {
   private val viewModel: OssLicenseViewModel by viewModels()
 
@@ -34,7 +37,12 @@ class OssLicensesActivity : ComponentActivity() {
   }
 
   companion object {
-
+    /**
+     * Creates an [Intent] to start the [OssLicensesActivity].
+     *
+     * @param ignoreLibraries A set of library names to be ignored when displaying the licenses. Default is an empty set.
+     * @return An [Intent] that can be used to start the [OssLicensesActivity].
+     */
     @JvmStatic
     @JvmOverloads
     fun createIntent(
