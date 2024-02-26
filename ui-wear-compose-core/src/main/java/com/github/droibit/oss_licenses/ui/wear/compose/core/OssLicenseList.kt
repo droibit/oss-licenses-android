@@ -17,7 +17,7 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 @OptIn(ExperimentalWearFoundationApi::class)
 @Composable
 fun OssLicenseList(
-  licenses: List<OssLicense>,
+  licenses: OssLicenseCollection,
   header: @Composable ScalingLazyListItemScope.() -> Unit,
   listItem: @Composable ScalingLazyListItemScope.(OssLicense) -> Unit,
   modifier: Modifier = Modifier,
@@ -29,13 +29,13 @@ fun OssLicenseList(
       .rotaryScrollable(focusRequester, listState),
     state = listState,
   ) {
-    if (licenses.isNotEmpty()) {
+    if (licenses().isNotEmpty()) {
       item {
         header()
       }
     }
     items(
-      licenses,
+      licenses(),
       key = { it.libraryName },
     ) { license ->
       listItem(license)

@@ -37,7 +37,7 @@ internal fun OssLicenseListScreen(
     },
   ) {
     OssLicenseListImpl(
-      licenses = licenses,
+      licenses = OssLicenseCollection(licenses.value),
       modifier = Modifier.fillMaxSize(),
       listState = listState,
       onItemClick = { license ->
@@ -49,7 +49,7 @@ internal fun OssLicenseListScreen(
 
 @Composable
 internal fun OssLicenseListImpl(
-  licenses: List<OssLicense>,
+  licenses: OssLicenseCollection,
   listState: ScalingLazyListState,
   onItemClick: (OssLicense) -> Unit,
   modifier: Modifier = Modifier,

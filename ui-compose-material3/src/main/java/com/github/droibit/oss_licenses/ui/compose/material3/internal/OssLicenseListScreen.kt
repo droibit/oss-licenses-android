@@ -40,7 +40,7 @@ internal fun OssLicenseListScreen(
     },
   ) { innerPadding ->
     OssLicenseList(
-      licenses = licenses,
+      licenses = OssLicenseCollection(licenses.value),
       modifier = Modifier
         .padding(innerPadding)
         .fillMaxSize(),
@@ -53,7 +53,7 @@ internal fun OssLicenseListScreen(
 
 @Composable
 private fun OssLicenseList(
-  licenses: List<OssLicense>,
+  licenses: OssLicenseCollection,
   onItemClick: (OssLicense) -> Unit,
   modifier: Modifier = Modifier,
 ) {
@@ -61,7 +61,7 @@ private fun OssLicenseList(
     modifier = modifier,
   ) {
     items(
-      licenses,
+      licenses(),
       key = { it.libraryName },
     ) { license ->
       OssLicenseItem(
