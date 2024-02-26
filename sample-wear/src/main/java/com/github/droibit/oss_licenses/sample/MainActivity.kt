@@ -10,12 +10,13 @@ import androidx.compose.ui.Modifier
 import androidx.fragment.app.FragmentActivity
 import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
-import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
-import androidx.wear.compose.material.TimeText
 import com.github.droibit.oss_licenses.sample.theme.WearAppTheme
 import com.github.droibit.oss_licenses.ui.wear.WearableOssLicensesActivity
+import com.github.droibit.oss_licenses.ui.wear.compose.material.WearableOssLicensesActivity as WearableMaterialOssLicensesActivity
+import com.github.droibit.oss_licenses.ui.wear.compose.material3.WearableOssLicensesActivity as WearableMaterial3OssLicensesActivity
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
+import com.google.android.horologist.compose.layout.AppScaffold
 import com.google.android.horologist.compose.layout.ScalingLazyColumn
 import com.google.android.horologist.compose.layout.rememberColumnState
 
@@ -40,11 +41,7 @@ class MainActivity : FragmentActivity() {
     super.onCreate(savedInstanceState)
     setContent {
       WearAppTheme {
-        Scaffold(
-          timeText = {
-            TimeText()
-          },
-        ) {
+        AppScaffold {
           ScalingLazyColumn(
             columnState = rememberColumnState(),
             modifier = Modifier.fillMaxSize(),
@@ -68,7 +65,7 @@ class MainActivity : FragmentActivity() {
               ListItem(
                 label = "Show (Compose M2)",
                 onClick = {
-                  val intent = com.github.droibit.oss_licenses.ui.wear.compose.material.WearableOssLicensesActivity.createIntent(
+                  val intent = WearableMaterialOssLicensesActivity.createIntent(
                     this@MainActivity,
                     IgnoreLibraries,
                   )
@@ -80,7 +77,7 @@ class MainActivity : FragmentActivity() {
               ListItem(
                 label = "Show (Compose M3)",
                 onClick = {
-                  val intent = com.github.droibit.oss_licenses.ui.wear.compose.material3.WearableOssLicensesActivity.createIntent(
+                  val intent = WearableMaterial3OssLicensesActivity.createIntent(
                     this@MainActivity,
                     IgnoreLibraries,
                   )

@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.compose.material3.R
@@ -69,7 +70,9 @@ private fun OssLicenseList(
           onItemClick(license)
         },
       )
-      Divider()
+      HorizontalDivider(
+        modifier = Modifier.padding(horizontal = 16.dp),
+      )
     }
   }
 }
