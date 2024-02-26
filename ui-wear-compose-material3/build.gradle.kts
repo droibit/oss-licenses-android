@@ -43,6 +43,7 @@ dependencies {
   implementation(libs.bundles.androidx.wear.compose.navigation) {
     exclude(group = "androidx.wear.compose", module = "compose-material")
   }
+  implementation(libs.bundles.androidx.lifecycle.viewModel.compose)
 
   debugImplementation(libs.androidx.compose.ui.tooling)
   debugImplementation(libs.androidx.compose.ui.tooling.preview)

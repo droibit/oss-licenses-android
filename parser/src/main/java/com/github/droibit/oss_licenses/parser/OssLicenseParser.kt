@@ -96,4 +96,3 @@ class OssLicenseParser(
       .sortedBy { it.libraryName.uppercase() }
   }
 }
-

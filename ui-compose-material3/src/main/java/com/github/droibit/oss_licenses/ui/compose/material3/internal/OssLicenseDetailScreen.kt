@@ -20,8 +20,8 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 
 @Composable
 internal fun OssLicenseDetailScreen(
-  navController: NavController,
   license: OssLicense,
+  navController: NavController,
   modifier: Modifier = Modifier,
   scrollState: ScrollState = rememberScrollState(),
 ) {

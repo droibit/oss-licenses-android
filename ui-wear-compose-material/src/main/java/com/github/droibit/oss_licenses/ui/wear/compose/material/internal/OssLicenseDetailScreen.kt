@@ -48,7 +48,6 @@ fun OssLicenseDetailScreen(
           ),
         )
       },
-      modifier = modifier,
       listState = listState,
     )
   }

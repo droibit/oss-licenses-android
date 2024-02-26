@@ -11,7 +11,7 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 
 @WearPreviewDevices
 @Composable
-fun OssLicenseListPreview() {
+private fun OssLicenseListPreview() {
   MaterialTheme {
     Scaffold {
       OssLicenseListImpl(

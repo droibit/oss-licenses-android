@@ -32,13 +32,18 @@ subprojects {
           target("**/*.kt")
           targetExclude("$buildDir/**/*.kt")
           targetExclude("**/generated/**/*.kt")
-          // Spotless doesn't read .editorconfig yet: https://github.com/diffplug/spotless/issues/142
-          ktlint(libs.versions.ktlint.get()).editorConfigOverride(
-            mapOf(
-              "ktlint_function_naming_ignore_when_annotated_with" to "Composable, Test",
-              "ktlint_standard_package-name" to "disabled",
-            ),
-          )
+          ktlint(libs.versions.ktlint.get())
+            .editorConfigOverride(
+              mapOf(
+                "ktlint_function_naming_ignore_when_annotated_with" to "Composable, Test",
+                "ktlint_standard_package-name" to "disabled",
+              ),
+            )
+            .customRuleSets(
+              listOf(
+                libs.ktlint.compose.rules.get().toString(),
+              )
+            )
         }
 
         format("xml") {

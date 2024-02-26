@@ -11,21 +11,19 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.compose.material3.R
 import com.github.droibit.oss_licenses.ui.compose.navigation.navigateToDetail
-import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 
 @Composable
 internal fun OssLicenseListScreen(
+  licenses: State<List<OssLicense>>,
   navController: NavController,
   modifier: Modifier = Modifier,
-  viewModel: OssLicenseViewModel,
 ) {
   Scaffold(
     modifier = modifier,
@@ -40,7 +38,6 @@ internal fun OssLicenseListScreen(
       )
     },
   ) { innerPadding ->
-    val licenses by viewModel.licenses.collectAsState()
     OssLicenseList(
       licenses = licenses,
       modifier = Modifier
@@ -56,8 +53,8 @@ internal fun OssLicenseListScreen(
 @Composable
 private fun OssLicenseList(
   licenses: List<OssLicense>,
-  modifier: Modifier = Modifier,
   onItemClick: (OssLicense) -> Unit,
+  modifier: Modifier = Modifier,
 ) {
   LazyColumn(
     modifier = modifier,
@@ -79,9 +76,9 @@ private fun OssLicenseList(
 
 @Composable
 private fun OssLicenseItem(
-  modifier: Modifier = Modifier,
   license: OssLicense,
   onClick: () -> Unit,
+  modifier: Modifier = Modifier,
 ) {
   ListItem(
     headlineContent = {

@@ -46,6 +46,7 @@ dependencies {
   implementation(platform(libs.androidx.compose.bom))
   implementation(libs.androidx.compose.material3)
   implementation(libs.androidx.navigation.compose)
+  implementation(libs.bundles.androidx.lifecycle.viewModel.compose)
 
   debugImplementation(libs.androidx.compose.ui.tooling)
   debugImplementation(libs.androidx.compose.ui.tooling.preview)
