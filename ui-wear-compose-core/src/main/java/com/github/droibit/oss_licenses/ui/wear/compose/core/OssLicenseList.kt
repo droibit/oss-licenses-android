@@ -12,6 +12,7 @@ import androidx.wear.compose.foundation.lazy.items
 import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.foundation.rememberActiveFocusRequester
 import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 @OptIn(ExperimentalWearFoundationApi::class)

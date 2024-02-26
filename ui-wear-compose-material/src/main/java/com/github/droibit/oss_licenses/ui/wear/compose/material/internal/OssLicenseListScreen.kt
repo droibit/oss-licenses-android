@@ -4,7 +4,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.State
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -18,8 +17,8 @@ import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
 import com.github.droibit.oss_licenses.parser.OssLicense
-import com.github.droibit.oss_licenses.ui.compose.navigation.navigateToDetail
-import com.github.droibit.oss_licenses.ui.wear.compose.core.OssLicenseCollection
+import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
+import com.github.droibit.oss_licenses.ui.navigation.compose.navigateToDetail
 import com.github.droibit.oss_licenses.ui.wear.compose.core.OssLicenseList
 import com.github.droibit.oss_licenses.ui.wear.compose.material.R
 

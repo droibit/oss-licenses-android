@@ -17,8 +17,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 import com.github.droibit.oss_licenses.ui.compose.material3.R
-import com.github.droibit.oss_licenses.ui.compose.navigation.navigateToDetail
+import com.github.droibit.oss_licenses.ui.navigation.compose.navigateToDetail
 
 @Composable
 internal fun OssLicenseListScreen(

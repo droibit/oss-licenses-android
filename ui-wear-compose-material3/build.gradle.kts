@@ -33,9 +33,9 @@ android {
 }
 
 dependencies {
-  api(projects.uiWearComposeCore)
+  api(projects.uiComposeCore)
   api(projects.uiViewmodel)
-  api(projects.uiComposeNavigation)
+  api(projects.uiWearComposeCore)
 
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))

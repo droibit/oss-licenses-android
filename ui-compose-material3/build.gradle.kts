@@ -40,7 +40,7 @@ android {
 
 dependencies {
   api(projects.uiViewmodel)
-  api(projects.uiComposeNavigation)
+  api(projects.uiComposeCore)
 
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))

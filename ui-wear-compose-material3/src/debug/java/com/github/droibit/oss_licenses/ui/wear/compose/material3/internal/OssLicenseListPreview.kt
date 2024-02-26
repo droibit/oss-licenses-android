@@ -7,7 +7,7 @@ import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.ui.tooling.preview.WearPreviewDevices
 import com.github.droibit.oss_licenses.parser.OssLicense
-import com.github.droibit.oss_licenses.ui.wear.compose.core.OssLicenseCollection
+import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 
 @WearPreviewDevices
 @Composable

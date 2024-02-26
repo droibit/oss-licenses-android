@@ -25,6 +25,8 @@ android {
 }
 
 dependencies {
+  implementation(projects.parser)
+
   implementation(libs.androidx.navigation.compose)
 }
 

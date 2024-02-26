@@ -8,7 +8,7 @@ import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.ui.tooling.preview.WearPreviewDevices
 import com.github.droibit.oss_licenses.parser.OssLicense
-import com.github.droibit.oss_licenses.ui.wear.compose.core.OssLicenseCollection
+import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 
 @WearPreviewDevices
 @Composable

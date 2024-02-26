@@ -20,7 +20,7 @@ include(
   ":sample-mobile",
   ":sample-wear",
   ":ui-compose-material3",
-  ":ui-compose-navigation",
+  ":ui-compose-core",
   ":ui-viewmodel",
   ":ui-wear",
   ":ui-wear-compose-core",

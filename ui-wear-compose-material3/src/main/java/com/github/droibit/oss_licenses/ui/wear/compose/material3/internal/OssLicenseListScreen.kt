@@ -16,8 +16,8 @@ import androidx.wear.compose.material3.ListHeader
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
 import com.github.droibit.oss_licenses.parser.OssLicense
-import com.github.droibit.oss_licenses.ui.compose.navigation.navigateToDetail
-import com.github.droibit.oss_licenses.ui.wear.compose.core.OssLicenseCollection
+import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
+import com.github.droibit.oss_licenses.ui.navigation.compose.navigateToDetail
 import com.github.droibit.oss_licenses.ui.wear.compose.core.OssLicenseList
 import com.github.droibit.oss_licenses.ui.wear.compose.material3.R
 

@@ -24,7 +24,8 @@ android {
 }
 
 dependencies {
-  implementation(projects.uiViewmodel)
+  implementation(projects.parser)
+  implementation(projects.uiComposeCore)
 
   implementation(platform(libs.androidx.compose.bom))
   implementation(libs.androidx.wear.compose.foundation)
