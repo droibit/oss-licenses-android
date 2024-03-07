@@ -30,7 +30,7 @@ subprojects {
       spotless {
         kotlin {
           target("**/*.kt")
-          targetExclude("$buildDir/**/*.kt")
+          targetExclude("${layout.buildDirectory}/**/*.kt")
           targetExclude("**/generated/**/*.kt")
           ktlint(libs.versions.ktlint.get())
             .editorConfigOverride(
