@@ -1,0 +1,34 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    ":dependencyDashboard",
+    ":prConcurrentLimit10",
+    ":timezone(Asia/Tokyo)"
+  ],
+  "enabledManagers": [
+    "gradle"
+  ],
+  "labels": [
+    "renovate"
+  ],
+  "assignees": [
+    "droibit"
+  ],
+  "packageRules": [
+    {
+      "groupName": "Gradle",
+      "matchPackageNames": [
+        "gradle",
+      ],
+    },
+    {
+      // Compose compiler is tightly coupled to Kotlin version.
+      "groupName": "Kotlin/Compose",
+      "matchPackagePrefixes": [
+        "androidx.compose.compiler:compiler",
+        "org.jetbrains.kotlin:kotlin-gradle-plugin",
+      ],
+    },
+  ],
+}
