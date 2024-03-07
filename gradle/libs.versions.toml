@@ -44,7 +44,7 @@ playServices-wearable = { module = "com.google.android.gms:play-services-wearabl
 dagger = { module = "com.google.dagger:dagger", version = "2.50" }
 okio = { module = "com.squareup.okio:okio", version = "3.7.0" }
 junit = { module = "junit:junit", version = "4.13.2" }
-truth = { module = "com.google.truth:truth", version = "1.4.0" }
+truth = { module = "com.google.truth:truth", version = "1.4.2" }
 mockito-kotlin = { module = "org.mockito.kotlin:mockito-kotlin", version = "5.2.1" }
 ktlint-compose-rules = { module = "io.nlopez.compose.rules:ktlint", version = "0.3.11" }
 
