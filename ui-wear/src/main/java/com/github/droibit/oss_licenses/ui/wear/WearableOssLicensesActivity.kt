@@ -32,10 +32,10 @@ class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_
 
   companion object {
     /**
-     * Creates an [Intent] to start the [OssLicensesActivity].
+     * Creates an [Intent] to start the [WearableOssLicensesActivity].
      *
      * @param ignoreLibraries A set of library names to be ignored when displaying the licenses. Default is an empty set.
-     * @return An [Intent] that can be used to start the [OssLicensesActivity].
+     * @return An [Intent] that can be used to start the [WearableOssLicensesActivity].
      */
     @JvmStatic
     @JvmOverloads

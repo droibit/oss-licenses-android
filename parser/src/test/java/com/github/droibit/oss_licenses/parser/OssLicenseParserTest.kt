@@ -14,6 +14,7 @@ class OssLicenseParserTest {
   @get:Rule
   val mockitoRule: MockitoRule = MockitoJUnit.rule()
 
+  @Suppress("unused")
   @Mock
   private lateinit var context: Context
 
