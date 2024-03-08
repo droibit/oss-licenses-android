@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.sample.theme
+package com.github.droibit.oss_licenses.sample.ui
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color

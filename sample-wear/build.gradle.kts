@@ -58,6 +58,7 @@ dependencies {
   implementation(libs.bundles.androidx.wear.compose.material)
   implementation(libs.bundles.androidx.wear.compose.material3)
   implementation(libs.horologist.compose.layout)
+  implementation(libs.horologist.compose.material)
 
   implementation(libs.androidx.fragment)
   implementation(libs.androidx.lifecycle.runtime)

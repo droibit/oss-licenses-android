@@ -2,23 +2,15 @@ package com.github.droibit.oss_licenses.sample
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.fragment.app.FragmentActivity
-import androidx.wear.compose.material.Chip
-import androidx.wear.compose.material.ChipDefaults
-import androidx.wear.compose.material.Text
-import com.github.droibit.oss_licenses.sample.theme.WearAppTheme
+import com.github.droibit.oss_licenses.sample.ui.UiComponentListScreen
+import com.github.droibit.oss_licenses.sample.ui.UiComponentType
+import com.github.droibit.oss_licenses.sample.ui.WearAppTheme
 import com.github.droibit.oss_licenses.ui.wear.WearableOssLicensesActivity
-import com.github.droibit.oss_licenses.ui.wear.compose.material.WearableOssLicensesActivity as WearableMaterialOssLicensesActivity
-import com.github.droibit.oss_licenses.ui.wear.compose.material3.WearableOssLicensesActivity as WearableMaterial3OssLicensesActivity
+import com.github.droibit.oss_licenses.ui.wear.compose.material.WearableOssLicensesActivity as WearableM2OssLicensesActivity
+import com.github.droibit.oss_licenses.ui.wear.compose.material3.WearableOssLicensesActivity as WearableM3OssLicensesActivity
 import com.google.android.horologist.annotations.ExperimentalHorologistApi
 import com.google.android.horologist.compose.layout.AppScaffold
-import com.google.android.horologist.compose.layout.ScalingLazyColumn
-import com.google.android.horologist.compose.layout.rememberColumnState
 
 private val IgnoreLibraries = setOf(
   "kotlinx-coroutines-bom",
@@ -42,68 +34,31 @@ class MainActivity : FragmentActivity() {
     setContent {
       WearAppTheme {
         AppScaffold {
-          ScalingLazyColumn(
-            columnState = rememberColumnState(),
-            modifier = Modifier.fillMaxSize(),
-          ) {
-            item {
-              Spacer(modifier = Modifier.fillMaxSize())
-            }
-            item {
-              ListItem(
-                label = "Show (Android View)",
-                onClick = {
-                  val intent = WearableOssLicensesActivity.createIntent(
-                    this@MainActivity,
-                    IgnoreLibraries,
-                  )
-                  startActivity(intent)
-                },
-              )
-            }
-            item {
-              ListItem(
-                label = "Show (Compose M2)",
-                onClick = {
-                  val intent = WearableMaterialOssLicensesActivity.createIntent(
-                    this@MainActivity,
-                    IgnoreLibraries,
-                  )
-                  startActivity(intent)
-                },
-              )
-            }
-            item {
-              ListItem(
-                label = "Show (Compose M3)",
-                onClick = {
-                  val intent = WearableMaterial3OssLicensesActivity.createIntent(
-                    this@MainActivity,
-                    IgnoreLibraries,
-                  )
-                  startActivity(intent)
-                },
-              )
-            }
-          }
+          UiComponentListScreen(
+            onItemClick = this@MainActivity::onItemClick,
+          )
         }
       }
     }
   }
-}
 
-@Composable
-private fun ListItem(
-  label: String,
-  onClick: () -> Unit,
-  modifier: Modifier = Modifier,
-) {
-  Chip(
-    label = {
-      Text(text = label)
-    },
-    colors = ChipDefaults.secondaryChipColors(),
-    onClick = onClick,
-    modifier = modifier.fillMaxWidth(),
-  )
+  private fun onItemClick(uiType: UiComponentType) {
+    val intent = when (uiType) {
+      UiComponentType.ANDROID_VIEW -> WearableOssLicensesActivity.createIntent(
+        this,
+        IgnoreLibraries,
+      )
+
+      UiComponentType.COMPOSE_M2 -> WearableM2OssLicensesActivity.createIntent(
+        this,
+        IgnoreLibraries,
+      )
+
+      UiComponentType.COMPOSE_M3 -> WearableM3OssLicensesActivity.createIntent(
+        this,
+        IgnoreLibraries,
+      )
+    }
+    startActivity(intent)
+  }
 }
