@@ -10,7 +10,7 @@ android {
 
   defaultConfig {
     applicationId = "com.github.droibit.oss_licenses.sample"
-    minSdk = 25
+    minSdk = 26
     targetSdk = libs.versions.targetSdk.get().toInt()
     versionCode = 1
     versionName = "1.0.0"
