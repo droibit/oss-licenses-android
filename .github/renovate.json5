@@ -17,17 +17,21 @@
   ],
   "packageRules": [
     {
-      "groupName": "Gradle",
+      "groupName": "AGP/Gradle",
       "matchPackageNames": [
         "gradle",
+        "com.android.application",
+        "com.android.library",
       ],
     },
     {
       // Compose compiler is tightly coupled to Kotlin version.
       "groupName": "Kotlin/Compose",
       "matchPackagePrefixes": [
-        "androidx.compose.compiler:compiler",
-        "org.jetbrains.kotlin:kotlin-gradle-plugin",
+        "androidx.compose.compiler",
+      ],
+      "matchPackageNames": [
+        "org.jetbrains.kotlin.android",
       ],
     },
   ],
