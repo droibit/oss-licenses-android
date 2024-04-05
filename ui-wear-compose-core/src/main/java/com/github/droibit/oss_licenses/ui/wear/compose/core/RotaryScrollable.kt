@@ -12,6 +12,8 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.input.rotary.onRotaryScrollEvent
 import kotlinx.coroutines.launch
 
+// TODO: Migrate to `androidx.wear.compose:compose-foundation`.
+@Suppress("ktlint:compose:modifier-composed-check")
 internal fun Modifier.rotaryScrollable(
   focusRequester: FocusRequester,
   scrollableState: ScrollableState,
