@@ -85,7 +85,7 @@ internal fun OssLicenseItem(
     onClick = onClick,
     modifier = modifier.fillMaxWidth(),
     colors = ButtonDefaults.buttonColors(
-      containerColor = MaterialTheme.colorScheme.surface,
+      containerColor = MaterialTheme.colorScheme.surfaceContainer,
       contentColor = MaterialTheme.colorScheme.onSurface,
     ),
     label = {
