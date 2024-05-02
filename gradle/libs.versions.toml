@@ -24,7 +24,7 @@ androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
 androidx-compose-compiler = { module = "androidx.compose.compiler:compiler", version = "1.5.12" }
 androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
-androidx-fragment = { module = "androidx.fragment:fragment-ktx", version = "1.6.2" }
+androidx-fragment = { module = "androidx.fragment:fragment-ktx", version = "1.7.0" }
 androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
