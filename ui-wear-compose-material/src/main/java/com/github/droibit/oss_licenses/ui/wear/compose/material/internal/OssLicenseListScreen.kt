@@ -3,11 +3,9 @@ package com.github.droibit.oss_licenses.ui.wear.compose.material.internal
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.navigation.NavController
 import androidx.wear.compose.foundation.lazy.ScalingLazyListState
 import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.material.Chip
@@ -18,16 +16,15 @@ import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
-import com.github.droibit.oss_licenses.ui.navigation.compose.navigateToDetail
 import com.github.droibit.oss_licenses.ui.wear.compose.core.OssLicenseList
 import com.github.droibit.oss_licenses.ui.wear.compose.material.R
 
 @Composable
 internal fun OssLicenseListScreen(
-  licenses: State<List<OssLicense>>,
-  navController: NavController,
+  licenses: OssLicenseCollection,
   modifier: Modifier = Modifier,
   listState: ScalingLazyListState = rememberScalingLazyListState(),
+  onNavigateToDetail: (OssLicense) -> Unit = {},
 ) {
   Scaffold(
     modifier = modifier,
@@ -36,12 +33,10 @@ internal fun OssLicenseListScreen(
     },
   ) {
     OssLicenseListImpl(
-      licenses = OssLicenseCollection(licenses.value),
+      licenses = licenses,
       modifier = Modifier.fillMaxSize(),
       listState = listState,
-      onItemClick = { license ->
-        navController.navigateToDetail(license.libraryName)
-      },
+      onItemClick = onNavigateToDetail,
     )
   }
 }

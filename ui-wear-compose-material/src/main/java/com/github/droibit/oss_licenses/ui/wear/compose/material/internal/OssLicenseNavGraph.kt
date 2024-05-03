@@ -2,6 +2,7 @@ package com.github.droibit.oss_licenses.ui.wear.compose.material.internal
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -9,8 +10,10 @@ import androidx.navigation.NavHostController
 import androidx.wear.compose.navigation.SwipeDismissableNavHost
 import androidx.wear.compose.navigation.composable
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
+import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 import com.github.droibit.oss_licenses.ui.navigation.compose.Routes.LicenseDetail
 import com.github.droibit.oss_licenses.ui.navigation.compose.Routes.LicenseList
+import com.github.droibit.oss_licenses.ui.navigation.compose.navigateToDetail
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 
 @Composable
@@ -29,9 +32,12 @@ internal fun OssLicenseNavGraph(
     modifier = modifier,
   ) {
     composable(LicenseList.ROUTE) {
+      val licenses by viewModel.licenses.collectAsStateWithLifecycle()
       OssLicenseListScreen(
-        licenses = viewModel.licenses.collectAsStateWithLifecycle(),
-        navController = navController,
+        licenses = OssLicenseCollection(licenses),
+        onNavigateToDetail = { license ->
+          navController.navigateToDetail(license.libraryName)
+        },
       )
     }
 
