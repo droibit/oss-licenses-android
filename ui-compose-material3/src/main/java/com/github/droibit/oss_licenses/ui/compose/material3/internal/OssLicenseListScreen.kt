@@ -59,13 +59,11 @@ private fun OssLicenseList(
   ) {
     items(
       licenses(),
-      key = { it.libraryName },
+      key = OssLicense::libraryName,
     ) { license ->
       OssLicenseItem(
         license = license,
-        onClick = {
-          onItemClick(license)
-        },
+        onClick = onItemClick,
       )
       HorizontalDivider(
         modifier = Modifier.padding(horizontal = 16.dp),
@@ -77,13 +75,17 @@ private fun OssLicenseList(
 @Composable
 private fun OssLicenseItem(
   license: OssLicense,
-  onClick: () -> Unit,
   modifier: Modifier = Modifier,
+  onClick: (OssLicense) -> Unit = {},
 ) {
   ListItem(
     headlineContent = {
       Text(text = license.libraryName)
     },
-    modifier = modifier.clickable(onClick = onClick),
+    modifier = modifier.clickable(
+      onClick = {
+        onClick(license)
+      },
+    ),
   )
 }

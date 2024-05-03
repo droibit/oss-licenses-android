@@ -44,8 +44,8 @@ internal fun OssLicenseListScreen(
 internal fun OssLicenseListImpl(
   licenses: OssLicenseCollection,
   listState: ScalingLazyListState,
-  onItemClick: (OssLicense) -> Unit,
   modifier: Modifier = Modifier,
+  onItemClick: (OssLicense) -> Unit = {},
 ) {
   OssLicenseList(
     licenses = licenses,
@@ -60,9 +60,7 @@ internal fun OssLicenseListImpl(
     listItem = { license ->
       OssLicenseItem(
         license = license,
-        onClick = {
-          onItemClick(license)
-        },
+        onClick = onItemClick,
       )
     },
     modifier = modifier,
@@ -74,10 +72,12 @@ internal fun OssLicenseListImpl(
 internal fun OssLicenseItem(
   license: OssLicense,
   modifier: Modifier = Modifier,
-  onClick: () -> Unit = {},
+  onClick: (OssLicense) -> Unit = {},
 ) {
   Button(
-    onClick = onClick,
+    onClick = {
+      onClick(license)
+    },
     modifier = modifier.fillMaxWidth(),
     colors = ButtonDefaults.buttonColors(
       containerColor = MaterialTheme.colorScheme.surfaceContainer,

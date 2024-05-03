@@ -37,9 +37,8 @@ fun OssLicenseList(
     }
     items(
       licenses(),
-      key = { it.libraryName },
-    ) { license ->
-      listItem(license)
-    }
+      key = OssLicense::libraryName,
+      itemContent = listItem,
+    )
   }
 }

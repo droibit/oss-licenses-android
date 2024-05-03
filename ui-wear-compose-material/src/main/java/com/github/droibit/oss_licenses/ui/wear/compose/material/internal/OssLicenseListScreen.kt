@@ -61,9 +61,7 @@ internal fun OssLicenseListImpl(
     listItem = { license ->
       OssLicenseItem(
         license = license,
-        onClick = {
-          onItemClick(license)
-        },
+        onClick = onItemClick,
       )
     },
     modifier = modifier,
@@ -75,10 +73,12 @@ internal fun OssLicenseListImpl(
 internal fun OssLicenseItem(
   license: OssLicense,
   modifier: Modifier = Modifier,
-  onClick: () -> Unit = {},
+  onClick: (OssLicense) -> Unit = {},
 ) {
   Chip(
-    onClick = onClick,
+    onClick = {
+      onClick(license)
+    },
     label = {
       Text(text = license.libraryName)
     },
