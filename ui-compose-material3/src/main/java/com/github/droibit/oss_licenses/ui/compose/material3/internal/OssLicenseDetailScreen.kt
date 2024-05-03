@@ -15,15 +15,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.github.droibit.oss_licenses.parser.OssLicense
 
 @Composable
 internal fun OssLicenseDetailScreen(
   license: OssLicense,
-  navController: NavController,
   modifier: Modifier = Modifier,
   scrollState: ScrollState = rememberScrollState(),
+  onNavigateBack: () -> Unit = {},
 ) {
   Scaffold(
     modifier = modifier,
@@ -37,7 +36,7 @@ internal fun OssLicenseDetailScreen(
           )
         },
         navigationIcon = {
-          BackNavigationButton(navController)
+          BackNavigationButton(onClick = onNavigateBack)
         },
       )
     },

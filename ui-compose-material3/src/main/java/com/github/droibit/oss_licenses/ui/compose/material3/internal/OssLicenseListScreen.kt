@@ -11,21 +11,19 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.State
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 import com.github.droibit.oss_licenses.ui.compose.material3.R
-import com.github.droibit.oss_licenses.ui.navigation.compose.navigateToDetail
 
 @Composable
 internal fun OssLicenseListScreen(
-  licenses: State<List<OssLicense>>,
-  navController: NavController,
+  licenses: OssLicenseCollection,
   modifier: Modifier = Modifier,
+  onNavigateBack: () -> Unit = {},
+  onNavigateToDetail: (OssLicense) -> Unit = {},
 ) {
   Scaffold(
     modifier = modifier,
@@ -35,19 +33,17 @@ internal fun OssLicenseListScreen(
           Text(text = stringResource(id = R.string.oss_licenses_title))
         },
         navigationIcon = {
-          BackNavigationButton(navController)
+          BackNavigationButton(onClick = onNavigateBack)
         },
       )
     },
   ) { innerPadding ->
     OssLicenseList(
-      licenses = OssLicenseCollection(licenses.value),
+      licenses = licenses,
       modifier = Modifier
         .padding(innerPadding)
         .fillMaxSize(),
-      onItemClick = { license ->
-        navController.navigateToDetail(license.libraryName)
-      },
+      onItemClick = onNavigateToDetail,
     )
   }
 }
