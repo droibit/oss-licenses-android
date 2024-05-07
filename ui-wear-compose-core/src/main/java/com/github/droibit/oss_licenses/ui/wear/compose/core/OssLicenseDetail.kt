@@ -25,11 +25,11 @@ import kotlin.math.sqrt
 @Composable
 fun OssLicenseDetail(
   license: OssLicense,
-  header: @Composable LazyItemScope.() -> Unit,
-  content: @Composable LazyItemScope.(OssLicense) -> Unit,
   modifier: Modifier = Modifier,
   listState: LazyListState = rememberLazyListState(),
   focusRequester: FocusRequester = rememberActiveFocusRequester(),
+  header: @Composable LazyItemScope.() -> Unit = {},
+  content: @Composable LazyItemScope.(OssLicense) -> Unit,
 ) {
   val configuration = LocalConfiguration.current
   val inset = remember(configuration) {
