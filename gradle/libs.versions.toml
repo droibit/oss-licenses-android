@@ -14,7 +14,7 @@ targetSdk = "34"
 plugin-ossLicense = { module = "com.google.android.gms:oss-licenses-plugin", version = "0.10.6" }
 
 # other dependencies.
-kotlin-coroutines-bom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version = "1.8.0" }
+kotlin-coroutines-bom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version = "1.8.1" }
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core" }
 androidx-annotation = { module = "androidx.annotation:annotation", version = "1.7.1" }
 androidx-core = { module = "androidx.core:core", version = "1.13.1" }
