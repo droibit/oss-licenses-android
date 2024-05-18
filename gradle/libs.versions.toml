@@ -35,7 +35,7 @@ androidx-recyclerView = { module = "androidx.recyclerview:recyclerview", version
 androidx-wear = { module = "androidx.wear:wear", version = "1.3.0" }
 androidx-wear-compose-foundation = { module = "androidx.wear.compose:compose-foundation", version.ref = "androidx-wear-compose" }
 androidx-wear-compose-material = { module = "androidx.wear.compose:compose-material", version.ref = "androidx-wear-compose" }
-androidx-wear-compose-material3 = { module = "androidx.wear.compose:compose-material3", version = "1.0.0-alpha22" }
+androidx-wear-compose-material3 = { module = "androidx.wear.compose:compose-material3", version = "1.0.0-alpha23" }
 androidx-wear-compose-navigation = { module = "androidx.wear.compose:compose-navigation", version.ref = "androidx-wear-compose" }
 androidx-wear-compose-ui-tooling = { module = "androidx.wear.compose:compose-ui-tooling", version.ref = "androidx-wear-compose" }
 horologist-compose-layout = { module = "com.google.android.horologist:horologist-compose-layout", version.ref = "horologist" }
