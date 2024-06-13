@@ -24,15 +24,5 @@
         "com.android.library",
       ],
     },
-    {
-      // Compose compiler is tightly coupled to Kotlin version.
-      "groupName": "Kotlin/Compose",
-      "matchPackagePrefixes": [
-        "androidx.compose.compiler",
-      ],
-      "matchPackageNames": [
-        "org.jetbrains.kotlin.android",
-      ],
-    },
   ],
 }

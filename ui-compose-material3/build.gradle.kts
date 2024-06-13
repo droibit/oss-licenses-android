@@ -1,6 +1,7 @@
 plugins {
-  id("com.android.library")
-  id("kotlin-android")
+  alias(libs.plugins.android.library)
+  alias(libs.plugins.kotlin)
+  alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -15,10 +16,6 @@ android {
 
   buildFeatures {
     compose = true
-  }
-
-  composeOptions {
-    kotlinCompilerExtensionVersion = libs.androidx.compose.compiler.get().version
   }
 
   kotlinOptions {

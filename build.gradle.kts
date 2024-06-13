@@ -1,6 +1,7 @@
 import com.android.build.gradle.BaseExtension
 import com.android.build.gradle.BasePlugin
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 buildscript {
   dependencies {
@@ -12,6 +13,7 @@ plugins {
   alias(libs.plugins.android.application) apply false
   alias(libs.plugins.android.library) apply false
   alias(libs.plugins.kotlin) apply false
+  alias(libs.plugins.compose.compiler) apply false
   alias(libs.plugins.spotless)
 }
 
@@ -57,9 +59,9 @@ subprojects {
       }
     }
 
-    tasks.withType(KotlinCompile::class) {
-      kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_17.toString()
+    tasks.withType<KotlinJvmCompile>().configureEach {
+      compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_17)
       }
     }
   }

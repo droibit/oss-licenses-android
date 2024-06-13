@@ -1,7 +1,7 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
 plugins {
   alias(libs.plugins.android.library)
   alias(libs.plugins.kotlin)
+  alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -16,10 +16,6 @@ android {
 
   buildFeatures {
     compose = true
-  }
-
-  composeOptions {
-    kotlinCompilerExtensionVersion = libs.androidx.compose.compiler.get().version
   }
 }
 
