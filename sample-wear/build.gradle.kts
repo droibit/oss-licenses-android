@@ -1,6 +1,7 @@
 plugins {
-  id("com.android.application")
-  id("kotlin-android")
+  alias(libs.plugins.android.application)
+  alias(libs.plugins.kotlin)
+  alias(libs.plugins.compose.compiler)
   id("com.google.android.gms.oss-licenses-plugin")
 }
 
@@ -33,10 +34,6 @@ android {
   buildFeatures {
     compose = true
     buildConfig = true
-  }
-
-  composeOptions {
-    kotlinCompilerExtensionVersion = libs.androidx.compose.compiler.get().version
   }
 
   kotlinOptions {

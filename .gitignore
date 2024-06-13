@@ -19,6 +19,9 @@ projectFilesBackup/
 /.gradle
 /build
 
+# Kotlin files
+/.kotlin
+
 # Android app
 *.apk
 *.aab
