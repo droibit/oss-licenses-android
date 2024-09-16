@@ -17,6 +17,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.foundation.ExperimentalWearFoundationApi
 import androidx.wear.compose.foundation.rememberActiveFocusRequester
+import androidx.wear.compose.foundation.rotary.RotaryScrollableDefaults
+import androidx.wear.compose.foundation.rotary.rotaryScrollable
 import com.github.droibit.oss_licenses.parser.OssLicense
 import kotlin.math.sqrt
 
@@ -46,7 +48,13 @@ fun OssLicenseDetail(
   LazyColumn(
     modifier = modifier
       .fillMaxSize()
-      .rotaryScrollable(focusRequester, listState),
+      .rotaryScrollable(
+        RotaryScrollableDefaults.behavior(
+          listState,
+          hapticFeedbackEnabled = false,
+        ),
+        focusRequester,
+      ),
     horizontalAlignment = Alignment.CenterHorizontally,
     state = listState,
     contentPadding = PaddingValues(inset),

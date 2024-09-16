@@ -11,6 +11,8 @@ import androidx.wear.compose.foundation.lazy.ScalingLazyListState
 import androidx.wear.compose.foundation.lazy.items
 import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.foundation.rememberActiveFocusRequester
+import androidx.wear.compose.foundation.rotary.RotaryScrollableDefaults
+import androidx.wear.compose.foundation.rotary.rotaryScrollable
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 
@@ -27,7 +29,13 @@ fun OssLicenseList(
 ) {
   ScalingLazyColumn(
     modifier = modifier
-      .rotaryScrollable(focusRequester, listState),
+      .rotaryScrollable(
+        RotaryScrollableDefaults.behavior(
+          listState,
+          hapticFeedbackEnabled = false,
+        ),
+        focusRequester,
+      ),
     state = listState,
   ) {
     if (licenses().isNotEmpty()) {
