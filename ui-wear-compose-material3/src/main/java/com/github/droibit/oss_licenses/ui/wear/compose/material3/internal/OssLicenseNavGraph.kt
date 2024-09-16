@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
+import androidx.wear.compose.material3.AppScaffold
 import androidx.wear.compose.navigation.SwipeDismissableNavHost
 import androidx.wear.compose.navigation.composable
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
@@ -26,29 +27,31 @@ internal fun OssLicenseNavGraph(
     viewModel.ensureLicenses()
   }
 
-  SwipeDismissableNavHost(
-    navController = navController,
-    startDestination = LicenseList.ROUTE,
-    modifier = modifier,
-  ) {
-    composable(LicenseList.ROUTE) {
-      val licenses by viewModel.licenses.collectAsStateWithLifecycle()
-      OssLicenseListScreen(
-        licenses = OssLicenseCollection(licenses),
-        onNavigateToDetail = { license ->
-          navController.navigateToDetail(license.libraryName)
-        },
-      )
-    }
-
-    composable(
-      route = LicenseDetail.ROUTE,
-      arguments = LicenseDetail.arguments,
+  AppScaffold {
+    SwipeDismissableNavHost(
+      navController = navController,
+      startDestination = LicenseList.ROUTE,
+      modifier = modifier,
     ) {
-      val libraryName = LicenseDetail.getLibraryName(requireNotNull(it.arguments))
-      OssLicenseDetailScreen(
-        license = viewModel.getLicense(libraryName),
-      )
+      composable(LicenseList.ROUTE) {
+        val licenses by viewModel.licenses.collectAsStateWithLifecycle()
+        OssLicenseListScreen(
+          licenses = OssLicenseCollection(licenses),
+          onNavigateToDetail = { license ->
+            navController.navigateToDetail(license.libraryName)
+          },
+        )
+      }
+
+      composable(
+        route = LicenseDetail.ROUTE,
+        arguments = LicenseDetail.arguments,
+      ) {
+        val libraryName = LicenseDetail.getLibraryName(requireNotNull(it.arguments))
+        OssLicenseDetailScreen(
+          license = viewModel.getLicense(libraryName),
+        )
+      }
     }
   }
 }
