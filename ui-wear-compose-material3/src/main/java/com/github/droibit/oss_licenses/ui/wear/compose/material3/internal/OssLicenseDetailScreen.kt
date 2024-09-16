@@ -10,6 +10,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.wear.compose.material3.ListHeader
 import androidx.wear.compose.material3.MaterialTheme
+import androidx.wear.compose.material3.ScreenScaffold
 import androidx.wear.compose.material3.Text
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.wear.compose.core.OssLicenseDetail
@@ -20,11 +21,9 @@ fun OssLicenseDetailScreen(
   modifier: Modifier = Modifier,
   listState: LazyListState = rememberLazyListState(),
 ) {
-  Scaffold(
+  ScreenScaffold(
+    scrollState = listState,
     modifier = modifier,
-    // positionIndicator = {
-    //   PositionIndicator(lazyListState = listState)
-    // },
   ) {
     OssLicenseDetail(
       license = license,

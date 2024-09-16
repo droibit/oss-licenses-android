@@ -12,6 +12,7 @@ import androidx.wear.compose.material3.Button
 import androidx.wear.compose.material3.ButtonDefaults
 import androidx.wear.compose.material3.ListHeader
 import androidx.wear.compose.material3.MaterialTheme
+import androidx.wear.compose.material3.ScreenScaffold
 import androidx.wear.compose.material3.Text
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
@@ -25,11 +26,9 @@ internal fun OssLicenseListScreen(
   listState: ScalingLazyListState = rememberScalingLazyListState(),
   onNavigateToDetail: (OssLicense) -> Unit = {},
 ) {
-  Scaffold(
+  ScreenScaffold(
+    scrollState = listState,
     modifier = modifier,
-    // positionIndicator = {
-    //   PositionIndicator(scalingLazyListState = listState)
-    // },
   ) {
     OssLicenseListImpl(
       licenses = licenses,
@@ -84,7 +83,10 @@ internal fun OssLicenseItem(
       contentColor = MaterialTheme.colorScheme.onSurface,
     ),
     label = {
-      Text(text = license.libraryName)
+      Text(
+        text = license.libraryName,
+        textAlign = TextAlign.Start,
+      )
     },
   )
 }
