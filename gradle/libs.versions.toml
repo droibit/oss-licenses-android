@@ -6,7 +6,7 @@ androidx-navigation = "2.8.0"
 androidx-wear-compose = "1.4.0"
 horologist = "0.5.24"
 ktlint = "1.0.1"
-compileSdk = "34"
+compileSdk = "35"
 targetSdk = "34"
 
 [libraries]
