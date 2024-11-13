@@ -2,7 +2,7 @@
 android-gradle-plugin = "8.7.2"
 kotlin = "2.0.21"
 androidx-lifecycle = "2.8.7"
-androidx-navigation = "2.8.3"
+androidx-navigation = "2.8.4"
 androidx-wear-compose = "1.4.0"
 horologist = "0.6.20"
 ktlint = "1.0.1"
