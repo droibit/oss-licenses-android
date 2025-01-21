@@ -19,7 +19,7 @@ class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_
     super.onCreate(savedInstanceState)
 
     if (savedInstanceState == null) {
-      viewModel.ensureLicenses()
+      viewModel.ensureLicenses(this)
 
       supportFragmentManager.beginTransaction()
         .replace(

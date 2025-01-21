@@ -1,11 +1,11 @@
 package com.github.droibit.oss_licenses.ui.viewmodel
 
-import android.app.Application
+import android.content.Context
 import androidx.annotation.RestrictTo
 import androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP
 import androidx.annotation.UiThread
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.parser.OssLicenseParser
@@ -18,35 +18,32 @@ import kotlinx.coroutines.withContext
 
 @RestrictTo(LIBRARY_GROUP)
 class OssLicenseViewModel(
-  application: Application,
   private val parser: OssLicenseParser,
   private val ignoreLibraries: Set<String>,
   private val dispatcher: CoroutineDispatcher,
   private val licensesSink: MutableStateFlow<List<OssLicense>>,
-) : AndroidViewModel(application) {
+) : ViewModel() {
 
   val licenses: StateFlow<List<OssLicense>>
     get() = licensesSink
 
   @Suppress("unused")
   constructor(
-    application: Application,
     savedStateHandle: SavedStateHandle,
   ) : this(
-    application,
-    OssLicenseParser(application),
+    OssLicenseParser(),
     savedStateHandle.getStringSet(EXTRA_IGNORE_LIBRARIES),
     Dispatchers.IO,
     licensesSink = MutableStateFlow(emptyList()),
   )
 
-  fun ensureLicenses() {
+  fun ensureLicenses(context: Context) {
     viewModelScope.launch {
       if (licensesSink.value.isNotEmpty()) {
         return@launch
       }
       licensesSink.value = withContext(dispatcher) {
-        parser.parse(ignoreLibraries)
+        parser.parse(context, ignoreLibraries)
       }
     }
   }
