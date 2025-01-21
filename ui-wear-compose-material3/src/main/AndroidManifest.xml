@@ -4,6 +4,13 @@
   <application>
     <activity
       android:name=".WearableOssLicensesActivity"
-      android:exported="false" />
+      android:taskAffinity=".licenses"
+      android:theme="@android:style/Theme.DeviceDefault"
+      android:exported="true">
+      <intent-filter>
+        <action android:name="com.google.wear.ACTION_SHOW_LICENSE" />
+        <category android:name="android.intent.category.DEFAULT" />
+      </intent-filter>
+    </activity>
   </application>
 </manifest>
