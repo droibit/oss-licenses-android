@@ -6,9 +6,6 @@
     ":prConcurrentLimit10",
     ":timezone(Asia/Tokyo)"
   ],
-  "enabledManagers": [
-    "gradle"
-  ],
   "labels": [
     "renovate"
   ],
