@@ -27,7 +27,10 @@ internal fun OssLicenseNavGraph(
     viewModel.ensureLicenses()
   }
 
-  AppScaffold {
+  AppScaffold(
+    // Disable time display.
+    timeText = {},
+  ) {
     SwipeDismissableNavHost(
       navController = navController,
       startDestination = LicenseList.ROUTE,
