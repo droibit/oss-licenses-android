@@ -11,9 +11,9 @@ allprojects {
   repositories {
     ...
     maven {
-        url = URI("https://jitpack.io")
+        url 'https://jitpack.io'
         content {
-            includeGroup("com.github.droibit.oss-licenses-android")
+            includeGroup 'com.github.droibit.oss-licenses-android'
         }
     }
   }
