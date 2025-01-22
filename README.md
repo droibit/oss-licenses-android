@@ -10,7 +10,12 @@ Add the following code to your build.gradle.
 allprojects {
   repositories {
     ...
-    maven { url 'https://jitpack.io' }
+    maven {
+        url 'https://jitpack.io'
+        content {
+            includeGroup 'com.github.droibit.oss-licenses-android'
+        }
+    }
   }
 }
 
