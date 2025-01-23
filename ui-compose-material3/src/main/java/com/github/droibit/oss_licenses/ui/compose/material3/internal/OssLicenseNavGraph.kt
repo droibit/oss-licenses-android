@@ -1,6 +1,6 @@
 package com.github.droibit.oss_licenses.ui.compose.material3.internal
 
-import android.app.Activity
+import androidx.activity.compose.LocalActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -24,8 +24,9 @@ internal fun OssLicenseNavGraph(
   navController: NavHostController = rememberNavController(),
   viewModel: OssLicenseViewModel = viewModel(),
 ) {
+  val context = LocalContext.current
   LaunchedEffect(viewModel) {
-    viewModel.ensureLicenses()
+    viewModel.loadLicenses(context)
   }
 
   NavHost(
@@ -34,13 +35,13 @@ internal fun OssLicenseNavGraph(
     modifier = modifier,
   ) {
     composable(LicenseList.ROUTE) {
-      val context = LocalContext.current
+      val activity = LocalActivity.current
       val licenses by viewModel.licenses.collectAsStateWithLifecycle()
       OssLicenseListScreen(
         licenses = OssLicenseCollection(licenses),
         onNavigateBack = {
           if (!navController.popBackStack()) {
-            (context as? Activity)?.finish()
+            activity?.finish()
           }
         },
         onNavigateToDetail = { license ->
