@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import androidx.annotation.WorkerThread
 import androidx.core.content.res.ResourcesCompat.ID_NULL
+import com.github.droibit.oss_licenses.parser.internal.OssLicenseMetadata
 import java.io.IOException
 import okio.Source
 import okio.buffer
@@ -82,13 +83,12 @@ class OssLicenseParser {
 
     return licenseMetadata
       .map { metadata ->
-        val license = licenses.substring(
-          metadata.beginIndex,
-          metadata.endIndex,
-        )
         OssLicense(
           libraryName = metadata.name,
-          license = license.utf8(),
+          license = licenses.substring(
+            metadata.beginIndex,
+            metadata.endIndex,
+          ).utf8(),
         )
       }
       .sortedBy { it.libraryName.uppercase() }
