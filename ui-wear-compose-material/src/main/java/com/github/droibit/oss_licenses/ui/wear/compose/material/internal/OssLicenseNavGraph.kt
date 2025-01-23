@@ -25,7 +25,7 @@ internal fun OssLicenseNavGraph(
 ) {
   val context = LocalContext.current
   LaunchedEffect(viewModel) {
-    viewModel.ensureLicenses(context)
+    viewModel.loadLicenses(context)
   }
 
   SwipeDismissableNavHost(

@@ -37,7 +37,7 @@ class OssLicenseViewModel(
     licensesSink = MutableStateFlow(emptyList()),
   )
 
-  fun ensureLicenses(context: Context) {
+  fun loadLicenses(context: Context) {
     viewModelScope.launch {
       if (licensesSink.value.isNotEmpty()) {
         return@launch
