@@ -9,7 +9,7 @@ ktlint = "1.0.1"
 compileSdk = "35"
 targetSdk = "34"
 robolectric = "4.14.1"
-roborazzi = "1.39.0"
+roborazzi = "1.40.1"
 ui-test = "1.7.6"
 
 [libraries]
