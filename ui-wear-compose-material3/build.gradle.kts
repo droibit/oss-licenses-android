@@ -44,6 +44,7 @@ dependencies {
   debugImplementation(libs.androidx.compose.ui.tooling)
   debugImplementation(libs.androidx.compose.ui.tooling.preview)
   debugImplementation(libs.androidx.wear.compose.ui.tooling)
+  debugImplementation(libs.androidx.wear.tooling.preview)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")
