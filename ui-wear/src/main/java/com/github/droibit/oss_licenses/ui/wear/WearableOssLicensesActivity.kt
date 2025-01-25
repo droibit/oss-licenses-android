@@ -12,6 +12,7 @@ import com.github.droibit.oss_licenses.ui.wear.internal.OssLicenseListFragment
 /**
  * An activity that displays open source licenses.
  */
+@Deprecated(message = "Please migrate to the Wear Compose version of WearableOssLicensesActivity.")
 class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_oss_licenses) {
   private val viewModel: OssLicenseViewModel by viewModels()
 
@@ -37,6 +38,8 @@ class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_
      * @param ignoreLibraries A set of library names to be ignored when displaying the licenses. Default is an empty set.
      * @return An [Intent] that can be used to start the [WearableOssLicensesActivity].
      */
+    @Suppress("DeprecatedCallableAddReplaceWith")
+    @Deprecated(message = "Please migrate to the Wear Compose version of WearableOssLicensesActivity.")
     @JvmStatic
     @JvmOverloads
     fun createIntent(
