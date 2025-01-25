@@ -38,14 +38,6 @@ android {
     compose = true
     buildConfig = true
   }
-
-  kotlinOptions {
-    freeCompilerArgs = listOf(
-      *freeCompilerArgs.toTypedArray(),
-      "-opt-in=androidx.wear.compose.material.ExperimentalWearMaterialApi",
-      "-opt-in=androidx.compose.ui.ExperimentalComposeUiApi",
-    )
-  }
 }
 
 dependencies {
