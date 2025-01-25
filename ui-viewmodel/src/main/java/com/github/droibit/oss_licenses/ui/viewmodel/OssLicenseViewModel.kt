@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.annotation.RestrictTo
 import androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP
 import androidx.annotation.UiThread
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.droibit.oss_licenses.parser.OssLicense
@@ -19,7 +18,6 @@ import kotlinx.coroutines.withContext
 @RestrictTo(LIBRARY_GROUP)
 class OssLicenseViewModel(
   private val parser: OssLicenseParser,
-  private val ignoreLibraries: Set<String>,
   private val dispatcher: CoroutineDispatcher,
   private val licensesSink: MutableStateFlow<List<OssLicense>>,
 ) : ViewModel() {
@@ -28,11 +26,8 @@ class OssLicenseViewModel(
     get() = licensesSink
 
   @Suppress("unused")
-  constructor(
-    savedStateHandle: SavedStateHandle,
-  ) : this(
+  constructor() : this(
     OssLicenseParser(),
-    savedStateHandle.getStringSet(EXTRA_IGNORE_LIBRARIES),
     Dispatchers.IO,
     licensesSink = MutableStateFlow(emptyList()),
   )
@@ -43,7 +38,7 @@ class OssLicenseViewModel(
         return@launch
       }
       licensesSink.value = withContext(dispatcher) {
-        parser.parse(context, ignoreLibraries)
+        parser.parse(context)
       }
     }
   }
@@ -52,14 +47,4 @@ class OssLicenseViewModel(
   fun getLicense(name: String): OssLicense {
     return licenses.value.first { it.libraryName == name }
   }
-
-  companion object {
-    const val EXTRA_IGNORE_LIBRARIES =
-      "com.github.droibit.oss_licenses.ui.viewomdel.EXTRA_IGNORE_LIBRARIES"
-  }
-}
-
-private fun SavedStateHandle.getStringSet(key: String): Set<String> {
-  val value = get<List<String>>(key)
-  return value?.toSet() ?: emptySet()
 }
