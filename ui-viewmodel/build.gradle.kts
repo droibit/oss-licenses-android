@@ -18,7 +18,7 @@ dependencies {
   api(projects.parser)
 
   implementation(libs.kotlin.coroutines.core)
-  implementation(libs.bundles.androidx.lifecycle.viewModel)
+  implementation(libs.androidx.lifecycle.viewModel)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")

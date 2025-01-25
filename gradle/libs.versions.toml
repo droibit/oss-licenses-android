@@ -30,7 +30,6 @@ androidx-fragment = { module = "androidx.fragment:fragment-ktx", version = "1.8.
 androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewModel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "androidx-lifecycle" }
-androidx-lifecycle-viewModel-savedstate = { module = "androidx.lifecycle:lifecycle-viewmodel-savedstate", version.ref = "androidx-lifecycle" }
 androidx-lifecycle-viewModel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "androidx-lifecycle" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
 androidx-recyclerView = { module = "androidx.recyclerview:recyclerview", version = "1.4.0" }
@@ -69,10 +68,6 @@ androidx-wear-compose-material3 = [
 androidx-wear-compose-navigation = [
   "androidx-navigation-compose",
   "androidx-wear-compose-navigation",
-]
-androidx-lifecycle-viewModel = [
-  "androidx-lifecycle-viewModel",
-  "androidx-lifecycle-viewModel-savedstate",
 ]
 androidx-lifecycle-viewModel-compose = [
   "androidx-lifecycle-viewModel-compose",

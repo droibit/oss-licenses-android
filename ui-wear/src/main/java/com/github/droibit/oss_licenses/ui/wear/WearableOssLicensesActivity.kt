@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
-import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel.Companion.EXTRA_IGNORE_LIBRARIES
 import com.github.droibit.oss_licenses.ui.wear.internal.OssLicenseListFragment
 
 /**
@@ -35,17 +34,12 @@ class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_
     /**
      * Creates an [Intent] to start the [WearableOssLicensesActivity].
      *
-     * @param ignoreLibraries A set of library names to be ignored when displaying the licenses. Default is an empty set.
      * @return An [Intent] that can be used to start the [WearableOssLicensesActivity].
      */
     @Suppress("DeprecatedCallableAddReplaceWith")
     @Deprecated(message = "Please migrate to the Wear Compose version of WearableOssLicensesActivity.")
     @JvmStatic
-    @JvmOverloads
-    fun createIntent(
-      context: Context,
-      ignoreLibraries: Set<String> = emptySet(),
-    ): Intent = Intent(context, WearableOssLicensesActivity::class.java)
-      .putStringArrayListExtra(EXTRA_IGNORE_LIBRARIES, ArrayList(ignoreLibraries))
+    fun createIntent(context: Context): Intent =
+      Intent(context, WearableOssLicensesActivity::class.java)
   }
 }
