@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.ListItem
 import androidx.compose.material3.Scaffold
@@ -18,6 +19,7 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 import com.github.droibit.oss_licenses.ui.compose.material3.R
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun OssLicenseListScreen(
   licenses: OssLicenseCollection,
