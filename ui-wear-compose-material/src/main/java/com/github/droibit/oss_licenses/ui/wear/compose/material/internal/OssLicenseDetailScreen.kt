@@ -1,13 +1,14 @@
 package com.github.droibit.oss_licenses.ui.wear.compose.material.internal
 
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
 import androidx.wear.compose.material.ListHeader
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.PositionIndicator
@@ -35,7 +36,8 @@ fun OssLicenseDetailScreen(
           Text(
             text = license.libraryName,
             textAlign = TextAlign.Center,
-            overflow = TextOverflow.Ellipsis,
+            // Sets the bottom padding based on `ListHeaderDefaults.ContentPadding` in Wear Compose M3.
+            modifier = Modifier.padding(bottom = 12.dp),
           )
         }
       },
