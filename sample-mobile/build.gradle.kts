@@ -37,13 +37,6 @@ android {
     compose = true
     buildConfig = true
   }
-
-  kotlinOptions {
-    freeCompilerArgs = listOf(
-      *freeCompilerArgs.toTypedArray(),
-      "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
-    )
-  }
 }
 
 dependencies {
