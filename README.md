@@ -11,22 +11,22 @@ allprojects {
   repositories {
     ...
     maven {
-        url 'https://jitpack.io'
-        content {
-            includeGroup 'com.github.droibit.oss-licenses-android'
-        }
+      url 'https://jitpack.io'
+      content {
+          includeGroup 'com.github.droibit.oss-licenses-android'
+      }
     }
   }
 }
 
 dependencies {
-    implementation 'com.github.droibit.oss-licenses-android:parser:0.6.0'
+    implementation 'com.github.droibit.oss-licenses-android:parser:0.7.0'
     // or
-    implementation 'com.github.droibit.oss-licenses-android:ui-compose-material3:0.6.0'
+    implementation 'com.github.droibit.oss-licenses-android:ui-compose-material3:0.7.0'
     // or
-    implementation 'com.github.droibit.oss-licenses-android:ui-wear-compose-material:0.6.0'
+    implementation 'com.github.droibit.oss-licenses-android:ui-wear-compose-material:0.7.0'
     // or
-    implementation 'com.github.droibit.oss-licenses-android:ui-wear-compose-material3:0.6.0'
+    implementation 'com.github.droibit.oss-licenses-android:ui-wear-compose-material3:0.7.0'
 }
 ```
 
