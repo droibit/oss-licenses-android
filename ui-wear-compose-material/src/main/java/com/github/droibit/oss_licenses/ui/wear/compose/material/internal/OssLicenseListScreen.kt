@@ -15,13 +15,12 @@ import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
 import androidx.wear.compose.material.Text
 import com.github.droibit.oss_licenses.parser.OssLicense
-import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 import com.github.droibit.oss_licenses.ui.wear.compose.core.OssLicenseList
 import com.github.droibit.oss_licenses.ui.wear.compose.material.R
 
 @Composable
 internal fun OssLicenseListScreen(
-  licenses: OssLicenseCollection,
+  licenses: List<OssLicense>,
   modifier: Modifier = Modifier,
   listState: ScalingLazyListState = rememberScalingLazyListState(),
   onNavigateToDetail: (OssLicense) -> Unit = {},
@@ -43,7 +42,7 @@ internal fun OssLicenseListScreen(
 
 @Composable
 internal fun OssLicenseListImpl(
-  licenses: OssLicenseCollection,
+  licenses: List<OssLicense>,
   listState: ScalingLazyListState,
   onItemClick: (OssLicense) -> Unit,
   modifier: Modifier = Modifier,

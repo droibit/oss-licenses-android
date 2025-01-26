@@ -12,7 +12,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 import com.github.droibit.oss_licenses.ui.navigation.compose.Routes.LicenseDetail
 import com.github.droibit.oss_licenses.ui.navigation.compose.Routes.LicenseList
 import com.github.droibit.oss_licenses.ui.navigation.compose.navigateToDetail
@@ -38,7 +37,7 @@ internal fun OssLicenseNavGraph(
       val activity = LocalActivity.current
       val licenses by viewModel.licenses.collectAsStateWithLifecycle()
       OssLicenseListScreen(
-        licenses = OssLicenseCollection(licenses),
+        licenses = licenses,
         onNavigateBack = {
           if (!navController.popBackStack()) {
             activity?.finish()

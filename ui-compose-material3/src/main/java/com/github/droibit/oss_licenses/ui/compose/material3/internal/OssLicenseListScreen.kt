@@ -16,13 +16,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.github.droibit.oss_licenses.parser.OssLicense
-import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 import com.github.droibit.oss_licenses.ui.compose.material3.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun OssLicenseListScreen(
-  licenses: OssLicenseCollection,
+  licenses: List<OssLicense>,
   modifier: Modifier = Modifier,
   onNavigateBack: () -> Unit = {},
   onNavigateToDetail: (OssLicense) -> Unit = {},
@@ -52,7 +51,7 @@ internal fun OssLicenseListScreen(
 
 @Composable
 private fun OssLicenseList(
-  licenses: OssLicenseCollection,
+  licenses: List<OssLicense>,
   onItemClick: (OssLicense) -> Unit,
   modifier: Modifier = Modifier,
 ) {
@@ -60,7 +59,7 @@ private fun OssLicenseList(
     modifier = modifier,
   ) {
     items(
-      licenses(),
+      licenses,
       key = OssLicense::libraryName,
     ) { license ->
       OssLicenseItem(

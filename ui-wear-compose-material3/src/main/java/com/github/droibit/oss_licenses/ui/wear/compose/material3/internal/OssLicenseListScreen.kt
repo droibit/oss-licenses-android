@@ -15,13 +15,12 @@ import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.ScreenScaffold
 import androidx.wear.compose.material3.Text
 import com.github.droibit.oss_licenses.parser.OssLicense
-import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 import com.github.droibit.oss_licenses.ui.wear.compose.core.OssLicenseList
 import com.github.droibit.oss_licenses.ui.wear.compose.material3.R
 
 @Composable
 internal fun OssLicenseListScreen(
-  licenses: OssLicenseCollection,
+  licenses: List<OssLicense>,
   modifier: Modifier = Modifier,
   listState: ScalingLazyListState = rememberScalingLazyListState(),
   onNavigateToDetail: (OssLicense) -> Unit = {},
@@ -41,7 +40,7 @@ internal fun OssLicenseListScreen(
 
 @Composable
 internal fun OssLicenseListImpl(
-  licenses: OssLicenseCollection,
+  licenses: List<OssLicense>,
   listState: ScalingLazyListState,
   modifier: Modifier = Modifier,
   onItemClick: (OssLicense) -> Unit = {},

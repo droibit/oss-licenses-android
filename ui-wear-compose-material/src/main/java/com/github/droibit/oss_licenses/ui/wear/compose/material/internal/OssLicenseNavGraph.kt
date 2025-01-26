@@ -11,7 +11,6 @@ import androidx.navigation.NavHostController
 import androidx.wear.compose.navigation.SwipeDismissableNavHost
 import androidx.wear.compose.navigation.composable
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
-import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 import com.github.droibit.oss_licenses.ui.navigation.compose.Routes.LicenseDetail
 import com.github.droibit.oss_licenses.ui.navigation.compose.Routes.LicenseList
 import com.github.droibit.oss_licenses.ui.navigation.compose.navigateToDetail
@@ -36,7 +35,7 @@ internal fun OssLicenseNavGraph(
     composable(LicenseList.ROUTE) {
       val licenses by viewModel.licenses.collectAsStateWithLifecycle()
       OssLicenseListScreen(
-        licenses = OssLicenseCollection(licenses),
+        licenses = licenses,
         onNavigateToDetail = { license ->
           navController.navigateToDetail(license.libraryName)
         },
