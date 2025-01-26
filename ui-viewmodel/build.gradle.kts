@@ -17,8 +17,11 @@ android {
 dependencies {
   api(projects.parser)
 
-  implementation(libs.kotlin.coroutines.core)
-  implementation(libs.androidx.lifecycle.viewModel)
+  api(platform(libs.kotlin.coroutines.bom))
+  api(libs.kotlin.coroutines.core)
+  api(libs.androidx.lifecycle.viewModel)
+
+  implementation(libs.androidx.annotation)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")

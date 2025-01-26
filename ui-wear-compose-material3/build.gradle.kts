@@ -29,13 +29,14 @@ android {
 }
 
 dependencies {
-  api(projects.uiComposeCore)
-  api(projects.uiViewmodel)
-  api(projects.uiWearComposeCore)
+  implementation(projects.uiComposeCore)
+  implementation(projects.uiViewmodel)
+  implementation(projects.uiWearComposeCore)
 
+  api(libs.androidx.activity)
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))
-  implementation(libs.bundles.androidx.wear.compose.material3)
+  api(libs.bundles.androidx.wear.compose.material3)
   implementation(libs.bundles.androidx.wear.compose.navigation) {
     exclude(group = "androidx.wear.compose", module = "compose-material")
   }

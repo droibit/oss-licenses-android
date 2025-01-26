@@ -20,11 +20,10 @@ android {
 }
 
 dependencies {
-  implementation(projects.parser)
-  implementation(projects.uiComposeCore)
+  api(projects.parser)
+  api(libs.androidx.wear.compose.foundation)
 
-  implementation(platform(libs.androidx.compose.bom))
-  implementation(libs.androidx.wear.compose.foundation)
+  implementation(libs.androidx.annotation)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")

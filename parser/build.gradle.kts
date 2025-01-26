@@ -22,10 +22,7 @@ android {
 dependencies {
   implementation(libs.androidx.annotation)
   implementation(libs.androidx.core)
-
-  api(platform(libs.kotlin.coroutines.bom))
-  api(libs.kotlin.coroutines.core)
-  api(libs.okio)
+  implementation(libs.okio)
 
   testImplementation(libs.junit)
   testImplementation(libs.truth)

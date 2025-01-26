@@ -38,13 +38,14 @@ android {
 }
 
 dependencies {
-  api(projects.uiWearComposeCore)
-  api(projects.uiViewmodel)
-  api(projects.uiComposeCore)
+  implementation(projects.uiWearComposeCore)
+  implementation(projects.uiViewmodel)
+  implementation(projects.uiComposeCore)
 
+  api(libs.androidx.activity)
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))
-  implementation(libs.bundles.androidx.wear.compose.material)
+  api(libs.bundles.androidx.wear.compose.material)
   implementation(libs.bundles.androidx.wear.compose.navigation)
   implementation(libs.bundles.androidx.lifecycle.viewModel.compose)
 

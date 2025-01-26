@@ -30,9 +30,10 @@ android {
 }
 
 dependencies {
-  api(projects.uiViewmodel)
-  api(projects.uiComposeCore)
+  implementation(projects.uiViewmodel)
+  implementation(projects.uiComposeCore)
 
+  api(libs.androidx.activity)
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))
   implementation(libs.androidx.compose.material3)
