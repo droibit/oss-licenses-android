@@ -14,13 +14,12 @@ import androidx.wear.compose.foundation.rememberActiveFocusRequester
 import androidx.wear.compose.foundation.rotary.RotaryScrollableDefaults
 import androidx.wear.compose.foundation.rotary.rotaryScrollable
 import com.github.droibit.oss_licenses.parser.OssLicense
-import com.github.droibit.oss_licenses.ui.compose.OssLicenseCollection
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 @OptIn(ExperimentalWearFoundationApi::class)
 @Composable
 fun OssLicenseList(
-  licenses: OssLicenseCollection,
+  licenses: List<OssLicense>,
   header: @Composable ScalingLazyListItemScope.() -> Unit,
   listItem: @Composable ScalingLazyListItemScope.(OssLicense) -> Unit,
   modifier: Modifier = Modifier,
@@ -38,13 +37,13 @@ fun OssLicenseList(
       ),
     state = listState,
   ) {
-    if (licenses().isNotEmpty()) {
+    if (licenses.isNotEmpty()) {
       item {
         header()
       }
     }
     items(
-      licenses(),
+      licenses,
       key = OssLicense::libraryName,
       itemContent = listItem,
     )
