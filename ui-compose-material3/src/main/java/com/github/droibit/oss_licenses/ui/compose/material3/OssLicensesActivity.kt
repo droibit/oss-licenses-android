@@ -6,11 +6,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
 import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicenseNavGraph
+import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicensesTheme
 
 /**
  * An activity that displays open source licenses.
@@ -22,8 +19,7 @@ class OssLicensesActivity : ComponentActivity() {
     super.onCreate(savedInstanceState)
 
     setContent {
-      val colorScheme = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme()
-      MaterialTheme(colorScheme = colorScheme) {
+      OssLicensesTheme {
         OssLicenseNavGraph()
       }
     }

@@ -24,9 +24,9 @@ android {
 }
 
 dependencies {
-  implementation(projects.parser)
+  api(libs.androidx.navigation.runtime)
 
-  implementation(libs.androidx.navigation.compose)
+  implementation(libs.androidx.annotation)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")
