@@ -1,24 +1,17 @@
 package com.github.droibit.oss_licenses.parser
 
-import android.content.Context
 import com.google.common.truth.Truth.assertThat
+import io.mockk.impl.annotations.InjectMockKs
+import io.mockk.junit4.MockKRule
 import okio.source
 import org.junit.Rule
 import org.junit.Test
-import org.mockito.InjectMocks
-import org.mockito.Mock
-import org.mockito.junit.MockitoJUnit
-import org.mockito.junit.MockitoRule
 
 class OssLicenseParserTest {
   @get:Rule
-  val mockitoRule: MockitoRule = MockitoJUnit.rule()
+  val mockkRule = MockKRule(this)
 
-  @Suppress("unused")
-  @Mock
-  private lateinit var context: Context
-
-  @InjectMocks
+  @InjectMockKs
   private lateinit var ossLicenseParser: OssLicenseParser
 
   @Test
