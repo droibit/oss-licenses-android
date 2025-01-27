@@ -26,7 +26,7 @@ dependencies {
 
   testImplementation(libs.junit)
   testImplementation(libs.truth)
-  testImplementation(libs.mockito.kotlin)
+  testImplementation(libs.mockk)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")
