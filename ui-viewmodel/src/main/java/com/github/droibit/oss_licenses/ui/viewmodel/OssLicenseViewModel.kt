@@ -15,6 +15,18 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
+/**
+ * ViewModel that manages the state and operations of open source licenses.
+ *
+ * The ViewModel provides functionality to:
+ * - Load and cache licenses from application assets
+ * - Expose license list as observable state
+ * - Retrieve individual license details
+ *
+ * @property parser The parser used to read license information from assets
+ * @property dispatcher The coroutine dispatcher used for license parsing
+ * @property licensesSink The mutable state holding the list of licenses
+ */
 @RestrictTo(LIBRARY_GROUP)
 class OssLicenseViewModel(
   private val parser: OssLicenseParser,
@@ -22,6 +34,11 @@ class OssLicenseViewModel(
   private val licensesSink: MutableStateFlow<List<OssLicense>>,
 ) : ViewModel() {
 
+  /**
+   * A [StateFlow] that emits the list of open source licenses.
+   *
+   * The initial value is an empty list.
+   */
   val licenses: StateFlow<List<OssLicense>>
     get() = licensesSink
 
@@ -32,6 +49,10 @@ class OssLicenseViewModel(
     licensesSink = MutableStateFlow(emptyList()),
   )
 
+  /**
+   * Loads the open source licenses from the application's assets.
+   * If licenses are already loaded, this method will return immediately.
+   */
   fun loadLicenses(context: Context) {
     viewModelScope.launch {
       if (licensesSink.value.isNotEmpty()) {
@@ -43,8 +64,15 @@ class OssLicenseViewModel(
     }
   }
 
+  /**
+   * Returns the [OssLicense] for the specified library name.
+   *
+   * @param name The name of the library to get the license for.
+   * @return The [OssLicense] for the specified library.
+   */
   @UiThread
   fun getLicense(name: String): OssLicense {
+    check(licenses.value.isNotEmpty()) { "Licenses have not been loaded yet." }
     return licenses.value.first { it.libraryName == name }
   }
 }
