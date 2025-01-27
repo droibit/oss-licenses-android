@@ -10,7 +10,7 @@ import org.junit.Test
 class OssLicenseParserTest {
   @get:Rule
   val mockkRule = MockKRule(this)
-  
+
   @InjectMockKs
   private lateinit var ossLicenseParser: OssLicenseParser
 
