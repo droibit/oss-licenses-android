@@ -40,7 +40,6 @@ android {
 dependencies {
   implementation(projects.uiWearComposeCore)
   implementation(projects.uiViewmodel)
-  implementation(projects.uiComposeCore)
 
   api(libs.androidx.activity)
   implementation(libs.androidx.activity.compose)

@@ -22,6 +22,7 @@ android {
 dependencies {
   api(projects.parser)
   api(libs.androidx.wear.compose.foundation)
+  api(libs.androidx.navigation.runtime)
 
   implementation(libs.androidx.annotation)
 }

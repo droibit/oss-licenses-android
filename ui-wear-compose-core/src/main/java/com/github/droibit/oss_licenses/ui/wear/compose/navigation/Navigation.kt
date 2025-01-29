@@ -1,9 +1,9 @@
-package com.github.droibit.oss_licenses.ui.navigation.compose
+package com.github.droibit.oss_licenses.ui.wear.compose.navigation
 
 import androidx.annotation.RestrictTo
 import androidx.navigation.NavController
-import com.github.droibit.oss_licenses.ui.navigation.compose.Routes.LicenseDetail.toDetail
-import com.github.droibit.oss_licenses.ui.navigation.compose.Routes.LicenseList
+import com.github.droibit.oss_licenses.ui.wear.compose.navigation.Routes.LicenseDetail.toDetail
+import com.github.droibit.oss_licenses.ui.wear.compose.navigation.Routes.LicenseList
 
 /**
  * Navigates to the license detail screen.
