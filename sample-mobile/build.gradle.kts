@@ -49,5 +49,6 @@ dependencies {
 
   debugImplementation(libs.androidx.compose.ui.tooling)
 
+  implementation(libs.playServices.wearable)
   implementation(libs.dagger)
 }

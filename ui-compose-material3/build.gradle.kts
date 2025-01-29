@@ -18,7 +18,6 @@ android {
     compose = true
   }
 
-
   packaging {
     resources {
       excludes += listOf(
@@ -31,13 +30,13 @@ android {
 
 dependencies {
   implementation(projects.uiViewmodel)
-  implementation(projects.uiComposeCore)
 
   api(libs.androidx.activity)
   implementation(libs.androidx.activity.compose)
   implementation(platform(libs.androidx.compose.bom))
   implementation(libs.androidx.compose.material3)
-  implementation(libs.androidx.navigation.compose)
+  implementation(libs.androidx.compose.material3.adaptive.layout)
+  implementation(libs.androidx.compose.material3.adaptive.navigation)
   implementation(libs.bundles.androidx.lifecycle.viewModel.compose)
 
   debugImplementation(libs.androidx.compose.ui.tooling)
