@@ -29,7 +29,6 @@ android {
 }
 
 dependencies {
-  implementation(projects.uiComposeCore)
   implementation(projects.uiViewmodel)
   implementation(projects.uiWearComposeCore)
 

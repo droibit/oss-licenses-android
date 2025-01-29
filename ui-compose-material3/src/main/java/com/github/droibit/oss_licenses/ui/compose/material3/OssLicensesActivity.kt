@@ -6,21 +6,20 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicenseNavGraph
+import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicensesScreen
 import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicensesTheme
 
 /**
  * An activity that displays open source licenses.
  */
 class OssLicensesActivity : ComponentActivity() {
-
   override fun onCreate(savedInstanceState: Bundle?) {
     enableEdgeToEdge()
     super.onCreate(savedInstanceState)
 
     setContent {
       OssLicensesTheme {
-        OssLicenseNavGraph()
+        OssLicensesScreen()
       }
     }
   }

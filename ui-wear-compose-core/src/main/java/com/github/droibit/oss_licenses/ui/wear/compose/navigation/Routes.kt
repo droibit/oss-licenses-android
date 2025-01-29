@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.navigation.compose
+package com.github.droibit.oss_licenses.ui.wear.compose.navigation
 
 import android.os.Bundle
 import android.util.Base64

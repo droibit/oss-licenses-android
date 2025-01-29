@@ -12,10 +12,10 @@ import androidx.wear.compose.material3.AppScaffold
 import androidx.wear.compose.navigation.SwipeDismissableNavHost
 import androidx.wear.compose.navigation.composable
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
-import com.github.droibit.oss_licenses.ui.navigation.compose.Routes.LicenseDetail
-import com.github.droibit.oss_licenses.ui.navigation.compose.Routes.LicenseList
-import com.github.droibit.oss_licenses.ui.navigation.compose.navigateToDetail
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
+import com.github.droibit.oss_licenses.ui.wear.compose.navigation.Routes.LicenseDetail
+import com.github.droibit.oss_licenses.ui.wear.compose.navigation.Routes.LicenseList
+import com.github.droibit.oss_licenses.ui.wear.compose.navigation.navigateToDetail
 
 @Composable
 internal fun OssLicenseNavGraph(
