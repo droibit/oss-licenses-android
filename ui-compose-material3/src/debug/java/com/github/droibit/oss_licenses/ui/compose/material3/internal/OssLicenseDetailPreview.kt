@@ -33,7 +33,7 @@ private fun OssLicenseTextPreview() {
           libraryName = "OSS Licenses",
           license = "https://www.apache.org/licenses/LICENSE-2.0.txt",
         ),
-        visibleLibraryName = false,
+        showLibraryName = false,
         modifier = Modifier.padding(innerPadding),
       )
     }

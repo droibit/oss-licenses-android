@@ -36,7 +36,7 @@ internal fun OssLicensesPaneContent(
         navigator.currentDestination?.content?.let { license ->
           OssLicenseDetail(
             license = license,
-            visibleLibraryName = !navigator.isSinglePane(),
+            showLibraryName = !navigator.isSinglePane(),
           )
         }
       }
