@@ -5,24 +5,16 @@ import app.cash.turbine.test
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.parser.OssLicenseParser
 import com.google.common.truth.Truth.assertThat
-import io.mockk.every
+import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit4.MockKRule
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.TestDispatcher
-import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.test.setMain
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-@OptIn(ExperimentalCoroutinesApi::class)
 class OssLicenseViewModelTest {
 
   @get:Rule
@@ -34,23 +26,14 @@ class OssLicenseViewModelTest {
   @MockK
   private lateinit var context: Context
 
-  private lateinit var testDispatcher: TestDispatcher
-
   private lateinit var licensesSink: MutableStateFlow<List<OssLicense>>
 
   private lateinit var viewModel: OssLicenseViewModel
 
   @Before
   fun setUp() {
-    testDispatcher = StandardTestDispatcher()
     licensesSink = MutableStateFlow(emptyList())
-    viewModel = OssLicenseViewModel(parser, testDispatcher, licensesSink)
-    Dispatchers.setMain(testDispatcher)
-  }
-
-  @After
-  fun tearDown() {
-    Dispatchers.resetMain()
+    viewModel = OssLicenseViewModel(parser, licensesSink)
   }
 
   @Test
@@ -74,7 +57,7 @@ class OssLicenseViewModelTest {
       OssLicense("library1", "license1"),
       OssLicense("library2", "license2"),
     )
-    every { parser.parse(context) } returns licenses
+    coEvery { parser.parse(context) } returns licenses
 
     licensesSink.test {
       assertThat(awaitItem()).isEmpty()

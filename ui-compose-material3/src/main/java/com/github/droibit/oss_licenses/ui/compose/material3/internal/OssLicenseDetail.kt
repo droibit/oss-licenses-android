@@ -39,7 +39,7 @@ internal fun OssLicenseDetail(
     }
 
     Text(
-      text = license.license,
+      text = license.text,
       style = MaterialTheme.typography.bodyMedium.copy(
         fontFamily = FontFamily.Monospace,
       ),

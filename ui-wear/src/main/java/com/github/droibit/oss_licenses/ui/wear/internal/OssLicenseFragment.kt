@@ -33,7 +33,7 @@ internal class OssLicenseFragment : Fragment(R.layout.fragment_oss_license) {
     view.findViewById<TextView>(R.id.oss_name)
       .text = ossLicense.libraryName
     view.findViewById<TextView>(R.id.oss_license)
-      .text = ossLicense.license
+      .text = ossLicense.text
   }
 
   override fun onDestroyView() {
