@@ -38,7 +38,7 @@ fun OssLicenseDetailScreen(
       },
       content = { license ->
         Text(
-          text = license.license,
+          text = license.text,
           modifier = Modifier.fillMaxWidth(),
           style = MaterialTheme.typography.bodyMedium.copy(
             fontFamily = FontFamily.Monospace,

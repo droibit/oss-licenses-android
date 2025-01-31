@@ -76,8 +76,8 @@ class OssLicenseParser(
             val (beginIndexString, byteCountString) = licenseByteRange.split(":")
             val beginIndex = beginIndexString.toInt()
             val endIndexInt = beginIndex + byteCountString.toInt()
-            val license = licensesByteString.substring(beginIndex, endIndexInt).utf8()
-            add(OssLicense(libraryName, license))
+            val licenseText = licensesByteString.substring(beginIndex, endIndexInt).utf8()
+            add(OssLicense(libraryName, licenseText))
           }
         }
       }

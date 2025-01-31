@@ -15,7 +15,7 @@ private fun OssLicenseDetailPreview() {
       OssLicenseDetail(
         license = OssLicense(
           libraryName = "OSS Licenses",
-          license = "https://www.apache.org/licenses/LICENSE-2.0.txt",
+          text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
         ),
         modifier = Modifier.padding(innerPadding),
       )
@@ -31,7 +31,7 @@ private fun OssLicenseTextPreview() {
       OssLicenseDetail(
         license = OssLicense(
           libraryName = "OSS Licenses",
-          license = "https://www.apache.org/licenses/LICENSE-2.0.txt",
+          text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
         ),
         showLibraryName = false,
         modifier = Modifier.padding(innerPadding),
