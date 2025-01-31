@@ -8,12 +8,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.parser.OssLicenseParser
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 /**
  * ViewModel that manages the state and operations of open source licenses.
@@ -30,7 +27,6 @@ import kotlinx.coroutines.withContext
 @RestrictTo(LIBRARY_GROUP)
 class OssLicenseViewModel(
   private val parser: OssLicenseParser,
-  private val dispatcher: CoroutineDispatcher,
   private val licensesSink: MutableStateFlow<List<OssLicense>>,
 ) : ViewModel() {
 
@@ -45,7 +41,6 @@ class OssLicenseViewModel(
   @Suppress("unused")
   constructor() : this(
     OssLicenseParser(),
-    Dispatchers.IO,
     licensesSink = MutableStateFlow(emptyList()),
   )
 
@@ -58,9 +53,7 @@ class OssLicenseViewModel(
       if (licensesSink.value.isNotEmpty()) {
         return@launch
       }
-      licensesSink.value = withContext(dispatcher) {
-        parser.parse(context)
-      }
+      licensesSink.value = parser.parse(context)
     }
   }
 
