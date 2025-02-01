@@ -54,12 +54,9 @@ dependencies {
   debugImplementation(libs.androidx.wear.tooling.preview)
   debugImplementation(libs.androidx.ui.test.manifest)
 
-  testImplementation(libs.androidx.ui.test.junit4)
   testImplementation(libs.junit)
   testImplementation(libs.robolectric)
-  testImplementation(libs.roborazzi)
-  testImplementation(libs.roborazzi.compose)
-  testImplementation(libs.roborazzi.rule)
+  testImplementation(projects.uiComposeScreenshots)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")
