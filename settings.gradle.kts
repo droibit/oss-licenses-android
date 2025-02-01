@@ -20,6 +20,7 @@ include(
   ":sample-mobile",
   ":sample-wear",
   ":ui-compose-material3",
+  ":ui-compose-screenshots",
   ":ui-viewmodel",
   ":ui-wear",
   ":ui-wear-compose-core",
