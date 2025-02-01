@@ -37,3 +37,5 @@ jobs:
       run: ./gradlew spotlessCheck
     - name: Run unit tests
       run: ./gradlew testDebugUnitTest
+    - name: Run screenshot tests
+      run: ./gradlew verifyRoborazziScreenshotTest
