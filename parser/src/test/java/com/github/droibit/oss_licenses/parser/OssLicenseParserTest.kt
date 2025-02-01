@@ -5,8 +5,6 @@ import android.content.res.Resources
 import androidx.core.content.res.ResourcesCompat.ID_NULL
 import com.google.common.truth.Truth.assertThat
 import io.mockk.every
-import io.mockk.impl.annotations.MockK
-import io.mockk.junit4.MockKRule
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import kotlin.coroutines.cancellation.CancellationException
@@ -22,15 +20,12 @@ import okio.buffer
 import okio.source
 import org.junit.Assert.fail
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 
-class OssLicenseParserTest {
-  @get:Rule
-  val mockkRule = MockKRule(this)
+private const val RES_LICENSES_METADATA = "third_party_license_metadata"
+private const val RES_LICENSES = "third_party_licenses"
 
-  @MockK
-  private lateinit var context: Context
+class OssLicenseParserTest {
   private lateinit var testDispatcher: TestDispatcher
   private lateinit var parser: OssLicenseParser
 
@@ -42,14 +37,15 @@ class OssLicenseParserTest {
 
   @Test
   fun parse_licensesNotFound() = runTest(testDispatcher) {
-    val appContext = mockk<Context> {
-      every { resources } returns mockk<Resources> {
-        every { getIdentifier(eq("third_party_licenses"), any(), any()) } returns ID_NULL
-        every { getIdentifier(eq("third_party_license_metadata"), any(), any()) } returns 1
+    val context = mockk<Context> {
+      every { applicationContext } returns mockk<Context> {
+        every { resources } returns mockk<Resources> {
+          every { getIdentifier(eq("third_party_licenses"), any(), any()) } returns ID_NULL
+          every { getIdentifier(eq(RES_LICENSES_METADATA), any(), any()) } returns 1
+        }
+        every { packageName } returns "package"
       }
-      every { packageName } returns "package"
     }
-    every { context.applicationContext } returns appContext
 
     try {
       parser.parse(context)
@@ -63,14 +59,15 @@ class OssLicenseParserTest {
 
   @Test
   fun parse_licenseMetadataNotFound() = runTest(testDispatcher) {
-    val appContext = mockk<Context> {
-      every { resources } returns mockk<Resources> {
-        every { getIdentifier(eq("third_party_licenses"), any(), any()) } returns 1
-        every { getIdentifier(eq("third_party_license_metadata"), any(), any()) } returns ID_NULL
+    val context = mockk<Context> {
+      every { applicationContext } returns mockk<Context> {
+        every { resources } returns mockk<Resources> {
+          every { getIdentifier(eq(RES_LICENSES), any(), any()) } returns 1
+          every { getIdentifier(eq(RES_LICENSES_METADATA), any(), any()) } returns ID_NULL
+        }
+        every { packageName } returns "package"
       }
-      every { packageName } returns "package"
     }
-    every { context.applicationContext } returns appContext
 
     try {
       parser.parse(context)
@@ -83,7 +80,7 @@ class OssLicenseParserTest {
   }
 
   @Test
-  fun parse_withRealData() = runTest(testDispatcher) {
+  fun parseInternal_withRealData() = runTest(testDispatcher) {
     val licenseMetadata = """
     0:46 Compose Animation Core
     0:46 Compose Tooling Data
@@ -96,54 +93,87 @@ class OssLicenseParserTest {
     47:47 kotlinx-coroutines-core
     47:47 kotlinx-coroutines-bom
     """.trimIndent()
+    val licenseMetadataSource = licenseMetadata.byteInputStream().source()
+
     val licenses = """
     http://www.apache.org/licenses/LICENSE-2.0.txt
     https://www.apache.org/licenses/LICENSE-2.0.txt
     """.trimIndent()
-    val licenseMetadataSource = licenseMetadata.byteInputStream().source()
     val licensesSource = licenses.byteInputStream().source()
 
-    val result = parser.parse(licensesSource, licenseMetadataSource, emptySet())
+    val result = parser.parseInternal(licensesSource, licenseMetadataSource)
     assertThat(result).containsExactly(
       OssLicense(
-        "Android Lifecycle Kotlin Extensions",
-        "http://www.apache.org/licenses/LICENSE-2.0.txt",
+        libraryName = "Android Lifecycle Kotlin Extensions",
+        text = "http://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
-      OssLicense("Compose Animation Core", "http://www.apache.org/licenses/LICENSE-2.0.txt"),
-      OssLicense("Compose Tooling Data", "http://www.apache.org/licenses/LICENSE-2.0.txt"),
-      OssLicense("Compose UI", "http://www.apache.org/licenses/LICENSE-2.0.txt"),
-      OssLicense("Compose Util", "http://www.apache.org/licenses/LICENSE-2.0.txt"),
-      OssLicense("Dagger", "https://www.apache.org/licenses/LICENSE-2.0.txt"),
-      OssLicense("JetBrains Java Annotations", "https://www.apache.org/licenses/LICENSE-2.0.txt"),
-      OssLicense("kotlinx-coroutines-android", "https://www.apache.org/licenses/LICENSE-2.0.txt"),
-      OssLicense("kotlinx-coroutines-bom", "https://www.apache.org/licenses/LICENSE-2.0.txt"),
-      OssLicense("kotlinx-coroutines-core", "https://www.apache.org/licenses/LICENSE-2.0.txt"),
+      OssLicense(
+        libraryName = "Compose Animation Core",
+        text = "http://www.apache.org/licenses/LICENSE-2.0.txt",
+      ),
+      OssLicense(
+        libraryName = "Compose Tooling Data",
+        text = "http://www.apache.org/licenses/LICENSE-2.0.txt",
+      ),
+      OssLicense(
+        libraryName = "Compose UI",
+        text = "http://www.apache.org/licenses/LICENSE-2.0.txt",
+      ),
+      OssLicense(
+        libraryName = "Compose Util",
+        text = "http://www.apache.org/licenses/LICENSE-2.0.txt",
+      ),
+      OssLicense(
+        libraryName = "Dagger",
+        text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
+      ),
+      OssLicense(
+        libraryName = "JetBrains Java Annotations",
+        text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
+      ),
+      OssLicense(
+        libraryName = "kotlinx-coroutines-android",
+        text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
+      ),
+      OssLicense(
+        libraryName = "kotlinx-coroutines-bom",
+        text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
+      ),
+      OssLicense(
+        libraryName = "kotlinx-coroutines-core",
+        text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
+      ),
     ).inOrder()
   }
 
   @Test
-  fun parse_withIgnoreLibraries() = runTest(testDispatcher) {
-    val licenseMetadata = "0:8 library1\n9:8 library2"
-    val licenses = "license1\nlicense2"
+  fun parseInternal_withIgnoreLibraries() = runTest(testDispatcher) {
+    val licenseMetadata = """
+      0:8 library1
+      9:8 library2
+    """.trimIndent()
+    val licenses = """
+      license1
+      license2
+    """.trimIndent()
     val licenseMetadataSource = licenseMetadata.byteInputStream().source()
     val licensesSource = licenses.byteInputStream().source()
 
-    val result = parser.parse(licensesSource, licenseMetadataSource, setOf("library1"))
+    val result = parser.parseInternal(licensesSource, licenseMetadataSource, setOf("library1"))
     assertThat(result).containsExactly(
       OssLicense("library2", "license2"),
     )
   }
 
   @Test
-  fun parse_withEmptyResources() = runTest(testDispatcher) {
+  fun parseInternal_withEmptyResources() = runTest(testDispatcher) {
     val emptySource = "".byteInputStream().source()
-
-    val result = parser.parse(emptySource, emptySource)
+    val result = parser.parseInternal(emptySource, emptySource)
     assertThat(result).isEmpty()
   }
 
   @Test
-  fun parse_checkCancellation() = runTest(testDispatcher) {
+  fun parseInternal_checkCancellation() = runTest(testDispatcher) {
     var job: Job? = null
     job = launch {
       mockkStatic("okio.Okio")
@@ -174,7 +204,7 @@ class OssLicenseParserTest {
       }
 
       try {
-        parser.parse(licensesSource, licenseMetadataSource)
+        parser.parseInternal(licensesSource, licenseMetadataSource)
         fail("error.")
       } catch (e: Exception) {
         assertThat(e).isInstanceOf(CancellationException::class.java)
