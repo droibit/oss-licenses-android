@@ -44,7 +44,7 @@ fun OssLicenseList(
     }
     items(
       licenses,
-      key = OssLicense::libraryName,
+      key = OssLicense::library,
       itemContent = listItem,
     )
   }

@@ -66,6 +66,6 @@ class OssLicenseViewModel(
   @UiThread
   fun getLicense(name: String): OssLicense {
     check(licenses.value.isNotEmpty()) { "Licenses have not been loaded yet." }
-    return licenses.value.first { it.libraryName == name }
+    return licenses.value.first { it.library == name }
   }
 }

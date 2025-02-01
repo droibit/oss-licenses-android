@@ -24,7 +24,7 @@ internal fun OssLicenseList(
   ) {
     items(
       licenses,
-      key = OssLicense::libraryName,
+      key = OssLicense::library,
     ) { license ->
       OssLicenseItem(
         license = license,
@@ -47,7 +47,7 @@ private fun OssLicenseItem(
 ) {
   ListItem(
     headlineContent = {
-      Text(text = license.libraryName)
+      Text(text = license.library)
     },
     modifier = modifier.clickable(
       onClick = {

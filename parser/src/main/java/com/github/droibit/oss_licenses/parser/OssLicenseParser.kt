@@ -66,7 +66,7 @@ class OssLicenseParser(
     val licenseBytes = licensesSource.buffer().use(BufferedSource::readByteString)
     return@withContext licensesMetadataSource.buffer().use { source ->
       val ossLicenses = sortedSetOf(
-        compareBy(String.CASE_INSENSITIVE_ORDER, OssLicense::libraryName),
+        compareBy(String.CASE_INSENSITIVE_ORDER, OssLicense::library),
       )
       while (!source.exhausted()) {
         ensureActive()

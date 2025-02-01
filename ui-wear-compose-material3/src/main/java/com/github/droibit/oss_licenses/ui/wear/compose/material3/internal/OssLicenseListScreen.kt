@@ -83,7 +83,7 @@ internal fun OssLicenseItem(
     ),
     label = {
       Text(
-        text = license.libraryName,
+        text = license.library,
         textAlign = TextAlign.Start,
       )
     },

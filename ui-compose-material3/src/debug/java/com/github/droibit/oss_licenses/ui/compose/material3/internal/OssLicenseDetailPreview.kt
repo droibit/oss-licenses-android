@@ -14,7 +14,7 @@ private fun OssLicenseDetailPreview() {
     Scaffold { innerPadding ->
       OssLicenseDetail(
         license = OssLicense(
-          libraryName = "OSS Licenses",
+          library = "OSS Licenses",
           text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
         ),
         modifier = Modifier.padding(innerPadding),
@@ -30,7 +30,7 @@ private fun OssLicenseTextPreview() {
     Scaffold { innerPadding ->
       OssLicenseDetail(
         license = OssLicense(
-          libraryName = "OSS Licenses",
+          library = "OSS Licenses",
           text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
         ),
         showLibraryName = false,

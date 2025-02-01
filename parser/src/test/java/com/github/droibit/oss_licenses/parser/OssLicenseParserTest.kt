@@ -104,43 +104,43 @@ class OssLicenseParserTest {
     val result = parser.parseInternal(licensesSource, licenseMetadataSource)
     assertThat(result).containsExactly(
       OssLicense(
-        libraryName = "Android Lifecycle Kotlin Extensions",
+        library = "Android Lifecycle Kotlin Extensions",
         text = "http://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
       OssLicense(
-        libraryName = "Compose Animation Core",
+        library = "Compose Animation Core",
         text = "http://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
       OssLicense(
-        libraryName = "Compose Tooling Data",
+        library = "Compose Tooling Data",
         text = "http://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
       OssLicense(
-        libraryName = "Compose UI",
+        library = "Compose UI",
         text = "http://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
       OssLicense(
-        libraryName = "Compose Util",
+        library = "Compose Util",
         text = "http://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
       OssLicense(
-        libraryName = "Dagger",
+        library = "Dagger",
         text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
       OssLicense(
-        libraryName = "JetBrains Java Annotations",
+        library = "JetBrains Java Annotations",
         text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
       OssLicense(
-        libraryName = "kotlinx-coroutines-android",
+        library = "kotlinx-coroutines-android",
         text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
       OssLicense(
-        libraryName = "kotlinx-coroutines-bom",
+        library = "kotlinx-coroutines-bom",
         text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
       OssLicense(
-        libraryName = "kotlinx-coroutines-core",
+        library = "kotlinx-coroutines-core",
         text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
     ).inOrder()
