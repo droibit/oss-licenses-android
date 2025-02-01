@@ -38,4 +38,4 @@ jobs:
     - name: Run unit tests
       run: ./gradlew testDebugUnitTest
     - name: Run screenshot tests
-      run: ./gradlew verifyRoborazziScreenshotTest
+      run: ./gradlew verifyRoborazziDebug
