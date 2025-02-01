@@ -80,11 +80,11 @@ class OssLicenseParser(
           continue
         }
 
-        val (start, count) = offsetRange
+        val (startOffset, byteCount) = offsetRange
           .split(":")
           .mapNotNull(String::toIntOrNull)
-        val end = start + count
-        val licenseText = licenseBytes.substring(start, end).utf8()
+        val endOffset = startOffset + byteCount
+        val licenseText = licenseBytes.substring(startOffset, endOffset).utf8()
         ossLicenses += OssLicense(libraryName, licenseText)
       }
       ossLicenses.toList()
