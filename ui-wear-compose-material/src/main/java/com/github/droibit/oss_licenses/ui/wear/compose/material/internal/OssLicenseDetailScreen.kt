@@ -34,7 +34,7 @@ fun OssLicenseDetailScreen(
       header = {
         ListHeader {
           Text(
-            text = license.libraryName,
+            text = license.library,
             textAlign = TextAlign.Center,
             // Sets the bottom padding based on `ListHeaderDefaults.ContentPadding` in Wear Compose M3.
             modifier = Modifier.padding(bottom = 12.dp),

@@ -30,7 +30,7 @@ fun OssLicenseDetailScreen(
       header = {
         ListHeader {
           Text(
-            text = license.libraryName,
+            text = license.library,
             textAlign = TextAlign.Center,
             overflow = TextOverflow.Ellipsis,
           )

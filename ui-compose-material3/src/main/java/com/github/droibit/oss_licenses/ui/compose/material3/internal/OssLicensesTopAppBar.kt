@@ -26,7 +26,7 @@ internal fun OssLicensesTopAppBar(
     title = {
       Text(
         text = if (navigator.isSinglePane()) {
-          navigator.currentDestination?.content?.libraryName
+          navigator.currentDestination?.content?.library
             ?: stringResource(id = R.string.oss_licenses_title)
         } else {
           stringResource(id = R.string.oss_licenses_title)

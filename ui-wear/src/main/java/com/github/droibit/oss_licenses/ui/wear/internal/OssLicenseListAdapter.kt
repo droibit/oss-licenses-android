@@ -32,13 +32,13 @@ internal class OssLicenseListAdapter(
   }
 
   override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-    holder.text.text = getItem(position).libraryName
+    holder.text.text = getItem(position).library
   }
 
   companion object {
     private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<OssLicense>() {
       override fun areItemsTheSame(oldItem: OssLicense, newItem: OssLicense): Boolean {
-        return oldItem.libraryName == newItem.libraryName
+        return oldItem.library == newItem.library
       }
 
       override fun areContentsTheSame(oldItem: OssLicense, newItem: OssLicense): Boolean {

@@ -28,7 +28,7 @@ internal fun OssLicenseDetail(
   ) {
     if (showLibraryName) {
       Text(
-        text = license.libraryName,
+        text = license.library,
         style = MaterialTheme.typography.titleLarge.copy(
           color = MaterialTheme.colorScheme.onSurfaceVariant,
         ),

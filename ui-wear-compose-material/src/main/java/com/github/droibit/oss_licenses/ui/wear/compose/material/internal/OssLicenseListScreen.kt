@@ -79,7 +79,7 @@ internal fun OssLicenseItem(
       onClick(license)
     },
     label = {
-      Text(text = license.libraryName)
+      Text(text = license.library)
     },
     modifier = modifier.fillMaxWidth(),
     colors = ChipDefaults.secondaryChipColors(),

@@ -31,7 +31,7 @@ internal class OssLicenseFragment : Fragment(R.layout.fragment_oss_license) {
 
     val ossLicense = requireArguments().getSerializable(ARG_OSS_LICENSE) as OssLicense
     view.findViewById<TextView>(R.id.oss_name)
-      .text = ossLicense.libraryName
+      .text = ossLicense.library
     view.findViewById<TextView>(R.id.oss_license)
       .text = ossLicense.text
   }

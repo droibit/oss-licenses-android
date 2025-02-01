@@ -11,7 +11,7 @@ private fun OssLicenseDetailScreenShortLicensePreview() {
   MaterialTheme {
     OssLicenseDetailScreen(
       license = OssLicense(
-        libraryName = "OSS Licenses",
+        library = "OSS Licenses",
         text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
     )
@@ -24,7 +24,7 @@ private fun OssLicenseDetailScreenLongLicensePreview() {
   MaterialTheme {
     OssLicenseDetailScreen(
       license = OssLicense(
-        libraryName = "The 3-Clause BSD License (BSD-3-Clause)",
+        library = "The 3-Clause BSD License (BSD-3-Clause)",
         text = """
           Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 

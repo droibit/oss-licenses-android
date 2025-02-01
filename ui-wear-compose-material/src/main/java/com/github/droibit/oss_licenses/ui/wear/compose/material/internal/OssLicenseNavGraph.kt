@@ -37,7 +37,7 @@ internal fun OssLicenseNavGraph(
       OssLicenseListScreen(
         licenses = licenses,
         onNavigateToDetail = { license ->
-          navController.navigateToDetail(license.libraryName)
+          navController.navigateToDetail(license.library)
         },
       )
     }
