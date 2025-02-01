@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalRoborazziApi::class)
 
-package com.github.droibit.oss_licenses.ui.wear.compose.material.internal
+package com.github.droibit.oss_licenses.ui.compose.screenshots
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -29,7 +29,7 @@ import org.robolectric.annotation.GraphicsMode
   qualifiers = RobolectricDeviceQualifiers.WearOSSmallRound,
 )
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
-abstract class WearScreenshotTest(val device: Device) {
+abstract class WearScreenshotTest(private val device: WearDevice) {
 
   @get:Rule
   val composeRule: ComposeContentTestRule = createComposeRule()
@@ -76,11 +76,15 @@ abstract class WearScreenshotTest(val device: Device) {
   companion object {
     @JvmStatic
     @ParameterizedRobolectricTestRunner.Parameters
-    fun devices(): List<Device> = Device.entries
+    fun devices(): List<WearDevice> = WearDevice.entries
   }
 }
 
-enum class Device(val qualifier: String, val fontScale: Float = 1f, val locale: String? = null) {
+enum class WearDevice(
+  val qualifier: String,
+  val fontScale: Float = 1f,
+  val locale: String? = null,
+) {
   SmallRound(RobolectricDeviceQualifiers.WearOSSmallRound),
   LargeRound(RobolectricDeviceQualifiers.WearOSLargeRound),
   SmallRoundLargeFonts(RobolectricDeviceQualifiers.WearOSSmallRound, fontScale = 1.24f),
