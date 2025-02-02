@@ -24,17 +24,9 @@ fun OssLicenseList(
   listItem: @Composable ScalingLazyListItemScope.(OssLicense) -> Unit,
   modifier: Modifier = Modifier,
   listState: ScalingLazyListState = rememberScalingLazyListState(),
-  focusRequester: FocusRequester = rememberActiveFocusRequester(),
 ) {
   ScalingLazyColumn(
-    modifier = modifier
-      .rotaryScrollable(
-        RotaryScrollableDefaults.behavior(
-          listState,
-          hapticFeedbackEnabled = false,
-        ),
-        focusRequester,
-      ),
+    modifier = modifier,
     state = listState,
   ) {
     if (licenses.isNotEmpty()) {

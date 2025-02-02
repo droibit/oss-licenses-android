@@ -37,7 +37,23 @@ abstract class WearScreenshotTest(private val device: WearDevice) {
   @get:Rule
   val testInfo: TestName = TestName()
 
+  open fun getFileName(suffix: String = ""): String = "${this.javaClass.simpleName}_${
+    testInfo.methodName.substringBefore(
+      '[',
+    )
+  }${suffix}_${device.name.lowercase()}.png"
+
+  open val roborazziOptions = RoborazziOptions(
+    recordOptions = RoborazziOptions.RecordOptions(
+      applyDeviceCrop = true,
+    ),
+    compareOptions = RoborazziOptions.CompareOptions(
+      resultValidator = ThresholdValidator(0.02f),
+    ),
+  )
+
   fun runScreenshotTest(
+    captureEnd: (() -> Unit)? = null,
     content: @Composable () -> Unit,
   ) {
     RuntimeEnvironment.setQualifiers(device.qualifier)
@@ -56,21 +72,24 @@ abstract class WearScreenshotTest(private val device: WearDevice) {
       }
     }
 
+    captureScreenshot()
+
+    if (captureEnd != null) {
+      captureEnd()
+
+      composeRule.waitForIdle()
+
+      captureScreenshot("_end")
+    }
+  }
+
+  private fun captureScreenshot(suffix: String = "") {
+    val fileName = getFileName(suffix)
+
     captureScreenRoboImage(
-      filePath = "src/test/screenshots/${this.javaClass.simpleName}_${
-        testInfo.methodName.substringBefore(
-          '[',
-        )
-      }_${device.name.lowercase()}.png",
-      roborazziOptions = RoborazziOptions(
-        recordOptions = RoborazziOptions.RecordOptions(
-          applyDeviceCrop = true,
-        ),
-        compareOptions = RoborazziOptions.CompareOptions(
-          resultValidator = ThresholdValidator(0.02f),
-        ),
-      ),
-    )
+      filePath = "src/test/screenshots/$fileName",
+      roborazziOptions = roborazziOptions,
+      )
   }
 
   companion object {
