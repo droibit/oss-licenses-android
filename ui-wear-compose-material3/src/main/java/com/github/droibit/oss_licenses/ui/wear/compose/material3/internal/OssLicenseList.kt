@@ -30,7 +30,7 @@ fun OssLicenseList(
   TransformingLazyColumn(
     modifier = modifier,
     state = listState,
-    contentPadding = rememberResponsiveColumnPadding()
+    contentPadding = rememberResponsiveColumnPadding(),
   ) {
     if (licenses.isNotEmpty()) {
       item {

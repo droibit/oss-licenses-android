@@ -89,7 +89,7 @@ abstract class WearScreenshotTest(private val device: WearDevice) {
     captureScreenRoboImage(
       filePath = "src/test/screenshots/$fileName",
       roborazziOptions = roborazziOptions,
-      )
+    )
   }
 
   companion object {
