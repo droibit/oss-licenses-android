@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wear.compose.material3.internal
+package com.github.droibit.oss_licenses.ui.wear.compose.material3.internal.list
 
 import androidx.wear.compose.foundation.lazy.TransformingLazyColumnState
 import com.github.droibit.oss_licenses.ui.compose.screenshots.TestFixtures
@@ -11,9 +11,11 @@ class OssLicenseListScreenshotTest(device: WearDevice) : WearScreenshotTest(devi
   fun licenseListScreen() {
     val listState = TransformingLazyColumnState()
 
-    runScreenshotTest(captureEnd = {
-      listState.dispatchRawDelta(1000f)
-    }) {
+    runScreenshotTest(
+      captureEnd = {
+        listState.dispatchRawDelta(1000f)
+      },
+    ) {
       OssLicenseListScreen(licenses = TestFixtures.licenses, listState = listState)
     }
   }

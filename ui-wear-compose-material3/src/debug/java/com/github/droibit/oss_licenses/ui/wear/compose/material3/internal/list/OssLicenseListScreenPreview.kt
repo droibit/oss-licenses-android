@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wear.compose.material3.internal
+package com.github.droibit.oss_licenses.ui.wear.compose.material3.internal.list
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
