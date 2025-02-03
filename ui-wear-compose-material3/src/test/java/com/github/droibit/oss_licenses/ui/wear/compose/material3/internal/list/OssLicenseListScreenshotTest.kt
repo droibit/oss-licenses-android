@@ -11,9 +11,11 @@ class OssLicenseListScreenshotTest(device: WearDevice) : WearScreenshotTest(devi
   fun licenseListScreen() {
     val listState = TransformingLazyColumnState()
 
-    runScreenshotTest(captureEnd = {
-      listState.dispatchRawDelta(1000f)
-    }) {
+    runScreenshotTest(
+      captureEnd = {
+        listState.dispatchRawDelta(1000f)
+      },
+    ) {
       OssLicenseListScreen(licenses = TestFixtures.licenses, listState = listState)
     }
   }
