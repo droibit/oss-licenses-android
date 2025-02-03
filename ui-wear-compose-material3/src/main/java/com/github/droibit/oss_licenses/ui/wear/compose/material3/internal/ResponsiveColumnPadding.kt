@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wear.compose.core
+package com.github.droibit.oss_licenses.ui.wear.compose.material3.internal
 
 import androidx.annotation.RestrictTo
 import androidx.compose.foundation.layout.PaddingValues
