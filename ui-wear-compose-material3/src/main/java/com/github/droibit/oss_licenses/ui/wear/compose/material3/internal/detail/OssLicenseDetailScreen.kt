@@ -20,7 +20,6 @@ fun OssLicenseDetailScreen(
     OssLicenseDetail(
       license = license,
       listState = listState,
-      modifier = modifier,
     )
   }
 }
