@@ -1,4 +1,4 @@
-package com.github.droibit.oss_licenses.ui.wear.compose.material.internal
+package com.github.droibit.oss_licenses.ui.wear.compose.material.internal.list
 
 import androidx.wear.compose.foundation.lazy.ScalingLazyListState
 import com.github.droibit.oss_licenses.ui.compose.screenshots.TestFixtures
