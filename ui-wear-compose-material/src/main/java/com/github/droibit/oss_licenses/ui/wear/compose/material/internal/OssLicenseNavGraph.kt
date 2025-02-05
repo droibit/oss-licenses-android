@@ -12,6 +12,8 @@ import androidx.wear.compose.navigation.SwipeDismissableNavHost
 import androidx.wear.compose.navigation.composable
 import androidx.wear.compose.navigation.rememberSwipeDismissableNavController
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
+import com.github.droibit.oss_licenses.ui.wear.compose.material.internal.detail.OssLicenseDetailScreen
+import com.github.droibit.oss_licenses.ui.wear.compose.material.internal.list.OssLicenseListScreen
 import com.github.droibit.oss_licenses.ui.wear.compose.navigation.Routes.LicenseDetail
 import com.github.droibit.oss_licenses.ui.wear.compose.navigation.Routes.LicenseList
 import com.github.droibit.oss_licenses.ui.wear.compose.navigation.navigateToDetail
