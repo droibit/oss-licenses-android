@@ -8,7 +8,7 @@ import androidx.wear.compose.material3.ScreenScaffold
 import com.github.droibit.oss_licenses.parser.OssLicense
 
 @Composable
-fun OssLicenseDetailScreen(
+internal fun OssLicenseDetailScreen(
   license: OssLicense,
   modifier: Modifier = Modifier,
   listState: TransformingLazyColumnState = rememberTransformingLazyColumnState(),

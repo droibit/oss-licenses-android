@@ -1,6 +1,5 @@
 package com.github.droibit.oss_licenses.ui.wear.compose.material3.internal.list
 
-import androidx.annotation.RestrictTo
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.wear.compose.foundation.lazy.TransformingLazyColumn
@@ -11,9 +10,8 @@ import androidx.wear.compose.foundation.lazy.rememberTransformingLazyColumnState
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.ui.wear.compose.material3.internal.rememberResponsiveColumnPadding
 
-@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 @Composable
-fun OssLicenseList(
+internal fun OssLicenseList(
   licenses: List<OssLicense>,
   header: @Composable TransformingLazyColumnItemScope.() -> Unit,
   listItem: @Composable TransformingLazyColumnItemScope.(OssLicense) -> Unit,
