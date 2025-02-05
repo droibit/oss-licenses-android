@@ -29,7 +29,7 @@ import kotlin.math.sqrt
 
 @OptIn(ExperimentalWearFoundationApi::class)
 @Composable
-fun OssLicenseDetail(
+internal fun OssLicenseDetail(
   license: OssLicense,
   modifier: Modifier = Modifier,
   listState: LazyListState = rememberLazyListState(),
