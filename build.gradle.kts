@@ -35,7 +35,7 @@ subprojects {
         .customRuleSets(
           listOf(
             libs.ktlint.compose.rules.get().toString(),
-          )
+          ),
         )
     }
 
@@ -49,20 +49,18 @@ subprojects {
     }
   }
 
-  plugins.whenPluginAdded {
-    if (this is BasePlugin) {
-      project.extensions.getByType<BaseExtension>().apply {
-        compileOptions {
-          sourceCompatibility = JavaVersion.VERSION_17
-          targetCompatibility = JavaVersion.VERSION_17
-        }
+  plugins.withType<BasePlugin> {
+    project.extensions.configure<BaseExtension> {
+      compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
       }
     }
+  }
 
-    tasks.withType<KotlinJvmCompile>().configureEach {
-      compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_17)
-      }
+  tasks.withType<KotlinJvmCompile>().configureEach {
+    compilerOptions {
+      jvmTarget.set(JvmTarget.JVM_17)
     }
   }
 }
