@@ -17,17 +17,15 @@ internal class OssLicenseListAdapter(
 ) : ListAdapter<OssLicense, ViewHolder>(DIFF_CALLBACK) {
   private val inflater: LayoutInflater = LayoutInflater.from(context)
 
-  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-    return ViewHolder(
-      itemView = inflater.inflate(
-        R.layout.list_item_oss_license,
-        parent,
-        false,
-      ),
-    ).also { vh ->
-      vh.itemView.setOnClickListener {
-        onItemClickListener.invoke(getItem(vh.bindingAdapterPosition))
-      }
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
+    itemView = inflater.inflate(
+      R.layout.list_item_oss_license,
+      parent,
+      false,
+    ),
+  ).also { vh ->
+    vh.itemView.setOnClickListener {
+      onItemClickListener.invoke(getItem(vh.bindingAdapterPosition))
     }
   }
 
@@ -37,13 +35,15 @@ internal class OssLicenseListAdapter(
 
   companion object {
     private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<OssLicense>() {
-      override fun areItemsTheSame(oldItem: OssLicense, newItem: OssLicense): Boolean {
-        return oldItem.library == newItem.library
-      }
+      override fun areItemsTheSame(
+        oldItem: OssLicense,
+        newItem: OssLicense,
+      ): Boolean = oldItem.library == newItem.library
 
-      override fun areContentsTheSame(oldItem: OssLicense, newItem: OssLicense): Boolean {
-        return oldItem == newItem
-      }
+      override fun areContentsTheSame(
+        oldItem: OssLicense,
+        newItem: OssLicense,
+      ): Boolean = oldItem == newItem
     }
   }
 }

@@ -60,6 +60,5 @@ internal fun OssLicensesScreen(
 
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)
 @Composable
-internal fun ThreePaneScaffoldNavigator<*>.isSinglePane(): Boolean {
-  return scaffoldValue.primary == Hidden || scaffoldValue.secondary == Hidden
-}
+internal fun ThreePaneScaffoldNavigator<*>.isSinglePane(): Boolean =
+  scaffoldValue.primary == Hidden || scaffoldValue.secondary == Hidden

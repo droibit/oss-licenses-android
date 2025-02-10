@@ -30,7 +30,6 @@ import org.robolectric.annotation.GraphicsMode
 )
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
 abstract class WearScreenshotTest(private val device: WearDevice) {
-
   @get:Rule
   val composeRule: ComposeContentTestRule = createComposeRule()
 

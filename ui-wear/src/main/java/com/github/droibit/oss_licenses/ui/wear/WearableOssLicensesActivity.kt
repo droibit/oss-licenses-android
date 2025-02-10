@@ -21,12 +21,12 @@ class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_
     if (savedInstanceState == null) {
       viewModel.loadLicenses(this)
 
-      supportFragmentManager.beginTransaction()
+      supportFragmentManager
+        .beginTransaction()
         .replace(
           R.id.oss_licenses_content,
           OssLicenseListFragment.newInstance(),
-        )
-        .commit()
+        ).commit()
     }
   }
 
@@ -37,7 +37,9 @@ class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_
      * @return An [Intent] that can be used to start the [WearableOssLicensesActivity].
      */
     @Suppress("DeprecatedCallableAddReplaceWith")
-    @Deprecated(message = "Please migrate to the Wear Compose version of WearableOssLicensesActivity.")
+    @Deprecated(
+      message = "Please migrate to the Wear Compose version of WearableOssLicensesActivity.",
+    )
     @JvmStatic
     fun createIntent(context: Context): Intent =
       Intent(context, WearableOssLicensesActivity::class.java)
