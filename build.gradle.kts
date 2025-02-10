@@ -28,8 +28,12 @@ subprojects {
       ktlint(libs.versions.ktlint.get())
         .editorConfigOverride(
           mapOf(
+            "ktlint_code_style" to "ktlint_official",
             "ktlint_function_naming_ignore_when_annotated_with" to "Composable, Test",
             "ktlint_standard_package-name" to "disabled",
+            "ktlint_standard_multiline-expression-wrapping" to "disabled",
+            "ktlint_standard_class-signature" to "disabled",
+            "ktlint_standard_function-signature" to "disabled",
           ),
         )
         .customRuleSets(

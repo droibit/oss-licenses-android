@@ -1,6 +1,7 @@
 root = true
 
 [*]
+indent_style = space
 indent_size = 2
 end_of_line = lf
 charset = utf-8
@@ -11,5 +12,9 @@ trim_trailing_whitespace = true
 ij_kotlin_imports_layout = *
 ij_kotlin_allow_trailing_comma = true
 ij_kotlin_allow_trailing_comma_on_call_site = true
+ktlint_code_style = ktlint_official
 ktlint_function_naming_ignore_when_annotated_with = Composable, Test
 ktlint_standard_package-name = disabled
+ktlint_standard_class-signature = disabled
+ktlint_standard_multiline-expression-wrapping = disabled
+ktlint_standard_function-signature = disabled
