@@ -29,7 +29,6 @@ class OssLicenseViewModel(
   private val parser: OssLicenseParser,
   private val licensesSink: MutableStateFlow<List<OssLicense>>,
 ) : ViewModel() {
-
   /**
    * A [StateFlow] that emits the list of open source licenses.
    *

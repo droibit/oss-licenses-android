@@ -12,7 +12,6 @@ import com.github.droibit.oss_licenses.ui.wear.R
 private const val ARG_OSS_LICENSE = "ARG_OSS_LICENSE"
 
 internal class OssLicenseFragment : Fragment(R.layout.fragment_oss_license) {
-
   private val swipeDismissCallback = object : SwipeDismissFrameLayout.Callback() {
     override fun onDismissed(layout: SwipeDismissFrameLayout) {
       // Prevent flicker on screen.
@@ -30,9 +29,11 @@ internal class OssLicenseFragment : Fragment(R.layout.fragment_oss_license) {
     (view as SwipeDismissFrameLayout).addCallback(swipeDismissCallback)
 
     val ossLicense = requireArguments().getSerializable(ARG_OSS_LICENSE) as OssLicense
-    view.findViewById<TextView>(R.id.oss_name)
+    view
+      .findViewById<TextView>(R.id.oss_name)
       .text = ossLicense.library
-    view.findViewById<TextView>(R.id.oss_license)
+    view
+      .findViewById<TextView>(R.id.oss_license)
       .text = ossLicense.text
   }
 
@@ -42,7 +43,6 @@ internal class OssLicenseFragment : Fragment(R.layout.fragment_oss_license) {
   }
 
   companion object {
-
     fun newInstance(ossLicense: OssLicense) = OssLicenseFragment().apply {
       arguments = bundleOf(
         ARG_OSS_LICENSE to ossLicense,

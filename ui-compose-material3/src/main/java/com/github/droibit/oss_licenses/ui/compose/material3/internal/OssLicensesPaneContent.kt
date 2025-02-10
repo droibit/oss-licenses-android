@@ -15,7 +15,8 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 internal fun OssLicensesPaneContent(
   licenses: List<OssLicense>,
   modifier: Modifier = Modifier,
-  navigator: ThreePaneScaffoldNavigator<OssLicense> = rememberListDetailPaneScaffoldNavigator<OssLicense>(),
+  navigator: ThreePaneScaffoldNavigator<OssLicense> =
+    rememberListDetailPaneScaffoldNavigator<OssLicense>(),
 ) {
   ListDetailPaneScaffold(
     directive = navigator.scaffoldDirective,

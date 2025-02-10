@@ -24,28 +24,29 @@ internal class OssLicenseListFragment : Fragment(R.layout.fragment_oss_license_l
       OssLicenseListAdapter(
         requireContext(),
       ) {
-        parentFragmentManager.beginTransaction()
+        parentFragmentManager
+          .beginTransaction()
           .setCustomAnimations(
             androidx.fragment.R.animator.fragment_close_enter,
             androidx.fragment.R.animator.fragment_open_exit,
             androidx.fragment.R.animator.fragment_fade_enter,
             androidx.fragment.R.animator.fragment_fade_exit,
-          )
-          .replace(
+          ).replace(
             R.id.oss_licenses_content,
             OssLicenseFragment.newInstance(ossLicense = it),
-          )
-          .addToBackStack(null)
+          ).addToBackStack(null)
           .commit()
       }
-    view.findViewById<RecyclerView>(R.id.oss_licenses_list)
+    view
+      .findViewById<RecyclerView>(R.id.oss_licenses_list)
       .also {
         it.adapter = adapter
         it.setHasFixedSize(true)
       }
 
     viewLifecycleOwner.lifecycleScope.launch {
-      viewModel.licenses.flowWithLifecycle(viewLifecycleOwner.lifecycle)
+      viewModel.licenses
+        .flowWithLifecycle(viewLifecycleOwner.lifecycle)
         .collect {
           adapter.submitList(it)
         }
@@ -53,7 +54,6 @@ internal class OssLicenseListFragment : Fragment(R.layout.fragment_oss_license_l
   }
 
   companion object {
-
     fun newInstance() = OssLicenseListFragment()
   }
 }
