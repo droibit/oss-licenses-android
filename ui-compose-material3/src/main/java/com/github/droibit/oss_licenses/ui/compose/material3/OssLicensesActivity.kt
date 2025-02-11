@@ -31,6 +31,6 @@ class OssLicensesActivity : ComponentActivity() {
      * @return An [Intent] that can be used to start the [OssLicensesActivity].
      */
     @JvmStatic
-    fun createIntent(context: Context): Intent = Intent(context, OssLicensesActivity::class.java)
+    fun createIntent(context: Context) = Intent(context, OssLicensesActivity::class.java)
   }
 }
