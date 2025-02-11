@@ -1,4 +1,4 @@
-# OSS Licenses
+# OSS Licenses for Android
 
 [![jitpack.io](https://jitpack.io/v/droibit/oss-licenses-android.svg)](https://jitpack.io/#droibit/oss-licenses-android)
 
