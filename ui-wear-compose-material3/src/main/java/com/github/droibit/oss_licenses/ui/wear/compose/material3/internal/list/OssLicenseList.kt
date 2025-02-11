@@ -23,11 +23,10 @@ internal fun OssLicenseList(
     state = listState,
     contentPadding = rememberResponsiveColumnPadding(),
   ) {
-    if (licenses.isNotEmpty()) {
-      item {
-        header()
-      }
+    item {
+      header()
     }
+
     items(
       licenses,
       key = OssLicense::library,
