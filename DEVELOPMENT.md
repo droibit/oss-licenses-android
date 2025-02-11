@@ -1,6 +1,6 @@
 # Development Instructions
 
-# Updating Screenshots
+## Updating Screenshots
 
 Update screenshots locally by running
 
