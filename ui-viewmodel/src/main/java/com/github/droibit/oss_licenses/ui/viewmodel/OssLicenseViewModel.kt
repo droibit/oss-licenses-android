@@ -21,7 +21,6 @@ import kotlinx.coroutines.launch
  * - Retrieve individual license details
  *
  * @property parser The parser used to read license information from assets
- * @property dispatcher The coroutine dispatcher used for license parsing
  * @property licensesSink The mutable state holding the list of licenses
  */
 @RestrictTo(LIBRARY_GROUP)
