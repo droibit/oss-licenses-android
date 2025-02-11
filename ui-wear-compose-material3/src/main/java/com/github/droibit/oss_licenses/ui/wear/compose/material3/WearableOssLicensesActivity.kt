@@ -29,7 +29,6 @@ class WearableOssLicensesActivity : ComponentActivity() {
      * @return An [Intent] that can be used to start the [WearableOssLicensesActivity].
      */
     @JvmStatic
-    fun createIntent(context: Context): Intent =
-      Intent(context, WearableOssLicensesActivity::class.java)
+    fun createIntent(context: Context) = Intent(context, WearableOssLicensesActivity::class.java)
   }
 }

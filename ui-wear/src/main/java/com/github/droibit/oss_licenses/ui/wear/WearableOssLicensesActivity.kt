@@ -41,7 +41,6 @@ class WearableOssLicensesActivity : FragmentActivity(R.layout.activity_wearable_
       message = "Please migrate to the Wear Compose version of WearableOssLicensesActivity.",
     )
     @JvmStatic
-    fun createIntent(context: Context): Intent =
-      Intent(context, WearableOssLicensesActivity::class.java)
+    fun createIntent(context: Context) = Intent(context, WearableOssLicensesActivity::class.java)
   }
 }
