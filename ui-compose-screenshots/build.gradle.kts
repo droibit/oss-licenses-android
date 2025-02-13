@@ -9,7 +9,7 @@ android {
   compileSdk = libs.versions.compileSdk.get().toInt()
 
   defaultConfig {
-    minSdk = 25
+    minSdk = 24
   }
 
   buildFeatures {
