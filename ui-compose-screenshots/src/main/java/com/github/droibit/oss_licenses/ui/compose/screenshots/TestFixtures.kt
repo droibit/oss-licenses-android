@@ -9,11 +9,6 @@ object TestFixtures {
     "http://www.apache.org/licenses/LICENSE-2.0",
   )
 
-  val abseil = OssLicense(
-    "Abseil",
-    "http://www.apache.org/licenses/LICENSE-2.0",
-  )
-
   val androidDeviceOriginLibrary = OssLicense(
     "Android Device Origin Library",
     "http://www.apache.org/licenses/LICENSE-2.0",
@@ -229,7 +224,6 @@ object TestFixtures {
 
   val licenses: List<OssLicense> = listOf(
     aospPhotoViewer,
-    abseil,
     androidDeviceOriginLibrary,
     kotlinCoroutines,
   )
