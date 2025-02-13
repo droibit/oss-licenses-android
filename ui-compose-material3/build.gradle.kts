@@ -1,7 +1,10 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
   alias(libs.plugins.android.library)
   alias(libs.plugins.kotlin)
   alias(libs.plugins.compose.compiler)
+  alias(libs.plugins.roborazzi)
 }
 
 android {
@@ -26,6 +29,12 @@ android {
       )
     }
   }
+
+  testOptions {
+    unitTests {
+      isIncludeAndroidResources = true
+    }
+  }
 }
 
 dependencies {
@@ -41,6 +50,11 @@ dependencies {
 
   debugImplementation(libs.androidx.compose.ui.tooling)
   debugImplementation(libs.androidx.compose.ui.tooling.preview)
+  debugImplementation(libs.androidx.ui.test.manifest)
+
+  testImplementation(libs.junit)
+  testImplementation(libs.robolectric)
+  testImplementation(projects.uiComposeScreenshots)
 }
 
 apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")
