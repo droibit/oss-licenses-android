@@ -25,7 +25,7 @@ androidx-annotation = { module = "androidx.annotation:annotation", version = "1.
 androidx-core = { module = "androidx.core:core", version = "1.15.0" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "androidx-activity" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activity" }
-androidx-compose-bom = { module = "androidx.compose:compose-bom", version = "2025.01.01" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version = "2025.02.00" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
 androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
