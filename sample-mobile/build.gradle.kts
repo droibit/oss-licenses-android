@@ -30,6 +30,9 @@ android {
       isMinifyEnabled = true
       isShrinkResources = true
       proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+
+      // Allow testing the release build type with `./gradlew sample-mobile:installRelease`
+      signingConfig = signingConfigs.getByName("debug")
     }
   }
 
