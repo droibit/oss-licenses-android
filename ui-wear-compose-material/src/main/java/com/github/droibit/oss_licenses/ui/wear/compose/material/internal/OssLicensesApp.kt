@@ -19,7 +19,7 @@ import com.github.droibit.oss_licenses.ui.wear.compose.navigation.Routes.License
 import com.github.droibit.oss_licenses.ui.wear.compose.navigation.navigateToDetail
 
 @Composable
-internal fun OssLicenseNavGraph(
+internal fun OssLicensesApp(
   modifier: Modifier = Modifier,
   navController: NavHostController = rememberSwipeDismissableNavController(),
   viewModel: OssLicenseViewModel = viewModel(),

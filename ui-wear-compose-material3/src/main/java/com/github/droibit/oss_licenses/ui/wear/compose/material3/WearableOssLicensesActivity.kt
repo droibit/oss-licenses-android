@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.wear.compose.material3.MaterialTheme
-import com.github.droibit.oss_licenses.ui.wear.compose.material3.internal.OssLicenseNavGraph
+import com.github.droibit.oss_licenses.ui.wear.compose.material3.internal.OssLicensesApp
 
 /**
  * An activity that displays open source licenses.
@@ -17,7 +17,7 @@ class WearableOssLicensesActivity : ComponentActivity() {
 
     setContent {
       MaterialTheme {
-        OssLicenseNavGraph()
+        OssLicensesApp()
       }
     }
   }

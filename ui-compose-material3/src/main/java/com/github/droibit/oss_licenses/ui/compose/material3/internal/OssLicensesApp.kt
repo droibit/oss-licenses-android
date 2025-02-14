@@ -20,7 +20,7 @@ import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)
 @Composable
-internal fun OssLicensesScreen(
+internal fun OssLicensesApp(
   modifier: Modifier = Modifier,
   viewModel: OssLicenseViewModel = viewModel(),
 ) {
