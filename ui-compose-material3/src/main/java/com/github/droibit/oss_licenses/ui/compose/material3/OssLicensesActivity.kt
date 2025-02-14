@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicensesScreen
+import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicensesApp
 import com.github.droibit.oss_licenses.ui.compose.material3.internal.OssLicensesTheme
 
 /**
@@ -19,7 +19,7 @@ class OssLicensesActivity : ComponentActivity() {
 
     setContent {
       OssLicensesTheme {
-        OssLicensesScreen()
+        OssLicensesApp()
       }
     }
   }
