@@ -8,6 +8,8 @@ plugins {
 }
 
 subprojects {
+  // TODO: Move Spotless configuration to Convention Plugin once issue is resolved.
+  // ref. https://github.com/diffplug/spotless/issues/2388s
   apply(plugin = "com.diffplug.spotless")
 
   spotless {
