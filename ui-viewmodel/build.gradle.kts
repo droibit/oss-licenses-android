@@ -1,17 +1,11 @@
 plugins {
-  alias(libs.plugins.android.library)
-  alias(libs.plugins.kotlin)
+  alias(libs.plugins.osslicenses.android.library)
 }
 
 android {
   namespace = "com.github.droibit.oss_licenses.ui.viewmodel"
-  compileSdk = libs.versions.compileSdk.get().toInt()
 
-  defaultConfig {
-    minSdk = 24
-
-    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-  }
+  defaultConfig.minSdk = 24
 }
 
 dependencies {

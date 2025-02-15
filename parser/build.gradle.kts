@@ -1,22 +1,11 @@
 plugins {
-  alias(libs.plugins.android.library)
-  alias(libs.plugins.kotlin)
+  alias(libs.plugins.osslicenses.android.library)
 }
 
 android {
   namespace = "com.github.droibit.oss_licenses.parser"
-  compileSdk = libs.versions.compileSdk.get().toInt()
 
-  defaultConfig {
-    minSdk = 21
-  }
-
-  buildTypes {
-    release {
-      isMinifyEnabled = false
-      proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-    }
-  }
+  defaultConfig.minSdk = 21
 }
 
 dependencies {

@@ -1,12 +1,10 @@
 plugins {
-  alias(libs.plugins.android.library)
-  alias(libs.plugins.kotlin)
+  alias(libs.plugins.osslicenses.android.library)
   alias(libs.plugins.compose.compiler)
 }
 
 android {
   namespace = "com.github.droibit.oss_licenses.ui.wear.compose.screenshots"
-  compileSdk = libs.versions.compileSdk.get().toInt()
 
   defaultConfig {
     minSdk = 24
@@ -14,15 +12,6 @@ android {
 
   buildFeatures {
     compose = true
-  }
-
-  packaging {
-    resources {
-      excludes += listOf(
-        "/META-INF/{AL2.0,LGPL2.1}",
-        "/META-INF/core_debug.kotlin_module",
-      )
-    }
   }
 }
 
