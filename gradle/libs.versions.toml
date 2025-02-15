@@ -12,10 +12,6 @@ roborazzi = "1.41.1"
 ui-test = "1.7.8"
 
 [libraries]
-# plugins.
-plugin-ossLicense = { module = "com.google.android.gms:oss-licenses-plugin", version = "0.10.6" }
-
-# other dependencies.
 kotlin-coroutines-bom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version = "1.10.1" }
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core" }
 kotlin-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test" }
