@@ -1,24 +1,11 @@
 plugins {
-  alias(libs.plugins.android.library)
-  alias(libs.plugins.kotlin)
+  alias(libs.plugins.osslicenses.android.library)
 }
 
 android {
   namespace = "com.github.droibit.oss_licenses.ui.wear"
-  compileSdk = libs.versions.compileSdk.get().toInt()
 
-  defaultConfig {
-    minSdk = 24
-  }
-
-  packaging {
-    resources {
-      excludes += listOf(
-        "/META-INF/{AL2.0,LGPL2.1}",
-        "/META-INF/core_debug.kotlin_module"
-      )
-    }
-  }
+  defaultConfig.minSdk = 24
 }
 
 dependencies {

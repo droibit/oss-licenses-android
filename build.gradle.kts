@@ -1,24 +1,15 @@
-import com.android.build.gradle.BaseExtension
-import com.android.build.gradle.BasePlugin
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
-import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
-
-buildscript {
-  dependencies {
-    classpath(libs.plugin.ossLicense)
-  }
-}
-
 plugins {
   alias(libs.plugins.android.application) apply false
   alias(libs.plugins.android.library) apply false
   alias(libs.plugins.kotlin) apply false
   alias(libs.plugins.compose.compiler) apply false
+  alias(libs.plugins.osslicenses) apply false
   alias(libs.plugins.spotless)
 }
 
 subprojects {
+  // TODO: Move Spotless configuration to Convention Plugin once issue is resolved.
+  // ref. https://github.com/diffplug/spotless/issues/2388s
   apply(plugin = "com.diffplug.spotless")
 
   spotless {
@@ -51,27 +42,6 @@ subprojects {
       trimTrailingWhitespace()
       leadingTabsToSpaces(2)
       endWithNewline()
-    }
-  }
-
-  plugins.withType<BasePlugin> {
-    project.extensions.configure<BaseExtension> {
-      compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-      }
-    }
-  }
-
-  tasks.withType<KotlinJvmCompile>().configureEach {
-    compilerOptions {
-      jvmTarget.set(JvmTarget.JVM_17)
-
-      // Align with Jetpack Compose's Kotlin compatibility requirements.
-      plugins.withId(libs.plugins.android.library.get().pluginId) {
-        apiVersion.set(KotlinVersion.KOTLIN_1_9)
-        languageVersion.set(KotlinVersion.KOTLIN_1_9)
-      }
     }
   }
 }

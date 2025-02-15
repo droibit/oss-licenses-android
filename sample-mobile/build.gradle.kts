@@ -1,44 +1,16 @@
 plugins {
-  alias(libs.plugins.android.application)
-  alias(libs.plugins.kotlin)
-  alias(libs.plugins.compose.compiler)
-  id("com.google.android.gms.oss-licenses-plugin")
+  alias(libs.plugins.osslicenses.android.application)
+  alias(libs.plugins.osslicenses.android.compose)
+  alias(libs.plugins.osslicenses)
 }
 
 android {
   namespace = "com.github.droibit.oss_licenses.sample"
-  compileSdk = libs.versions.compileSdk.get().toInt()
 
   defaultConfig {
     applicationId = "com.github.droibit.oss_licenses.sample"
+    targetSdk = 35
     minSdk = 24
-    targetSdk = libs.versions.targetSdk.get().toInt()
-    versionCode = 1
-    versionName = "1.0.0"
-
-    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-  }
-
-  buildTypes {
-    debug {
-      isDebuggable = true
-      isMinifyEnabled = false
-      isShrinkResources = false
-      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-    }
-    release {
-      isMinifyEnabled = true
-      isShrinkResources = true
-      proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-
-      // Allow testing the release build type with `./gradlew sample-mobile:installRelease`
-      signingConfig = signingConfigs.getByName("debug")
-    }
-  }
-
-  buildFeatures {
-    compose = true
-    buildConfig = true
   }
 }
 
@@ -46,11 +18,8 @@ dependencies {
   implementation(projects.uiComposeMaterial3)
 
   implementation(libs.androidx.activity.compose)
-  implementation(platform(libs.androidx.compose.bom))
   implementation(libs.androidx.compose.material3)
   implementation(libs.androidx.navigation.compose)
-
-  debugImplementation(libs.androidx.compose.ui.tooling)
 
   implementation(libs.playServices.wearable)
   implementation(libs.dagger)

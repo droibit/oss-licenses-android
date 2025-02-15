@@ -7,17 +7,11 @@ androidx-wear-compose = "1.4.1"
 androidx-activity = "1.10.0"
 horologist = "0.6.22"
 ktlint = "1.5.0"
-compileSdk = "35"
-targetSdk = "34"
 robolectric = "4.14.1"
 roborazzi = "1.41.1"
 ui-test = "1.7.8"
 
 [libraries]
-# plugins.
-plugin-ossLicense = { module = "com.google.android.gms:oss-licenses-plugin", version = "0.10.6" }
-
-# other dependencies.
 kotlin-coroutines-bom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version = "1.10.1" }
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core" }
 kotlin-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test" }
@@ -65,6 +59,10 @@ roborazzi = { group = "io.github.takahirom.roborazzi", name = "roborazzi", versi
 roborazzi-compose = { group = "io.github.takahirom.roborazzi", name = "roborazzi-compose", version.ref = "roborazzi" }
 roborazzi-rule = { group = "io.github.takahirom.roborazzi", name = "roborazzi-junit-rule", version.ref = "roborazzi" }
 
+# Dependencies of the included build-logic.
+gradle-plugin-android = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
+gradle-plugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
 [bundles]
 androidx-wear-compose-material = [
   "androidx-wear-compose-foundation",
@@ -90,3 +88,10 @@ kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 spotless = { id = "com.diffplug.spotless", version = "7.0.2" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
+osslicenses = { id = "com.google.android.gms.oss-licenses-plugin", version = "0.10.6" }
+
+# Convention Plugins.f^
+osslicenses-android-application = { id = "oss_licenses.android.application" }
+osslicenses-android-library = { id = "oss_licenses.android.library" }
+osslicenses-android-compose = { id = "oss_licenses.android.library.compose" }
+osslicenses-android-wear-compose = { id = "oss_licenses.android.library.wear.compose" }
