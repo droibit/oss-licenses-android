@@ -9,7 +9,7 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 
 @PreviewLightDark
 @Composable
-private fun OssLicenseListPreview() {
+internal fun OssLicenseListPreview() {
   OssLicensesTheme {
     Scaffold { innerPadding ->
       OssLicenseList(

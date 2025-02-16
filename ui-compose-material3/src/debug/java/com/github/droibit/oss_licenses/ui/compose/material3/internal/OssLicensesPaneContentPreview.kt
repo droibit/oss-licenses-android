@@ -13,7 +13,7 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)
 @PreviewScreenSizes
 @Composable
-private fun OssLicensesPaneContentPreview() {
+internal fun OssLicensesPaneContentPreview() {
   OssLicensesTheme {
     val licenses = listOf(
       OssLicense("activity-compose", ""),
