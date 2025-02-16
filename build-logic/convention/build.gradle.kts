@@ -35,12 +35,12 @@ gradlePlugin {
       implementationClass = "AndroidLibraryConventionPlugin"
     }
 
-    register("androidLibraryCompose") {
+    register("androidCompose") {
       id = libs.plugins.osslicenses.android.compose.get().pluginId
       implementationClass = "AndroidComposeConventionPlugin"
     }
 
-    register("androidLibraryWearCompose") {
+    register("androidWearCompose") {
       id = libs.plugins.osslicenses.android.wear.compose.get().pluginId
       implementationClass = "AndroidWearComposeConventionPlugin"
     }
