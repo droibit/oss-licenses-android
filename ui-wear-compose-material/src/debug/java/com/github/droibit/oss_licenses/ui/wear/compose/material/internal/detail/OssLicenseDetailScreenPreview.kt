@@ -7,7 +7,7 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 
 @WearPreviewDevices
 @Composable
-private fun OssLicenseDetailScreenShortLicensePreview() {
+internal fun OssLicenseDetailScreenShortLicensePreview() {
   MaterialTheme {
     OssLicenseDetailScreen(
       license = OssLicense(
@@ -20,7 +20,7 @@ private fun OssLicenseDetailScreenShortLicensePreview() {
 
 @WearPreviewDevices
 @Composable
-private fun OssLicenseDetailScreenLongLicensePreview() {
+internal fun OssLicenseDetailScreenLongLicensePreview() {
   MaterialTheme {
     OssLicenseDetailScreen(
       license = OssLicense(

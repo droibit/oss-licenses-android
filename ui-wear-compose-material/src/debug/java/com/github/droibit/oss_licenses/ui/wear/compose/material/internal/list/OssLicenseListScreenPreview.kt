@@ -17,7 +17,7 @@ import com.github.droibit.oss_licenses.parser.OssLicense
   showSystemUi = true,
 )
 @Composable
-private fun OssLicenseListScreenPreview() {
+internal fun OssLicenseListScreenPreview() {
   MaterialTheme {
     OssLicenseListScreen(
       licenses = listOf(
