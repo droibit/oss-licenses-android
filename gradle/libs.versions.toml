@@ -89,8 +89,9 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 spotless = { id = "com.diffplug.spotless", version = "7.0.2" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
 osslicenses = { id = "com.google.android.gms.oss-licenses-plugin", version = "0.10.6" }
+maven-publish = { id = "com.vanniktech.maven.publish", version = "0.30.0" }
 
-# Convention Plugins.f^
+# Convention Plugins.
 osslicenses-android-application = { id = "oss_licenses.android.application" }
 osslicenses-android-library = { id = "oss_licenses.android.library" }
 osslicenses-android-compose = { id = "oss_licenses.android.library.compose" }
