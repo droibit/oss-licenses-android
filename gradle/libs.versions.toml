@@ -10,6 +10,7 @@ ktlint = "1.5.0"
 robolectric = "4.14.1"
 roborazzi = "1.42.0"
 ui-test = "1.7.8"
+maven-publish = "0.30.0"
 
 [libraries]
 kotlin-coroutines-bom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version = "1.10.1" }
@@ -62,6 +63,7 @@ roborazzi-rule = { group = "io.github.takahirom.roborazzi", name = "roborazzi-ju
 # Dependencies of the included build-logic.
 gradle-plugin-android = { group = "com.android.tools.build", name = "gradle", version.ref = "android-gradle-plugin" }
 gradle-plugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+gradle-plugin-maven-publish = { group = "com.vanniktech", name = "gradle-maven-publish-plugin", version.ref = "maven-publish" }
 
 [bundles]
 androidx-wear-compose-material = [
@@ -89,9 +91,11 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 spotless = { id = "com.diffplug.spotless", version = "7.0.2" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
 osslicenses = { id = "com.google.android.gms.oss-licenses-plugin", version = "0.10.6" }
+maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }
 
-# Convention Plugins.f^
+# Convention Plugins.
 osslicenses-android-application = { id = "oss_licenses.android.application" }
 osslicenses-android-library = { id = "oss_licenses.android.library" }
-osslicenses-android-compose = { id = "oss_licenses.android.library.compose" }
-osslicenses-android-wear-compose = { id = "oss_licenses.android.library.wear.compose" }
+osslicenses-android-compose = { id = "oss_licenses.android.compose" }
+osslicenses-android-wear-compose = { id = "oss_licenses.android.wear.compose" }
+osslicenses-android-maven-publish = { id = "oss_licenses.android.maven.publish" }

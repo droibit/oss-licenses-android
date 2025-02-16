@@ -1,5 +1,6 @@
 plugins {
   alias(libs.plugins.osslicenses.android.library)
+  alias(libs.plugins.osslicenses.android.maven.publish)
 }
 
 android {
@@ -23,5 +24,3 @@ dependencies {
   testImplementation(libs.turbine)
   testImplementation(libs.kotlin.coroutines.test)
 }
-
-apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")

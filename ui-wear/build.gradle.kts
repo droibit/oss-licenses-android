@@ -1,5 +1,6 @@
 plugins {
   alias(libs.plugins.osslicenses.android.library)
+  alias(libs.plugins.osslicenses.android.maven.publish)
 }
 
 android {
@@ -18,5 +19,3 @@ dependencies {
   implementation(libs.androidx.recyclerView)
   implementation(libs.androidx.wear)
 }
-
-apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")
