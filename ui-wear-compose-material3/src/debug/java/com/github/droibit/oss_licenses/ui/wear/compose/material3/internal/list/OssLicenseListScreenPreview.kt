@@ -3,21 +3,13 @@ package com.github.droibit.oss_licenses.ui.wear.compose.material3.internal.list
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.ui.tooling.preview.WearPreviewDevices
-import androidx.wear.tooling.preview.devices.WearDevices
 import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.wear.compose.tooling.preview.WearPreviewDevicesJapanese
 
 @WearPreviewDevices
-@Preview(
-  device = WearDevices.SMALL_ROUND,
-  backgroundColor = 0xff000000,
-  showBackground = true,
-  group = "Devices - Small Round(Japanese)",
-  locale = "ja",
-  showSystemUi = true,
-)
+@WearPreviewDevicesJapanese
 @Composable
 internal fun OssLicenseListScreenPreview() {
   MaterialTheme {
