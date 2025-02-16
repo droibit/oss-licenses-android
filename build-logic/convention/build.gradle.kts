@@ -20,6 +20,7 @@ kotlin {
 dependencies {
   compileOnly(libs.gradle.plugin.android)
   compileOnly(libs.gradle.plugin.kotlin)
+  compileOnly(libs.gradle.plugin.maven.publish)
 }
 
 gradlePlugin {
@@ -42,6 +43,11 @@ gradlePlugin {
     register("androidLibraryWearCompose") {
       id = libs.plugins.osslicenses.android.wear.compose.get().pluginId
       implementationClass = "AndroidWearComposeConventionPlugin"
+    }
+
+    register("androidMavenPublish") {
+      id = libs.plugins.osslicenses.android.maven.publish.get().pluginId
+      implementationClass = "AndroidMavenPublishConventionPlugin"
     }
   }
 }
