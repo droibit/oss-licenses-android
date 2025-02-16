@@ -3,6 +3,7 @@
 plugins {
   alias(libs.plugins.osslicenses.android.library)
   alias(libs.plugins.osslicenses.android.compose)
+  alias(libs.plugins.osslicenses.android.maven.publish)
   alias(libs.plugins.roborazzi)
 }
 
@@ -23,5 +24,3 @@ dependencies {
   testImplementation(libs.robolectric)
   testImplementation(projects.uiComposeScreenshots)
 }
-
-apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")

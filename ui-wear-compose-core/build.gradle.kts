@@ -1,6 +1,7 @@
 plugins {
   alias(libs.plugins.osslicenses.android.library)
   alias(libs.plugins.osslicenses.android.wear.compose)
+  alias(libs.plugins.osslicenses.android.maven.publish)
 }
 
 android.namespace = "com.github.droibit.oss_licenses.ui.wear.compose.core"
@@ -17,5 +18,3 @@ dependencies {
   testImplementation(libs.truth)
   testImplementation(libs.robolectric)
 }
-
-apply(from = "$rootDir/gradle/gradle-mvn-push.gradle.kts")
