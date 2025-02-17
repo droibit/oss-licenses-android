@@ -1,6 +1,7 @@
 # OSS Licenses for Android
 
-[![jitpack.io](https://jitpack.io/v/droibit/oss-licenses-android.svg)](https://jitpack.io/#droibit/oss-licenses-android)
+[![Android CI](https://github.com/droibit/oss-licenses-android/actions/workflows/android.yml/badge.svg?branch=main)](https://github.com/droibit/oss-licenses-android/actions/workflows/android.yml)
+[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/droibit/prefbinding/blob/develop/LICENSE)
 
 A collection of UI libraries and a parser for displaying open-source licenses in Android applications.  
 Built with Jetpack Compose and compatible with the [OSS Licenses Gradle Plugin](https://github.com/google/play-services-plugins/tree/main/oss-licenses-plugin).
@@ -28,32 +29,24 @@ This plugin is required to generate the license information that this library wi
 
 Add the following code to your build.gradle.
 
-```gradle
-allprojects {
-  repositories {
-    ...
-    maven {
-      url 'https://jitpack.io'
-      content {
-          includeGroup 'com.github.droibit.oss-licenses-android'
-      }
-    }
-  }
+```kotlin
+repositories {
+  mavenCentral()
 }
 
 dependencies {
   // For apps using `androidx.compose.material3:material3`
-  implementation 'com.github.droibit.oss-licenses-android:ui-compose-material3:0.6.0'
+  implementation("io.github.droibit.oss-licenses-android:ui-compose-material3:0.7.0")
 
   // UI components for Wear OS apps
   // If using `androidx.wear.compose:compose-material`
-  implementation 'com.github.droibit.oss-licenses-android:ui-wear-compose-material:0.6.0'
+  implementation("io.github.droibit.oss-licenses-android:ui-wear-compose-material:0.7.0")
   // or
   // If using `androidx.wear.compose:compose-material3`
-  implementation 'com.github.droibit.oss-licenses-android:ui-wear-compose-material3:0.6.0'
+  implementation("io.github.droibit.oss-licenses-android:ui-wear-compose-material3:0.7.0")
 
   // For custom implementations, use only the parser
-  implementation 'com.github.droibit.oss-licenses-android:parser:0.6.0'
+  implementation("io.github.droibit.oss-licenses-android:parser:0.7.0")
 }
 ```
 
