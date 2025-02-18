@@ -3,9 +3,15 @@
 pluginManagement {
   includeBuild("build-logic")
   repositories {
-    google()
-    gradlePluginPortal()
+    google {
+      content {
+        includeGroupByRegex("com\\.android.*")
+        includeGroupByRegex("com\\.google.*")
+        includeGroupByRegex("androidx.*")
+      }
+    }
     mavenCentral()
+    gradlePluginPortal()
   }
 
   // https://github.com/google/play-services-plugins/issues/223
@@ -22,7 +28,13 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 dependencyResolutionManagement {
   repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
   repositories {
-    google()
+    google {
+      content {
+        includeGroupByRegex("com\\.android.*")
+        includeGroupByRegex("com\\.google.*")
+        includeGroupByRegex("androidx.*")
+      }
+    }
     mavenCentral()
   }
 }
