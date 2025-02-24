@@ -1,5 +1,7 @@
 package com.github.droibit.oss_licenses.ui.compose.material3.internal
 
+import androidx.compose.foundation.lazy.LazyListState
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
 import androidx.compose.material3.adaptive.layout.AnimatedPane
 import androidx.compose.material3.adaptive.layout.ListDetailPaneScaffold
@@ -15,6 +17,7 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 internal fun OssLicensesPaneContent(
   licenses: List<OssLicense>,
   modifier: Modifier = Modifier,
+  listState: LazyListState = rememberLazyListState(),
   navigator: ThreePaneScaffoldNavigator<OssLicense> =
     rememberListDetailPaneScaffoldNavigator<OssLicense>(),
 ) {
@@ -26,6 +29,7 @@ internal fun OssLicensesPaneContent(
       AnimatedPane {
         OssLicenseList(
           licenses = licenses,
+          listState = listState,
           onItemClick = { license ->
             navigator.navigateTo(ListDetailPaneScaffoldRole.Detail, license)
           },
