@@ -8,7 +8,7 @@ androidx-activity = "1.10.0"
 horologist = "0.6.22"
 ktlint = "1.5.0"
 robolectric = "4.14.1"
-roborazzi = "1.42.0"
+roborazzi = "1.43.0"
 ui-test = "1.7.8"
 maven-publish = "0.30.0"
 
