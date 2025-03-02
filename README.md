@@ -36,17 +36,17 @@ repositories {
 
 dependencies {
   // For apps using `androidx.compose.material3:material3`
-  implementation("io.github.droibit.oss-licenses-android:ui-compose-material3:0.7.0")
+  implementation("io.github.droibit.oss-licenses-android:ui-compose-material3:0.7.1")
 
   // UI components for Wear OS apps
   // If using `androidx.wear.compose:compose-material`
-  implementation("io.github.droibit.oss-licenses-android:ui-wear-compose-material:0.7.0")
+  implementation("io.github.droibit.oss-licenses-android:ui-wear-compose-material:0.7.1")
   // or
   // If using `androidx.wear.compose:compose-material3`
-  implementation("io.github.droibit.oss-licenses-android:ui-wear-compose-material3:0.7.0")
+  implementation("io.github.droibit.oss-licenses-android:ui-wear-compose-material3:0.7.1")
 
   // For custom implementations, use only the parser
-  implementation("io.github.droibit.oss-licenses-android:parser:0.7.0")
+  implementation("io.github.droibit.oss-licenses-android:parser:0.7.1")
 }
 ```
 
