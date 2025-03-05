@@ -36,6 +36,11 @@ subprojects {
         )
     }
 
+    kotlinGradle {
+      target("**/*.gradle.kts")
+      ktlint(libs.versions.ktlint.get())
+    }
+
     format("xml") {
       target("**/*.xml")
       targetExclude("**/build/**/*.xml")
