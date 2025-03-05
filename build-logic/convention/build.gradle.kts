@@ -26,27 +26,37 @@ dependencies {
 gradlePlugin {
   plugins {
     register("androidApplication") {
-      id = libs.plugins.osslicenses.android.application.get().pluginId
+      id = libs.plugins.osslicenses.android.application
+        .get()
+        .pluginId
       implementationClass = "AndroidApplicationConventionPlugin"
     }
 
     register("androidLibrary") {
-      id = libs.plugins.osslicenses.android.library.get().pluginId
+      id = libs.plugins.osslicenses.android.library
+        .get()
+        .pluginId
       implementationClass = "AndroidLibraryConventionPlugin"
     }
 
     register("androidCompose") {
-      id = libs.plugins.osslicenses.android.compose.get().pluginId
+      id = libs.plugins.osslicenses.android.compose
+        .get()
+        .pluginId
       implementationClass = "AndroidComposeConventionPlugin"
     }
 
     register("androidWearCompose") {
-      id = libs.plugins.osslicenses.android.wear.compose.get().pluginId
+      id = libs.plugins.osslicenses.android.wear.compose
+        .get()
+        .pluginId
       implementationClass = "AndroidWearComposeConventionPlugin"
     }
 
     register("androidMavenPublish") {
-      id = libs.plugins.osslicenses.android.maven.publish.get().pluginId
+      id = libs.plugins.osslicenses.android.maven.publish
+        .get()
+        .pluginId
       implementationClass = "AndroidMavenPublishConventionPlugin"
     }
   }
