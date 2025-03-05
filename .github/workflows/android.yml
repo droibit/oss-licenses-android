@@ -34,7 +34,7 @@ jobs:
     - name: Build projects
       run: ./gradlew assembleDebug
     - name: Run ktlint
-      run: ./gradlew spotlessCheck
+      run: ./gradlew spotlessCheck :build-logic:spotlessCheck
     - name: Run unit tests
       run: ./gradlew testDebugUnitTest
     - name: Run screenshot tests
