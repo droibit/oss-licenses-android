@@ -10,7 +10,7 @@ ktlint = "1.5.0"
 robolectric = "4.14.1"
 roborazzi = "1.43.0"
 ui-test = "1.7.8"
-maven-publish = "0.30.0"
+maven-publish = "0.31.0"
 
 [libraries]
 kotlin-coroutines-bom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version = "1.10.1" }
