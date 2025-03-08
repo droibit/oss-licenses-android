@@ -51,3 +51,9 @@ include(
   ":ui-wear-compose-material",
   ":ui-wear-compose-material3",
 )
+includeBuild("gradle-plugin") {
+  dependencySubstitution {
+    substitute(module("io.github.droibit.oss-licenses-android.licensee-bridge:io.github.droibit.oss-licenses-android.licensee-bridge.gradle.plugin"))
+      .using(project(":licensee-bridge"))
+  }
+}

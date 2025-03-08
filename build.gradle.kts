@@ -1,16 +1,18 @@
 plugins {
   alias(libs.plugins.android.application) apply false
   alias(libs.plugins.android.library) apply false
-  alias(libs.plugins.kotlin) apply false
+  alias(libs.plugins.kotlin.android) apply false
   alias(libs.plugins.compose.compiler) apply false
   alias(libs.plugins.osslicenses) apply false
   alias(libs.plugins.maven.publish) apply false
   alias(libs.plugins.spotless)
+  alias(libs.plugins.licensee) apply false
+  alias(libs.plugins.licensee.bridge) version "dev" apply false
 }
 
 subprojects {
   // TODO: Move Spotless configuration to Convention Plugin once issue is resolved.
-  // ref. https://github.com/diffplug/spotless/issues/2388s
+  // ref. https://github.com/diffplug/spotless/issues/2388
   apply(plugin = "com.diffplug.spotless")
 
   spotless {

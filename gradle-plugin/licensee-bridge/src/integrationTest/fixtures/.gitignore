@@ -1,0 +1,6 @@
+*/gradle/wrapper/*
+.gradle
+.kotlin
+
+# Track build/ directories when they're inside expected/
+!*/expected/**/build/
