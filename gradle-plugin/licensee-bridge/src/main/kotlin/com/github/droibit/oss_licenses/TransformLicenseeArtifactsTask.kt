@@ -68,9 +68,9 @@ abstract class TransformLicenseeArtifactsTask : DefaultTask() {
   @Throws(IOException::class)
   @OptIn(ExperimentalSerializationApi::class)
   internal fun transform(artifactsJson: Source): LicenseBundle {
-    val artifactDetails = Json.decodeFromBufferedSource<List<ArtifactDetail>>(
-      artifactsJson.buffer(),
-    )
+    val artifactDetails = artifactsJson.buffer().use {
+      Json.decodeFromBufferedSource<List<ArtifactDetail>>(it)
+    }
 
     val artifacts = sortedSetOf(
       compareBy(String.CASE_INSENSITIVE_ORDER, Artifact::name)

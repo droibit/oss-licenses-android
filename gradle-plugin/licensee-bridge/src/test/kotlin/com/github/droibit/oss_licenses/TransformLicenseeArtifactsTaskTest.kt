@@ -57,6 +57,13 @@ class TransformLicenseeArtifactsTaskTest {
     val spyTask = spyk(task)
     val licenseBundle = LicenseBundle(metadataSource, licensesSource)
     every { spyTask.transform(any()) } returns licenseBundle
+    every { spyTask.transform(any()) } answers {
+      // Close the source before throwing the exception to prevent file handle leaks on Windows.
+      // This resolves issues where JUnit can't delete temp files because they're still locked.
+      firstArg<Source>().also { it.close() }
+      licenseBundle
+    }
+
     spyTask.execute()
 
     val rawDir = task.outputResDir
@@ -96,7 +103,12 @@ class TransformLicenseeArtifactsTaskTest {
 
     val spyTask = spyk(task)
     val expectedException = IOException("Transform process failed")
-    every { spyTask.transform(any()) } throws expectedException
+    every { spyTask.transform(any()) } answers {
+      // Close the source before throwing the exception to prevent file handle leaks on Windows.
+      // This resolves issues where JUnit can't delete temp files because they're still locked.
+      firstArg<Source>().also { it.close() }
+      throw expectedException
+    }
 
     try {
       spyTask.execute()
@@ -112,8 +124,9 @@ class TransformLicenseeArtifactsTaskTest {
 
   @Test
   fun transform_successfullyTransformsArtifacts() {
-    val artifactsJson = fileSystem.source("artifacts.json".toPath())
-    val bundle = task.transform(artifactsJson)
+    val bundle = fileSystem.source("artifacts.json".toPath()).use {
+      task.transform(artifactsJson = it)
+    }
 
     val expectedLicenseMetadata =
       """
