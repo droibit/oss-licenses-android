@@ -42,6 +42,7 @@ dependencyResolutionManagement {
 include(
   ":parser",
   ":sample-mobile",
+  ":sample-mobile-licensee-bridge",
   ":sample-wear",
   ":ui-compose-material3",
   ":ui-compose-screenshots",

@@ -1,5 +1,4 @@
-@file:Suppress("ktlint")
-package com.github.droibit.oss_licenses.sample.ui
+package com.github.droibit.oss_licenses.licensee_bridge.sample.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
