@@ -1,10 +1,13 @@
 package com.github.droibit.oss_licenses.sample
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
@@ -16,8 +19,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import com.github.droibit.oss_licenses.sample.ui.MobileAppTheme
-import com.github.droibit.oss_licenses.ui.compose.material3.OssLicensesActivity
+import com.github.droibit.oss_licenses.ui.compose.material3.OssLicensesActivity as ComposeM3OssLicensesActivity
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 
 @OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
@@ -42,15 +47,30 @@ class MainActivity : ComponentActivity() {
               .padding(innerPadding)
               .fillMaxSize(),
           ) {
-            Button(
-              onClick = {
-                context.startActivity(
-                  OssLicensesActivity.createIntent(context),
-                )
-              },
+            Column(
+              verticalArrangement = Arrangement.spacedBy(8.dp),
+              horizontalAlignment = Alignment.CenterHorizontally,
               modifier = Modifier.align(Alignment.Center),
             ) {
-              Text(text = "Show")
+              Button(
+                onClick = {
+                  context.startActivity(
+                    ComposeM3OssLicensesActivity.createIntent(context),
+                  )
+                },
+              ) {
+                Text(text = "Show")
+              }
+
+              Button(
+                onClick = {
+                  context.startActivity(
+                    Intent(context, OssLicensesMenuActivity::class.java),
+                  )
+                },
+              ) {
+                Text(text = "Show (Play Services)")
+              }
             }
           }
         }

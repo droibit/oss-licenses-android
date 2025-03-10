@@ -21,7 +21,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.github.droibit.oss_licenses.licensee_bridge.sample.ui.theme.MobileAppTheme
-import com.github.droibit.oss_licenses.ui.compose.material3.OssLicensesActivity as M3OssLicensesActivity
+import com.github.droibit.oss_licenses.ui.compose.material3.OssLicensesActivity as ComposeM3OssLicensesActivity
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -55,7 +55,7 @@ class MainActivity : ComponentActivity() {
               Button(
                 onClick = {
                   context.startActivity(
-                    M3OssLicensesActivity.createIntent(context),
+                    ComposeM3OssLicensesActivity.createIntent(context),
                   )
                 },
               ) {
