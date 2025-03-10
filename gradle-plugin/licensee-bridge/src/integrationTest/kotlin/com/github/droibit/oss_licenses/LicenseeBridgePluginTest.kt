@@ -17,7 +17,9 @@ class LicenseeBridgePluginTest {
   @ValueSource(
     strings = [
       "plugin-android-application",
+      "plugin-android-application-min-supported-version",
       "plugin-android-application-product-flavors",
+      "plugin-licensee-min-supported-version",
     ],
   )
   fun runSuccessfully(fixtureName: String) {
