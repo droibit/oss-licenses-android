@@ -81,8 +81,9 @@ class LicenseeBridgePluginTest {
         .isTrue()
     }
 
-    val expectedVariantDirs = expectedDir.listFiles()
-    assertThat(expectedVariantDirs).isNotEmpty()
+    val expectedVariantDirs = expectedDir.listFiles().also {
+      assertThat(it).isNotEmpty()
+    }
 
     expectedVariantDirs?.forEach { expectedVariantDir ->
       val variantDirName = expectedVariantDir.name
@@ -92,8 +93,9 @@ class LicenseeBridgePluginTest {
           .isTrue()
       }
 
-      val expectedFiles = File(expectedVariantDir, "raw").listFiles()
-      assertThat(expectedFiles).isNotEmpty()
+      val expectedFiles = File(expectedVariantDir, "raw").listFiles().also {
+        assertThat(it).isNotEmpty()
+      }
 
       val actualRawDir = File(actualVariantDir, "raw").also {
         assertWithMessage("Raw directory doesn't exist: ${it.path}")

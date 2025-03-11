@@ -25,33 +25,34 @@ import org.gradle.api.tasks.PathSensitivity
 import org.gradle.api.tasks.TaskAction
 import org.jetbrains.annotations.VisibleForTesting
 
-private const val RAW_DIR = "raw"
+private const val OUTPUT_RAW_DIR = "raw"
 
 @Suppress("LeakingThis")
 @CacheableTask
 abstract class TransformLicenseeArtifactsTask : DefaultTask() {
   @get:InputFile
   @get:PathSensitive(PathSensitivity.RELATIVE)
-  internal abstract val inputFile: RegularFileProperty
+  internal abstract val licenseeArtifacts: RegularFileProperty
 
   @get:OutputDirectory
   internal abstract val outputResDir: DirectoryProperty
 
   @get:Internal
-  val outputLicenses: Provider<RegularFile> = outputResDir.file("$RAW_DIR/third_party_licenses")
+  val outputLicenses: Provider<RegularFile> =
+    outputResDir.file("$OUTPUT_RAW_DIR/third_party_licenses")
 
   @get:Internal
   val outputLicensesMetadata: Provider<RegularFile> =
-    outputResDir.file("$RAW_DIR/third_party_license_metadata")
+    outputResDir.file("$OUTPUT_RAW_DIR/third_party_license_metadata")
 
   @TaskAction
   fun execute() {
-    val artifactsJsonFile = inputFile.asFile.get()
+    val artifactsJsonFile = licenseeArtifacts.asFile.get()
     if (!artifactsJsonFile.exists()) {
       throw GradleException("Artifacts JSON file does not exist: ${artifactsJsonFile.absolutePath}")
     }
 
-    val rawDir = outputResDir.dir(RAW_DIR).get().asFile
+    val rawDir = outputResDir.dir(OUTPUT_RAW_DIR).get().asFile
     rawDir.mkdirs()
 
     try {

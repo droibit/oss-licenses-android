@@ -43,7 +43,7 @@ class TransformLicenseeArtifactsTaskTest {
   fun execute_successfullyTransformsArtifacts() {
     val inputJsonFile = tempDir.resolve("artifacts.json")
     inputJsonFile.createNewFile()
-    task.inputFile.set(inputJsonFile)
+    task.licenseeArtifacts.set(inputJsonFile)
 
     val expectedLicenses = "licenses"
     val licensesSource: Source = Buffer().apply {
@@ -82,7 +82,7 @@ class TransformLicenseeArtifactsTaskTest {
   @Test
   fun execute_throwsExceptionWhenInputFileDoesNotExist() {
     val nonExistentFile = tempDir.resolve("non-existent.json")
-    task.inputFile.set(nonExistentFile)
+    task.licenseeArtifacts.set(nonExistentFile)
 
     try {
       task.execute()
@@ -99,7 +99,7 @@ class TransformLicenseeArtifactsTaskTest {
   fun execute_throwsExceptionWhenTransformProcessFails() {
     val inputJsonFile = tempDir.resolve("input.json")
     inputJsonFile.createNewFile()
-    task.inputFile.set(inputJsonFile)
+    task.licenseeArtifacts.set(inputJsonFile)
 
     val spyTask = spyk(task)
     val expectedException = IOException("Transform process failed")

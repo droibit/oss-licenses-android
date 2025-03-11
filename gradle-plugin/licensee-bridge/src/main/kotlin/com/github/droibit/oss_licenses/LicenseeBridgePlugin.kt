@@ -14,6 +14,7 @@ import org.gradle.api.tasks.TaskProvider
 private const val TRANSFORM_TASK_PREFIX = "transformLicenseeArtifacts"
 private const val ROOT_TRANSFORM_TASK = "transformLicenseeArtifacts"
 private const val LICENSEE_TASK_PREFIX = "licenseeAndroid"
+private const val LICENSEE_ARTIFACTS_FILE = "artifacts.json"
 
 class LicenseeBridgePlugin : Plugin<Project> {
   override fun apply(target: Project) {
@@ -44,7 +45,9 @@ class LicenseeBridgePlugin : Plugin<Project> {
       ) { task ->
         task.description =
           "Transforms the JSON output of licensee plugin into Android resource files for $variantName"
-        task.inputFile.set(licenseeTask.flatMap { it.jsonOutput })
+        task.licenseeArtifacts.set(
+          licenseeTask.flatMap { it.outputDir.file(LICENSEE_ARTIFACTS_FILE) },
+        )
       }
 
       rootTask.configure { task ->
