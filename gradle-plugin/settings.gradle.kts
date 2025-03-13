@@ -18,4 +18,6 @@ dependencyResolutionManagement {
   }
 }
 
+rootProject.name = "gradle-plugin"
+
 include(":licensee-bridge")

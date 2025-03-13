@@ -39,6 +39,8 @@ dependencyResolutionManagement {
   }
 }
 
+rootProject.name = "oss-licenses-android"
+
 include(
   ":parser",
   ":sample-mobile",
