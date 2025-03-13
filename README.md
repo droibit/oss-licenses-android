@@ -17,15 +17,27 @@ This library provides several modules to help you display open-source licenses i
 
 Each module can be used independently based on your app's needs.
 
+Additionally, the following Gradle plugin is available:
+
+- [licensee-bridge](./gradle-plugin/licensee-bridge): A Gradle plugin that transforms [Licensee](https://github.com/cashapp/licensee) artifacts to a format compatible with the OSS Licenses plugin
+
 ## Installation
 
-### Add OSS Licenses Gradle Plugin
+### Choose a License Data Generation Plugin
 
-First, add the OSS Licenses Gradle Plugin to your project by following the [official documentation](https://github.com/google/play-services-plugins/tree/main/oss-licenses-plugin#add-the-gradle-plugin).  
+Before using the UI components, you need to set up license data generation. Choose **one** of the following options:
 
-This plugin is required to generate the license information that this library will display.
+#### Option 1: OSS Licenses Gradle Plugin
 
-### Add the library to your app
+Add Google's OSS Licenses Gradle Plugin by following the official [documentation](https://github.com/google/play-services-plugins/tree/main/oss-licenses-plugin#add-the-gradle-plugins).
+
+#### Option 2: Licensee Bridge Gradle Plugin
+
+Alternatively, use the [Licensee Bridge Gradle Plugin](./gradle-plugin/licensee-bridge) which transforms license data collected by [Licensee](https://github.com/cashapp/licensee) into a compatible format.
+
+For detailed configuration instructions, see the [documentation](./gradle-plugin/licensee-bridge/README.md).
+
+### Add OSS Licenses Components to Your App
 
 Add the following code to your build.gradle.
 

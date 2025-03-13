@@ -1,0 +1,57 @@
+name: Gradle Plugin CI
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'gradle-plugin/**'
+      - '.github/workflows/gradle-plugin.yml'
+      - '!**.md'
+    tags-ignore:
+      - '**'
+  pull_request:
+    branches: [ '**' ]
+    paths:
+      - 'gradle-plugin/**'
+      - '.github/workflows/gradle-plugin.yml'
+      - '!**.md'
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, windows-latest ]
+
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: Set git to use LF
+        if: matrix.os == 'windows-latest'
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: 17
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-home-cache-cleanup: true
+
+      - name: Copy CI gradle.properties
+        run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+
+      - name: Build gradle-plugin projects
+        run: ./gradlew assemble
+        working-directory: ./gradle-plugin
+
+      - name: Run tests and verification
+        run: ./gradlew check
+        working-directory: ./gradle-plugin

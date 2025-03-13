@@ -39,9 +39,12 @@ dependencyResolutionManagement {
   }
 }
 
+rootProject.name = "oss-licenses-android"
+
 include(
   ":parser",
   ":sample-mobile",
+  ":sample-mobile-licensee-bridge",
   ":sample-wear",
   ":ui-compose-material3",
   ":ui-compose-screenshots",
@@ -51,3 +54,9 @@ include(
   ":ui-wear-compose-material",
   ":ui-wear-compose-material3",
 )
+includeBuild("gradle-plugin") {
+  dependencySubstitution {
+    substitute(module("io.github.droibit.oss-licenses-android.licensee-bridge:io.github.droibit.oss-licenses-android.licensee-bridge.gradle.plugin"))
+      .using(project(":licensee-bridge"))
+  }
+}

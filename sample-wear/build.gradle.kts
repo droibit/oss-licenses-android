@@ -30,7 +30,7 @@ dependencies {
   implementation(libs.androidx.recyclerView)
   implementation(libs.androidx.wear)
 
-  implementation(libs.playServices.wearable)
+  implementation(libs.play.services.wearable)
 
   implementation(libs.dagger)
 }

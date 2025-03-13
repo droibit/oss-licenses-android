@@ -1,0 +1,82 @@
+[
+  {
+    "groupId": "com.example",
+    "artifactId": "library1",
+    "version": "1.0.0",
+    "name": "Sample Library1",
+    "spdxLicenses": [
+      {
+        "identifier": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0"
+      }
+    ]
+  },
+  {
+    "groupId": "com.example",
+    "artifactId": "library2",
+    "version": "1.0.0",
+    "name": "Sample Library2",
+    "spdxLicenses": [
+      {
+        "identifier": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit/"
+      }
+    ]
+  },
+  {
+    "groupId": "com.example",
+    "artifactId": "library3",
+    "version": "1.0.0",
+    "name": "Unknown Library",
+    "unknownLicenses": [
+      {
+        "name": "Test License1",
+        "url": "https://example.com/license1"
+      }
+    ]
+  },
+  {
+    "groupId": "com.example",
+    "artifactId": "library4",
+    "version": "1.0.0",
+    "name": "Mixed License Library1",
+    "spdxLicenses": [
+      {
+        "identifier": "AML",
+        "name": "Apple MIT License",
+        "url": "https://fedoraproject.org/wiki/Licensing/Apple_MIT_License"
+      },
+      {
+        "identifier": "MIT",
+        "name": "MIT License",
+        "url": "https://opensource.org/license/mit/"
+      }
+    ]
+  },
+  {
+    "groupId": "com.example",
+    "artifactId": "library5",
+    "version": "1.0.0",
+    "name": "Mixed Unknown Library2",
+    "unknownLicenses": [
+      {
+        "name": "Test License1",
+        "url": "https://example.com/license1"
+      },
+      {
+        "name": "Test License2",
+        "url": "https://example.com/license2"
+      }
+    ]
+  },
+  {
+    "groupId": "com.example",
+    "artifactId": "library6",
+    "version": "1.0.0",
+    "name": "No License Library",
+    "spdxLicenses": [],
+    "unknownLicenses": []
+  }
+]

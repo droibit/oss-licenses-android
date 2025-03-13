@@ -21,6 +21,17 @@ dependencies {
   implementation(libs.androidx.compose.material3)
   implementation(libs.androidx.navigation.compose)
 
-  implementation(libs.playServices.wearable)
+  implementation(libs.play.services.wearable)
+  implementation(libs.play.services.osslicenses)
   implementation(libs.dagger)
+}
+
+// Force consistent versions of vectordrawable libraries to avoid the namespace conflict
+// between androidx.vectordrawable:vectordrawable and vectordrawable-animated
+// This resolves the "Namespace 'androidx.vectordrawable' is used in multiple modules" error
+configurations.all {
+  resolutionStrategy {
+    force("androidx.vectordrawable:vectordrawable:1.2.0")
+    force("androidx.vectordrawable:vectordrawable-animated:1.2.0")
+  }
 }
