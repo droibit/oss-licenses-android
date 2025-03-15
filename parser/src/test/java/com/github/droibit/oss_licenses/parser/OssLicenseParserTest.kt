@@ -186,6 +186,34 @@ class OssLicenseParserTest {
   }
 
   @Test
+  fun parseInternal_withMultipleLicensesPerLibrary() = runTest(testDispatcher) {
+    val licenseMetadata =
+      """
+      0:8 library1
+      9:8 library1
+      9:8 library2
+      """.trimIndent()
+    val licenses =
+      """
+      license1
+      license2
+      """.trimIndent()
+    val licenseMetadataSource = licenseMetadata.byteInputStream().source()
+    val licensesSource = licenses.byteInputStream().source()
+
+    val result = parser.parseInternal(
+      coroutineContext,
+      licensesSource,
+      licenseMetadataSource,
+    )
+    assertThat(result).containsExactly(
+      OssLicense("library1", "license1"),
+      OssLicense("library1", "license2"),
+      OssLicense("library2", "license2"),
+    )
+  }
+
+  @Test
   fun parseInternal_withEmptyResources() = runTest(testDispatcher) {
     val emptySource = "".byteInputStream().source()
     val result = parser.parseInternal(testDispatcher, emptySource, emptySource)

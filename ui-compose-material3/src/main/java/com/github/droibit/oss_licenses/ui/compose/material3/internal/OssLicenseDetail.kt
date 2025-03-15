@@ -12,11 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 
 @Composable
 internal fun OssLicenseDetail(
-  license: OssLicense,
+  license: OssLicenseUiState,
   modifier: Modifier = Modifier,
   showLibraryName: Boolean = true,
   scrollState: ScrollState = rememberScrollState(),
@@ -39,7 +39,7 @@ internal fun OssLicenseDetail(
     }
 
     Text(
-      text = license.text,
+      text = license.licenseText,
       style = MaterialTheme.typography.bodyMedium.copy(
         fontFamily = FontFamily.Monospace,
       ),

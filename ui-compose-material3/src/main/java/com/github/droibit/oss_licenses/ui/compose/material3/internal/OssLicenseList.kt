@@ -13,14 +13,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 
 @Composable
 internal fun OssLicenseList(
-  licenses: List<OssLicense>,
+  licenses: List<OssLicenseUiState>,
   modifier: Modifier = Modifier,
   listState: LazyListState = rememberLazyListState(),
-  onItemClick: (OssLicense) -> Unit = {},
+  onItemClick: (OssLicenseUiState) -> Unit = {},
 ) {
   LazyColumn(
     state = listState,
@@ -28,7 +28,7 @@ internal fun OssLicenseList(
   ) {
     items(
       licenses,
-      key = OssLicense::library,
+      key = OssLicenseUiState::id,
     ) { license ->
       OssLicenseItem(
         license = license,
@@ -45,9 +45,9 @@ internal fun OssLicenseList(
 
 @Composable
 private fun OssLicenseItem(
-  license: OssLicense,
+  license: OssLicenseUiState,
   modifier: Modifier = Modifier,
-  onClick: (OssLicense) -> Unit = {},
+  onClick: (OssLicenseUiState) -> Unit = {},
 ) {
   ListItem(
     headlineContent = {

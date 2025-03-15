@@ -9,15 +9,15 @@ import androidx.wear.compose.foundation.lazy.rememberTransformingLazyColumnState
 import androidx.wear.compose.material3.ListHeader
 import androidx.wear.compose.material3.ScreenScaffold
 import androidx.wear.compose.material3.Text
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 import com.github.droibit.oss_licenses.ui.wear.compose.material3.R
 
 @Composable
 internal fun OssLicenseListScreen(
-  licenses: List<OssLicense>,
+  licenses: List<OssLicenseUiState>,
   modifier: Modifier = Modifier,
   listState: TransformingLazyColumnState = rememberTransformingLazyColumnState(),
-  onNavigateToDetail: (OssLicense) -> Unit = {},
+  onNavigateToDetail: (OssLicenseUiState) -> Unit = {},
 ) {
   ScreenScaffold(
     scrollState = listState,

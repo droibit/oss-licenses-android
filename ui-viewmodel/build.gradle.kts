@@ -10,7 +10,7 @@ android {
 }
 
 dependencies {
-  api(projects.parser)
+  implementation(projects.parser)
 
   api(platform(libs.kotlin.coroutines.bom))
   api(libs.kotlin.coroutines.core)

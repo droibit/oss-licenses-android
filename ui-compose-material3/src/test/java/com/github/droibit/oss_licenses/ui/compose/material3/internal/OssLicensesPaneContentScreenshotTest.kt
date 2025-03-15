@@ -6,7 +6,7 @@ import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
 import androidx.compose.material3.adaptive.layout.ListDetailPaneScaffoldRole
 import androidx.compose.material3.adaptive.navigation.rememberListDetailPaneScaffoldNavigator
 import androidx.compose.ui.Modifier
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 import com.github.droibit.oss_licenses.ui.compose.screenshots.Device
 import com.github.droibit.oss_licenses.ui.compose.screenshots.ScreenshotTest
 import com.github.droibit.oss_licenses.ui.compose.screenshots.TestFixtures
@@ -19,7 +19,7 @@ class OssLicensesPaneContentScreenshotTest(device: Device) : ScreenshotTest(devi
     OssLicensesTheme {
       val licenses = TestFixtures.licenses
 
-      val navigator = rememberListDetailPaneScaffoldNavigator<OssLicense>()
+      val navigator = rememberListDetailPaneScaffoldNavigator<OssLicenseUiState>()
       if (device in setOf(Device.PhoneDark, Device.Tablet, Device.TabletLargeFonts)) {
         navigator.navigateTo(ListDetailPaneScaffoldRole.Detail, TestFixtures.kotlinCoroutines)
       }

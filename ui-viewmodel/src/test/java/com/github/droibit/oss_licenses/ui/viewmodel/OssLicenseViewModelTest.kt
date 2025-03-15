@@ -4,6 +4,7 @@ import android.content.Context
 import app.cash.turbine.test
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.parser.OssLicenseParser
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 import com.google.common.truth.Truth.assertThat
 import io.mockk.coEvery
 import io.mockk.impl.annotations.MockK
@@ -25,14 +26,19 @@ class OssLicenseViewModelTest {
   @MockK
   private lateinit var context: Context
 
-  private lateinit var licensesSink: MutableStateFlow<List<OssLicense>>
+  private lateinit var licensesSink: MutableStateFlow<List<OssLicenseUiState>>
+
+  private lateinit var licenseIdGenerator: (OssLicense) -> String
 
   private lateinit var viewModel: OssLicenseViewModel
 
   @Before
   fun setUp() {
     licensesSink = MutableStateFlow(emptyList())
-    viewModel = OssLicenseViewModel(parser, licensesSink)
+    licenseIdGenerator = { ossLicense ->
+      ossLicense.library + ossLicense.text
+    }
+    viewModel = OssLicenseViewModel(parser, licensesSink, licenseIdGenerator)
   }
 
   @Test
@@ -41,8 +47,8 @@ class OssLicenseViewModelTest {
       assertThat(awaitItem()).isEmpty()
 
       val licenses = listOf(
-        OssLicense("library1", "license1"),
-        OssLicense("library2", "license2"),
+        OssLicenseUiState("id1", "library1", "license1"),
+        OssLicenseUiState("id2", "library2", "license2"),
       )
       licensesSink.update { licenses }
 
@@ -63,15 +69,22 @@ class OssLicenseViewModelTest {
 
       viewModel.loadLicenses(context)
 
-      assertThat(awaitItem()).isEqualTo(licenses)
+      val actualLicenses = licenses.map {
+        OssLicenseUiState(
+          id = licenseIdGenerator(it),
+          library = it.library,
+          licenseText = it.text,
+        )
+      }
+      assertThat(awaitItem()).isEqualTo(actualLicenses)
     }
   }
 
   @Test
   fun loadLicenses_skip() = runTest {
     val licenses = listOf(
-      OssLicense("library1", "license1"),
-      OssLicense("library2", "license2"),
+      OssLicenseUiState("id1", "library1", "license1"),
+      OssLicenseUiState("id2", "library2", "license2"),
     )
     licensesSink.update { licenses }
 
@@ -86,18 +99,18 @@ class OssLicenseViewModelTest {
 
   @Test
   fun getLicense_success() {
-    val license1 = OssLicense("library1", "license1")
-    val license2 = OssLicense("library2", "license2")
+    val license1 = OssLicenseUiState("id1", "library1", "license1")
+    val license2 = OssLicenseUiState("id2", "library2", "license2")
     licensesSink.update {
       listOf(license1, license2)
     }
 
-    assertThat(viewModel.getLicense("library1")).isEqualTo(license1)
-    assertThat(viewModel.getLicense("library2")).isEqualTo(license2)
+    assertThat(viewModel.getLicense("id1")).isEqualTo(license1)
+    assertThat(viewModel.getLicense("id2")).isEqualTo(license2)
   }
 
   @Test(expected = IllegalStateException::class)
   fun getLicense_notLoaded() {
-    viewModel.getLicense("library1")
+    viewModel.getLicense("license")
   }
 }

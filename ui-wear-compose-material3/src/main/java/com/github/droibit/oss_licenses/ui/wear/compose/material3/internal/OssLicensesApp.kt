@@ -44,7 +44,7 @@ internal fun OssLicensesApp(
         OssLicenseListScreen(
           licenses = licenses,
           onNavigateToDetail = { license ->
-            navController.navigateToDetail(license.library)
+            navController.navigateToDetail(license.id)
           },
         )
       }
@@ -53,9 +53,9 @@ internal fun OssLicensesApp(
         route = LicenseDetail.ROUTE,
         arguments = LicenseDetail.arguments,
       ) {
-        val libraryName = LicenseDetail.getLibraryName(requireNotNull(it.arguments))
+        val id = LicenseDetail.getLicenseId(requireNotNull(it.arguments))
         OssLicenseDetailScreen(
-          license = viewModel.getLicense(libraryName),
+          license = viewModel.getLicense(id),
         )
       }
     }

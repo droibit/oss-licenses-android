@@ -5,7 +5,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewLightDark
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 
 @PreviewLightDark
 @Composable
@@ -13,9 +13,10 @@ internal fun OssLicenseDetailPreview() {
   OssLicensesTheme {
     Scaffold { innerPadding ->
       OssLicenseDetail(
-        license = OssLicense(
+        license = OssLicenseUiState(
+          id = "license",
           library = "OSS Licenses",
-          text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
+          licenseText = "https://www.apache.org/licenses/LICENSE-2.0.txt",
         ),
         modifier = Modifier.padding(innerPadding),
       )
@@ -29,9 +30,10 @@ internal fun OssLicenseTextPreview() {
   OssLicensesTheme {
     Scaffold { innerPadding ->
       OssLicenseDetail(
-        license = OssLicense(
+        license = OssLicenseUiState(
+          id = "license",
           library = "OSS Licenses",
-          text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
+          licenseText = "https://www.apache.org/licenses/LICENSE-2.0.txt",
         ),
         showLibraryName = false,
         modifier = Modifier.padding(innerPadding),

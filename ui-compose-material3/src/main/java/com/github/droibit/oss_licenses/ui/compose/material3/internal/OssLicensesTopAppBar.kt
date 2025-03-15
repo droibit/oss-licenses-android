@@ -12,13 +12,13 @@ import androidx.compose.material3.adaptive.navigation.ThreePaneScaffoldNavigator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 import com.github.droibit.oss_licenses.ui.compose.material3.R
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3AdaptiveApi::class)
 @Composable
 internal fun OssLicensesTopAppBar(
-  navigator: ThreePaneScaffoldNavigator<OssLicense>,
+  navigator: ThreePaneScaffoldNavigator<OssLicenseUiState>,
   modifier: Modifier = Modifier,
   onBack: () -> Unit = {},
 ) {

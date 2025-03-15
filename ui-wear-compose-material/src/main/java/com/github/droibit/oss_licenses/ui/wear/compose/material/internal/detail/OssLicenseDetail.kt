@@ -24,13 +24,13 @@ import androidx.wear.compose.foundation.rotary.rotaryScrollable
 import androidx.wear.compose.material.ListHeader
 import androidx.wear.compose.material.MaterialTheme
 import androidx.wear.compose.material.Text
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 import kotlin.math.sqrt
 
 @OptIn(ExperimentalWearFoundationApi::class)
 @Composable
 internal fun OssLicenseDetail(
-  license: OssLicense,
+  license: OssLicenseUiState,
   modifier: Modifier = Modifier,
   listState: LazyListState = rememberLazyListState(),
   focusRequester: FocusRequester = rememberActiveFocusRequester(),
@@ -74,7 +74,7 @@ internal fun OssLicenseDetail(
 
     item {
       Text(
-        text = license.text,
+        text = license.licenseText,
         modifier = Modifier.fillMaxWidth(),
         style = MaterialTheme.typography.caption1.copy(
           fontFamily = FontFamily.Monospace,

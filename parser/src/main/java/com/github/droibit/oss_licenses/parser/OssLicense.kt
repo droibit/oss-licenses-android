@@ -12,18 +12,13 @@ import android.os.Parcelable
 data class OssLicense(
   val library: String,
   val text: String,
-) : Comparable<OssLicense>, Parcelable {
+) : Parcelable {
   override fun describeContents(): Int = 0
 
   override fun writeToParcel(dest: Parcel, flags: Int) {
     dest.writeString(library)
     dest.writeString(text)
   }
-
-  override fun compareTo(other: OssLicense): Int = library.compareTo(
-    other.library,
-    ignoreCase = true,
-  )
 
   companion object CREATOR : Parcelable.Creator<OssLicense?> {
     override fun createFromParcel(source: Parcel?): OssLicense? {

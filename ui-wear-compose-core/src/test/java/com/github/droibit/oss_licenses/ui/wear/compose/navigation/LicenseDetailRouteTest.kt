@@ -14,35 +14,35 @@ import org.robolectric.annotation.Config
 @Config(manifest = Config.NONE)
 class LicenseDetailRouteTest {
   @Test
-  fun arguments_containsLibraryNameArgument() {
+  fun arguments_containsIdArgument() {
     val arguments = LicenseDetail.arguments
     assertThat(arguments).hasSize(1)
-    assertThat(arguments[0].name).isEqualTo("library_name")
+    assertThat(arguments[0].name).isEqualTo("license_id")
     assertThat(arguments[0].argument.type).isEqualTo(NavType.StringType)
   }
 
   @Test
-  fun toDetail_encodesLibraryName() {
-    val libraryName = "Test Library"
+  fun toDetail_encodesId() {
+    val licenseId = "licenseId"
     val expectedEncodedName = Base64.encodeToString(
-      libraryName.toByteArray(),
+      licenseId.toByteArray(),
       Base64.URL_SAFE or Base64.NO_WRAP,
     )
-    val expectedRoute = "license_detail?library_name=$expectedEncodedName"
+    val expectedRoute = "license_detail?license_id=$expectedEncodedName"
 
-    val actual = LicenseDetail.toDetail(libraryName)
+    val actual = LicenseDetail.toDetail(licenseId)
     assertThat(actual).isEqualTo(expectedRoute)
   }
 
   @Test
-  fun getLibraryName_decodesLibraryName() {
-    val libraryName = "Test Library"
+  fun getLicenseId_decodesLicenseId() {
+    val licenseId = "license-1"
     val encodedName = Base64.encodeToString(
-      libraryName.toByteArray(),
+      licenseId.toByteArray(),
       Base64.URL_SAFE or Base64.NO_WRAP,
     )
-    val bundle = bundleOf("library_name" to encodedName)
-    val actual = LicenseDetail.getLibraryName(bundle)
-    assertThat(actual).isEqualTo(libraryName)
+    val bundle = bundleOf("license_id" to encodedName)
+    val actual = LicenseDetail.getLicenseId(bundle)
+    assertThat(actual).isEqualTo(licenseId)
   }
 }

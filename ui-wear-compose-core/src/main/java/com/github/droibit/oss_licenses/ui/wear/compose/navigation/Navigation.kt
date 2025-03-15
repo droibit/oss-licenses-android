@@ -8,11 +8,11 @@ import com.github.droibit.oss_licenses.ui.wear.compose.navigation.Routes.License
 /**
  * Navigates to the license detail screen.
  *
- * @param libraryName The library name to show the detail.
+ * @param licenseId The id of the license to navigate to.
  */
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-fun NavController.navigateToDetail(libraryName: String) {
+fun NavController.navigateToDetail(licenseId: String) {
   if (currentDestination?.route == LicenseList.ROUTE) {
-    navigate(toDetail(libraryName))
+    navigate(toDetail(licenseId))
   }
 }

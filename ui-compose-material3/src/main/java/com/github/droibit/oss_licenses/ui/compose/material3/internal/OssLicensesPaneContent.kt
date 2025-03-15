@@ -10,16 +10,16 @@ import androidx.compose.material3.adaptive.navigation.ThreePaneScaffoldNavigator
 import androidx.compose.material3.adaptive.navigation.rememberListDetailPaneScaffoldNavigator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)
 @Composable
 internal fun OssLicensesPaneContent(
-  licenses: List<OssLicense>,
+  licenses: List<OssLicenseUiState>,
   modifier: Modifier = Modifier,
   listState: LazyListState = rememberLazyListState(),
-  navigator: ThreePaneScaffoldNavigator<OssLicense> =
-    rememberListDetailPaneScaffoldNavigator<OssLicense>(),
+  navigator: ThreePaneScaffoldNavigator<OssLicenseUiState> =
+    rememberListDetailPaneScaffoldNavigator<OssLicenseUiState>(),
 ) {
   ListDetailPaneScaffold(
     directive = navigator.scaffoldDirective,

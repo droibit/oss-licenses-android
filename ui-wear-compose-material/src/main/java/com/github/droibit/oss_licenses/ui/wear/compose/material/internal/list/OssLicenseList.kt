@@ -10,14 +10,14 @@ import androidx.wear.compose.foundation.lazy.items
 import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.material.ListHeader
 import androidx.wear.compose.material.Text
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 import com.github.droibit.oss_licenses.ui.wear.compose.material.R
 
 @Composable
 internal fun OssLicenseList(
-  licenses: List<OssLicense>,
+  licenses: List<OssLicenseUiState>,
   modifier: Modifier = Modifier,
-  onItemClick: (OssLicense) -> Unit = {},
+  onItemClick: (OssLicenseUiState) -> Unit = {},
   listState: ScalingLazyListState = rememberScalingLazyListState(),
 ) {
   ScalingLazyColumn(
@@ -34,7 +34,7 @@ internal fun OssLicenseList(
     }
     items(
       licenses,
-      key = OssLicense::library,
+      key = OssLicenseUiState::id,
     ) { license ->
       OssLicenseItem(
         license = license,

@@ -16,7 +16,7 @@ android {
 }
 
 dependencies {
-  implementation(projects.parser)
+  implementation(projects.uiViewmodel)
 
   implementation(platform(libs.androidx.compose.bom))
   implementation(libs.androidx.compose.foundation)

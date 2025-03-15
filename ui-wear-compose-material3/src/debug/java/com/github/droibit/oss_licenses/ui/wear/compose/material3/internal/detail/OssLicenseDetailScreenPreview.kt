@@ -3,16 +3,17 @@ package com.github.droibit.oss_licenses.ui.wear.compose.material3.internal.detai
 import androidx.compose.runtime.Composable
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.ui.tooling.preview.WearPreviewDevices
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 
 @WearPreviewDevices
 @Composable
 internal fun OssLicenseDetailScreenShortLicensePreview() {
   MaterialTheme {
     OssLicenseDetailScreen(
-      license = OssLicense(
+      license = OssLicenseUiState(
+        id = "license",
         library = "OSS Licenses",
-        text = "https://www.apache.org/licenses/LICENSE-2.0.txt",
+        licenseText = "https://www.apache.org/licenses/LICENSE-2.0.txt",
       ),
     )
   }
@@ -23,9 +24,10 @@ internal fun OssLicenseDetailScreenShortLicensePreview() {
 internal fun OssLicenseDetailScreenLongLicensePreview() {
   MaterialTheme {
     OssLicenseDetailScreen(
-      license = OssLicense(
+      license = OssLicenseUiState(
+        id = "license",
         library = "The 3-Clause BSD License (BSD-3-Clause)",
-        text =
+        licenseText =
           """
           Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 

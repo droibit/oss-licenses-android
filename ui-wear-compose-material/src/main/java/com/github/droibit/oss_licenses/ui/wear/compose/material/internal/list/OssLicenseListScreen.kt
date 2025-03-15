@@ -7,14 +7,14 @@ import androidx.wear.compose.foundation.lazy.ScalingLazyListState
 import androidx.wear.compose.foundation.lazy.rememberScalingLazyListState
 import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 
 @Composable
 internal fun OssLicenseListScreen(
-  licenses: List<OssLicense>,
+  licenses: List<OssLicenseUiState>,
   modifier: Modifier = Modifier,
   listState: ScalingLazyListState = rememberScalingLazyListState(),
-  onNavigateToDetail: (OssLicense) -> Unit = {},
+  onNavigateToDetail: (OssLicenseUiState) -> Unit = {},
 ) {
   Scaffold(
     modifier = modifier,

@@ -1,20 +1,23 @@
 package com.github.droibit.oss_licenses.ui.compose.screenshots
 
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 
 @Suppress("MemberVisibilityCanBePrivate")
 object TestFixtures {
-  val aospPhotoViewer = OssLicense(
+  val aospPhotoViewer = OssLicenseUiState(
+    "72d02593-1356-1efc-9834-70f58b889553",
     "AOSP PhotoViewer",
     "http://www.apache.org/licenses/LICENSE-2.0",
   )
 
-  val androidDeviceOriginLibrary = OssLicense(
+  val androidDeviceOriginLibrary = OssLicenseUiState(
+    "bf30a13f-c26e-1998-28c8-e4c95bcb4127",
     "Android Device Origin Library",
     "http://www.apache.org/licenses/LICENSE-2.0",
   )
 
-  val kotlinCoroutines = OssLicense(
+  val kotlinCoroutines = OssLicenseUiState(
+    "20ebba19-4c5b-cb03-50e3-574aad0f2732",
     "Kotlin coroutines",
     """
 
@@ -222,7 +225,7 @@ object TestFixtures {
     """.trimIndent(),
   )
 
-  val licenses: List<OssLicense> = listOf(
+  val licenses: List<OssLicenseUiState> = listOf(
     aospPhotoViewer,
     androidDeviceOriginLibrary,
     kotlinCoroutines,
