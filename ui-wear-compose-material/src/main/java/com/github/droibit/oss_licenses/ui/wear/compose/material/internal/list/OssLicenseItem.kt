@@ -6,13 +6,13 @@ import androidx.compose.ui.Modifier
 import androidx.wear.compose.material.Chip
 import androidx.wear.compose.material.ChipDefaults
 import androidx.wear.compose.material.Text
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 
 @Composable
 internal fun OssLicenseItem(
-  license: OssLicense,
+  license: OssLicenseUiState,
   modifier: Modifier = Modifier,
-  onClick: (OssLicense) -> Unit = {},
+  onClick: (OssLicenseUiState) -> Unit = {},
 ) {
   Chip(
     onClick = {

@@ -8,13 +8,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 import com.github.droibit.oss_licenses.ui.wear.R
 
 internal class OssLicenseListAdapter(
   context: Context,
-  private val onItemClickListener: (OssLicense) -> Unit,
-) : ListAdapter<OssLicense, ViewHolder>(DIFF_CALLBACK) {
+  private val onItemClickListener: (OssLicenseUiState) -> Unit,
+) : ListAdapter<OssLicenseUiState, ViewHolder>(DIFF_CALLBACK) {
   private val inflater: LayoutInflater = LayoutInflater.from(context)
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder = ViewHolder(
@@ -34,15 +34,15 @@ internal class OssLicenseListAdapter(
   }
 
   companion object {
-    private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<OssLicense>() {
+    private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<OssLicenseUiState>() {
       override fun areItemsTheSame(
-        oldItem: OssLicense,
-        newItem: OssLicense,
-      ): Boolean = oldItem.library == newItem.library
+        oldItem: OssLicenseUiState,
+        newItem: OssLicenseUiState,
+      ): Boolean = oldItem.id == newItem.id
 
       override fun areContentsTheSame(
-        oldItem: OssLicense,
-        newItem: OssLicense,
+        oldItem: OssLicenseUiState,
+        newItem: OssLicenseUiState,
       ): Boolean = oldItem == newItem
     }
   }

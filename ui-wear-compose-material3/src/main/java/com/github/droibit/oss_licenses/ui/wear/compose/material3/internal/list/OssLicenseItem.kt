@@ -8,13 +8,13 @@ import androidx.wear.compose.material3.Button
 import androidx.wear.compose.material3.ButtonDefaults
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 
 @Composable
 internal fun OssLicenseItem(
-  license: OssLicense,
+  license: OssLicenseUiState,
   modifier: Modifier = Modifier,
-  onClick: (OssLicense) -> Unit = {},
+  onClick: (OssLicenseUiState) -> Unit = {},
 ) {
   Button(
     onClick = {

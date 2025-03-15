@@ -5,11 +5,11 @@ import androidx.compose.ui.Modifier
 import androidx.wear.compose.foundation.lazy.TransformingLazyColumnState
 import androidx.wear.compose.foundation.lazy.rememberTransformingLazyColumnState
 import androidx.wear.compose.material3.ScreenScaffold
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 
 @Composable
 internal fun OssLicenseDetailScreen(
-  license: OssLicense,
+  license: OssLicenseUiState,
   modifier: Modifier = Modifier,
   listState: TransformingLazyColumnState = rememberTransformingLazyColumnState(),
 ) {

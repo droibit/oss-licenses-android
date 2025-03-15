@@ -8,7 +8,7 @@ import androidx.compose.material3.adaptive.navigation.rememberListDetailPaneScaf
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.PreviewScreenSizes
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)
 @PreviewScreenSizes
@@ -16,11 +16,12 @@ import com.github.droibit.oss_licenses.parser.OssLicense
 internal fun OssLicensesPaneContentPreview() {
   OssLicensesTheme {
     val licenses = listOf(
-      OssLicense("activity-compose", ""),
-      OssLicense("compose-foundation", ""),
-      OssLicense("kotlinx-coroutines-android", ""),
-      OssLicense("wear-compose", ""),
-      OssLicense(
+      OssLicenseUiState("license-1", "activity-compose", ""),
+      OssLicenseUiState("license-2", "compose-foundation", ""),
+      OssLicenseUiState("license-3", "kotlinx-coroutines-android", ""),
+      OssLicenseUiState("license-4", "wear-compose", ""),
+      OssLicenseUiState(
+        "license-5",
         "The MIT License",
         """
         Copyright <YEAR> <COPYRIGHT HOLDER>
@@ -33,7 +34,7 @@ internal fun OssLicensesPaneContentPreview() {
         """.trimIndent(),
       ),
     )
-    val navigator = rememberListDetailPaneScaffoldNavigator<OssLicense>()
+    val navigator = rememberListDetailPaneScaffoldNavigator<OssLicenseUiState>()
     navigator.navigateTo(ListDetailPaneScaffoldRole.Detail, licenses.last())
 
     Scaffold(

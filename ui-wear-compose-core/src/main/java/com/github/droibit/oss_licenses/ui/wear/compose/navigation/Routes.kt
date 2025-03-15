@@ -21,12 +21,12 @@ object Routes {
    */
   object LicenseDetail {
     private const val PATH = "license_detail"
-    private const val KEY_LIBRARY_NAME = "library_name"
-    const val ROUTE = "$PATH?$KEY_LIBRARY_NAME={$KEY_LIBRARY_NAME}"
+    private const val KEY_LICENSE_ID = "license_id"
+    const val ROUTE = "$PATH?$KEY_LICENSE_ID={$KEY_LICENSE_ID}"
 
     val arguments: List<NamedNavArgument>
       get() = listOf(
-        navArgument(KEY_LIBRARY_NAME) {
+        navArgument(KEY_LICENSE_ID) {
           type = NavType.StringType
         },
       )
@@ -34,23 +34,23 @@ object Routes {
     /**
      * Creates a deep link to the license detail screen.
      */
-    fun toDetail(libraryName: String): String {
+    fun toDetail(licenseId: String): String {
       val encoded = Base64.encodeToString(
-        libraryName.toByteArray(),
+        licenseId.toByteArray(),
         Base64.URL_SAFE or Base64.NO_WRAP,
       )
-      return "$PATH?$KEY_LIBRARY_NAME=$encoded"
+      return "$PATH?$KEY_LICENSE_ID=$encoded"
     }
 
     /**
-     * Extracts the library name from the [Bundle] arguments.
+     * Extracts the license id from the [Bundle] arguments.
      */
-    fun getLibraryName(args: Bundle): String {
-      val libraryName = Base64.decode(
-        requireNotNull(args.getString(KEY_LIBRARY_NAME)),
+    fun getLicenseId(args: Bundle): String {
+      val licenseId = Base64.decode(
+        requireNotNull(args.getString(KEY_LICENSE_ID)),
         Base64.URL_SAFE or Base64.NO_WRAP,
       )
-      return String(libraryName)
+      return String(licenseId)
     }
   }
 }

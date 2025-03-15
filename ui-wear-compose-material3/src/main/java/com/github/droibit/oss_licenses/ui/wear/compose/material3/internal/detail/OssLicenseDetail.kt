@@ -12,12 +12,12 @@ import androidx.wear.compose.foundation.lazy.rememberTransformingLazyColumnState
 import androidx.wear.compose.material3.ListHeader
 import androidx.wear.compose.material3.MaterialTheme
 import androidx.wear.compose.material3.Text
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 import com.github.droibit.oss_licenses.ui.wear.compose.material3.internal.rememberResponsiveColumnPadding
 
 @Composable
 internal fun OssLicenseDetail(
-  license: OssLicense,
+  license: OssLicenseUiState,
   modifier: Modifier = Modifier,
   listState: TransformingLazyColumnState = rememberTransformingLazyColumnState(),
 ) {
@@ -38,7 +38,7 @@ internal fun OssLicenseDetail(
 
     item {
       Text(
-        text = license.text,
+        text = license.licenseText,
         modifier = Modifier.fillMaxWidth(),
         style = MaterialTheme.typography.bodyMedium.copy(
           fontFamily = FontFamily.Monospace,

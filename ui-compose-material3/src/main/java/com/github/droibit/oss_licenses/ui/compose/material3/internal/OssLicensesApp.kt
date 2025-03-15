@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
 
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)
@@ -30,7 +30,7 @@ internal fun OssLicensesApp(
   }
 
   val activity = LocalActivity.current
-  val navigator = rememberListDetailPaneScaffoldNavigator<OssLicense>()
+  val navigator = rememberListDetailPaneScaffoldNavigator<OssLicenseUiState>()
   val navigateBack: () -> Unit = {
     if (navigator.canNavigateBack()) {
       navigator.navigateBack()

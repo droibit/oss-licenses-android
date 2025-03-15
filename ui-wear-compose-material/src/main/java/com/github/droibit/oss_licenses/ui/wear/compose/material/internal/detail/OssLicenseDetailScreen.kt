@@ -6,11 +6,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.wear.compose.material.PositionIndicator
 import androidx.wear.compose.material.Scaffold
-import com.github.droibit.oss_licenses.parser.OssLicense
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 
 @Composable
 internal fun OssLicenseDetailScreen(
-  license: OssLicense,
+  license: OssLicenseUiState,
   modifier: Modifier = Modifier,
   listState: LazyListState = rememberLazyListState(),
 ) {
