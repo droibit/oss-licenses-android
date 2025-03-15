@@ -4,8 +4,9 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'gradle-plugin/**'
       - '.github/workflows/gradle-plugin.yml'
+      - 'gradle/**'
+      - 'gradle-plugin/**'
       - '!**.md'
     tags-ignore:
       - '**'

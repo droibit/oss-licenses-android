@@ -69,6 +69,7 @@ gradle-plugin-android = { group = "com.android.tools.build", name = "gradle", ve
 gradle-plugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 gradle-plugin-maven-publish = { group = "com.vanniktech", name = "gradle-maven-publish-plugin", version.ref = "maven-publish" }
 gradle-plugin-licensee = { group = "app.cash.licensee", name = "licensee-gradle-plugin", version.ref = "licensee" }
+plugin-play-services-osslicense = { group = "com.google.android.gms", name = "oss-licenses-plugin", version = "0.10.6" }
 
 [bundles]
 androidx-wear-compose-material = [
@@ -95,7 +96,7 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 spotless = { id = "com.diffplug.spotless", version = "7.0.2" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
-osslicenses = { id = "com.google.android.gms.oss-licenses-plugin", version = "0.10.6" }
+osslicenses = { id = "com.google.android.gms.oss-licenses-plugin" }
 maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven-publish" }
 
 # Gradle plugins.
