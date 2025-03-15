@@ -8,12 +8,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.github.droibit.oss_licenses.parser.OssLicense
 import com.github.droibit.oss_licenses.parser.OssLicenseParser
+import com.github.droibit.oss_licenses.ui.OssLicenseUiState
+import java.util.UUID
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
 /**
- * ViewModel that manages the state and operations of open source licenses.
+ * ViewModel that manages the state and operations of third-party library licenses.
  *
  * The ViewModel provides functionality to:
  * - Load and cache licenses from application assets
@@ -21,29 +23,31 @@ import kotlinx.coroutines.launch
  * - Retrieve individual license details
  *
  * @property parser The parser used to read license information from assets
- * @property licensesSink The mutable state holding the list of licenses
+ * @property licensesSink The mutable state holding the list of third-party library licenses UI states
  */
 @RestrictTo(LIBRARY_GROUP)
-class OssLicenseViewModel(
+class OssLicenseViewModel internal constructor(
   private val parser: OssLicenseParser,
-  private val licensesSink: MutableStateFlow<List<OssLicense>>,
+  private val licensesSink: MutableStateFlow<List<OssLicenseUiState>>,
+  private val licenseIdGenerator: (OssLicense) -> String,
 ) : ViewModel() {
   /**
-   * A [StateFlow] that emits the list of open source licenses.
+   * A [StateFlow] that emits the list of third-party library licenses UI states.
    *
    * The initial value is an empty list.
    */
-  val licenses: StateFlow<List<OssLicense>>
+  val licenses: StateFlow<List<OssLicenseUiState>>
     get() = licensesSink
 
   @Suppress("unused")
   constructor() : this(
     OssLicenseParser(),
     licensesSink = MutableStateFlow(emptyList()),
+    licenseIdGenerator = { UUID.randomUUID().toString() },
   )
 
   /**
-   * Loads the open source licenses from the application's assets.
+   * Loads the third-party library licenses from the application's assets.
    * If licenses are already loaded, this method will return immediately.
    */
   fun loadLicenses(context: Context) {
@@ -51,19 +55,25 @@ class OssLicenseViewModel(
       if (licensesSink.value.isNotEmpty()) {
         return@launch
       }
-      licensesSink.value = parser.parse(context)
+      licensesSink.value = parser.parse(context).map {
+        OssLicenseUiState(
+          id = licenseIdGenerator(it),
+          library = it.library,
+          licenseText = it.text,
+        )
+      }
     }
   }
 
   /**
-   * Returns the [OssLicense] for the specified library name.
+   * Returns the [OssLicenseUiState] for the specified id.
    *
-   * @param name The name of the library to get the license for.
-   * @return The [OssLicense] for the specified library.
+   * @param id The id of the third-party library license to retrieve.
+   * @return The [OssLicenseUiState] for the specified id.
    */
   @UiThread
-  fun getLicense(name: String): OssLicense {
+  fun getLicense(id: String): OssLicenseUiState {
     check(licenses.value.isNotEmpty()) { "Licenses have not been loaded yet." }
-    return licenses.value.first { it.library == name }
+    return licenses.value.first { it.id == id }
   }
 }
