@@ -2,15 +2,13 @@ name: Android CI
 
 on:
   push:
-    branches:
-      - main
-      - develop
+    branches: [ main ]
     paths-ignore:
       - '**.md'
     tags-ignore:
       - '**'
   pull_request:
-    branches: ['**']
+    branches: [ '**' ]
     paths-ignore:
       - '**.md'
 
@@ -20,22 +18,29 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
+
     - name: Setup JDK
       uses: actions/setup-java@v4
       with:
         distribution: 'zulu'
         java-version: 17
+
     - name: Setup Gradle
       uses: gradle/actions/setup-gradle@v4
       with:
         gradle-home-cache-cleanup: true
+
     - name: Copy CI gradle.properties
       run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
+
     - name: Build projects
       run: ./gradlew assembleDebug
+
     - name: Run ktlint
       run: ./gradlew spotlessCheck :build-logic:spotlessCheck
+
     - name: Run unit tests
       run: ./gradlew testDebugUnitTest
+
     - name: Run screenshot tests
       run: ./gradlew verifyRoborazziDebug
