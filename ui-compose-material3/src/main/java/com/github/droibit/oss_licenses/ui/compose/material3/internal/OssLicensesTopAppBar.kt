@@ -26,10 +26,13 @@ internal fun OssLicensesTopAppBar(
   CenterAlignedTopAppBar(
     title = {
       Text(
-        text = navigator.currentDestination?.content?.library?.takeIf { navigator.isSinglePane() }
+        text = navigator.currentDestination
+          ?.content
+          ?.library
+          ?.takeIf { navigator.isSinglePane() }
           ?: stringResource(id = R.string.oss_licenses_title),
         overflow = TextOverflow.Ellipsis,
-        maxLines = 1
+        maxLines = 1,
       )
     },
     navigationIcon = {
