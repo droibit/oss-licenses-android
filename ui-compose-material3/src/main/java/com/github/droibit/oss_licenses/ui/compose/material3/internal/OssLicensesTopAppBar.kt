@@ -12,6 +12,7 @@ import androidx.compose.material3.adaptive.navigation.ThreePaneScaffoldNavigator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 import com.github.droibit.oss_licenses.ui.compose.material3.R
 
@@ -25,12 +26,13 @@ internal fun OssLicensesTopAppBar(
   CenterAlignedTopAppBar(
     title = {
       Text(
-        text = if (navigator.isSinglePane()) {
-          navigator.currentDestination?.content?.library
-            ?: stringResource(id = R.string.oss_licenses_title)
-        } else {
-          stringResource(id = R.string.oss_licenses_title)
-        },
+        text = navigator.currentDestination
+          ?.content
+          ?.library
+          ?.takeIf { navigator.isSinglePane() }
+          ?: stringResource(id = R.string.oss_licenses_title),
+        overflow = TextOverflow.Ellipsis,
+        maxLines = 1,
       )
     },
     navigationIcon = {
@@ -51,7 +53,7 @@ internal fun BackNavigationButton(
   ) {
     Icon(
       imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
-      contentDescription = null,
+      contentDescription = "Back",
     )
   }
 }
