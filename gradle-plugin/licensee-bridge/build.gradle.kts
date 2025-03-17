@@ -1,7 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-import com.vanniktech.maven.publish.GradlePlugin
-import com.vanniktech.maven.publish.JavadocJar
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
