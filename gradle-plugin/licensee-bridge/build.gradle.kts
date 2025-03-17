@@ -1,7 +1,5 @@
 @file:Suppress("UnstableApiUsage")
 
-import com.vanniktech.maven.publish.GradlePlugin
-import com.vanniktech.maven.publish.JavadocJar
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 
@@ -108,10 +106,4 @@ tasks.named("check") {
 
 tasks.withType<ValidatePlugins>().configureEach {
   enableStricterValidation.set(true)
-}
-
-mavenPublishing {
-  configure(
-    GradlePlugin(javadocJar = JavadocJar.None()),
-  )
 }
