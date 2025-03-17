@@ -109,9 +109,3 @@ tasks.named("check") {
 tasks.withType<ValidatePlugins>().configureEach {
   enableStricterValidation.set(true)
 }
-
-mavenPublishing {
-  configure(
-    GradlePlugin(javadocJar = JavadocJar.None()),
-  )
-}
