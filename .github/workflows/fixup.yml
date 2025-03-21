@@ -11,34 +11,41 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: 17
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
         with:
           gradle-home-cache-cleanup: true
+
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
 
-      - name: Reformat
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: --continue spotlessApply
+      - name: Reformat main project
+        run: ./gradlew --continue spotlessApply
+
+      - name: Reformat build-logic
+        run: ../gradlew --continue spotlessApply
+        working-directory: ./build-logic
+
+      - name: Reformat Gradle plugin
+        run: ./gradlew --continue spotlessApply
+        working-directory: ./gradle-plugin
 
       - name: Push reformatted code
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          file_pattern: '**/*.kt'
+          file_pattern: '**/*.kt **/*.gradle.kts'
           disable_globbing: true
           commit_message: "🤖 reformat"
 
       - name: Repair screenshots
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: --continue verifyAndRecordRoborazziDebug
+        run: ./gradlew --continue verifyAndRecordRoborazziDebug
 
       - name: Push new screenshots if available
         uses: stefanzweifel/git-auto-commit-action@v5

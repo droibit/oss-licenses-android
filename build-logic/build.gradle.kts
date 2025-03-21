@@ -8,13 +8,14 @@ subprojects {
   spotless {
     kotlin {
       target("**/*.kt")
-      targetExclude("${layout.buildDirectory}/**/*.kt")
+      targetExclude("${layout.buildDirectory}/**")
       ktlint(libs.versions.ktlint.get())
         .setEditorConfigPath("../../.editorconfig")
     }
 
     kotlinGradle {
       target("**/*.gradle.kts")
+      targetExclude("${layout.buildDirectory}/**")
       ktlint(libs.versions.ktlint.get())
         .setEditorConfigPath("../../.editorconfig")
     }

@@ -23,8 +23,7 @@ subprojects {
   spotless {
     kotlin {
       target("**/*.kt")
-      targetExclude("${layout.buildDirectory}/**/*.kt")
-      targetExclude("**/generated/**/*.kt")
+      targetExclude("${layout.buildDirectory}/**")
       ktlint(libs.versions.ktlint.get())
         .customRuleSets(
           listOf(
@@ -35,12 +34,13 @@ subprojects {
 
     kotlinGradle {
       target("**/*.gradle.kts")
+      targetExclude("${layout.buildDirectory}/**")
       ktlint(libs.versions.ktlint.get())
     }
 
     format("xml") {
       target("**/*.xml")
-      targetExclude("**/build/**/*.xml")
+      targetExclude("${layout.buildDirectory}/**")
 
       trimTrailingWhitespace()
       leadingTabsToSpaces(2)

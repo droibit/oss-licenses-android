@@ -13,8 +13,9 @@ on:
   pull_request:
     branches: [ '**' ]
     paths:
-      - 'gradle-plugin/**'
       - '.github/workflows/gradle-plugin.yml'
+      - 'gradle/**'
+      - 'gradle-plugin/**'
       - '!**.md'
   workflow_dispatch:
 

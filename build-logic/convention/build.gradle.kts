@@ -61,3 +61,7 @@ gradlePlugin {
     }
   }
 }
+
+tasks.withType<ValidatePlugins>().configureEach {
+  enableStricterValidation.set(true)
+}
