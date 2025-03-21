@@ -26,16 +26,16 @@ jobs:
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
 
-      - name: Reformat all projects
-        run: |
-          # Reformat main project
-          ./gradlew --continue spotlessApply
+      - name: Reformat main project
+        run: ./gradlew --continue spotlessApply
 
-          # Reformat build-logic
-          cd build-logic && ../gradlew --continue spotlessApply
+      - name: Reformat build-logic
+        run: ../gradlew --continue spotlessApply
+        working-directory: ./build-logic
 
-          # Reformat Gradle plugin
-          cd ../gradle-plugin && ./gradlew --continue spotlessApply
+      - name: Reformat Gradle plugin
+        run: ./gradlew --continue spotlessApply
+        working-directory: ./gradle-plugin
 
       - name: Push reformatted code
         uses: stefanzweifel/git-auto-commit-action@v5

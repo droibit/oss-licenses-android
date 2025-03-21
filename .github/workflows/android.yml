@@ -40,13 +40,11 @@ jobs:
     - name: Build projects
       run: ./gradlew assembleDebug
 
-    - name: Run ktlint
-      run: |
-        # Run ktlint for main project
-        ./gradlew spotlessCheck
+    - name: Run ktlint for main project
+      run: ./gradlew spotlessCheck
 
-        # Run ktlint for build-logic
-        cd build-logic && ../gradlew spotlessCheck
+    - name:  Run ktlint for build-logic
+      run: ../gradlew spotlessCheck
 
     - name: Run unit tests
       run: ./gradlew testDebugUnitTest
