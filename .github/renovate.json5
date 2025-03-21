@@ -1,10 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:base",
-    ":dependencyDashboard",
-    ":prConcurrentLimit10",
-    ":timezone(Asia/Tokyo)"
+    "config:recommended",
+    ":timezone(Asia/Tokyo)",
+    "helpers:pinGitHubActionDigestsToSemver",
   ],
   "labels": [
     "renovate"
@@ -21,5 +20,10 @@
         "com.android.library",
       ],
     },
+  ],
+  "prConcurrentLimit": 3,
+  "ignoreDeps": [
+    // Disable Renovate for Gradle plugin integration test dependencies.
+    "com.example:example"
   ],
 }
