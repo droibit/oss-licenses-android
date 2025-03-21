@@ -41,7 +41,12 @@ jobs:
       run: ./gradlew assembleDebug
 
     - name: Run ktlint
-      run: ./gradlew spotlessCheck :build-logic:spotlessCheck
+      run: |
+        # Run ktlint for main project
+        ./gradlew spotlessCheck
+
+        # Run ktlint for build-logic
+        cd build-logic && ../gradlew spotlessCheck
 
     - name: Run unit tests
       run: ./gradlew testDebugUnitTest
