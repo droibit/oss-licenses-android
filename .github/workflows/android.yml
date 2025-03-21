@@ -37,14 +37,15 @@ jobs:
       run: ../gradlew :convention:check
       working-directory: ./build-logic
 
-    - name: Build projects
+    - name: Build main project
       run: ./gradlew assembleDebug
 
-    - name: Run ktlint for main project
+    - name: Reformat main project
       run: ./gradlew spotlessCheck
 
-    - name:  Run ktlint for build-logic
+    - name: Reformat build-logic
       run: ../gradlew spotlessCheck
+      working-directory: ./build-logic
 
     - name: Run unit tests
       run: ./gradlew testDebugUnitTest
