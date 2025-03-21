@@ -34,7 +34,7 @@ jobs:
       run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
 
     - name: Check build-logic
-      run: ../gradlew :build-logic:convention:check
+      run: ../gradlew :convention:check
       working-directory: ./build-logic
 
     - name: Build projects
