@@ -33,6 +33,10 @@ jobs:
     - name: Copy CI gradle.properties
       run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
 
+    - name: Check build-logic
+      run: ../gradlew :build-logic:convention:check
+      working-directory: ./build-logic
+
     - name: Build projects
       run: ./gradlew assembleDebug
 
