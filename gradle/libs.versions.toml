@@ -1,5 +1,5 @@
 [versions]
-android-gradle-plugin = "8.8.1"
+android-gradle-plugin = "8.9.0"
 kotlin = "2.1.10"
 androidx-lifecycle = "2.8.7"
 androidx-navigation = "2.8.9"
