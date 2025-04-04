@@ -17,7 +17,7 @@ licensee = "1.12.0"
 kotlin-coroutines-bom = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-bom", version = "1.10.1" }
 kotlin-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core" }
 kotlin-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test" }
-kotlin-serialization-bom = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-bom", version = "1.8.0" }
+kotlin-serialization-bom = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-bom", version = "1.8.1" }
 kotlin-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json" }
 kotlin-serialization-json-okio = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json-okio" }
 androidx-annotation = { module = "androidx.annotation:annotation", version = "1.9.1" }
