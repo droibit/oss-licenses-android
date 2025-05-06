@@ -9,7 +9,7 @@ horologist = "0.6.23"
 ktlint = "1.5.0"
 robolectric = "4.14.1"
 roborazzi = "1.43.1"
-ui-test = "1.7.8"
+ui-test = "1.8.0"
 maven-publish = "0.31.0"
 licensee = "1.12.0"
 
