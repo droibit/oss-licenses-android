@@ -53,7 +53,7 @@ horologist-compose-layout = { module = "com.google.android.horologist:horologist
 horologist-compose-material = { module = "com.google.android.horologist:horologist-compose-material", version.ref = "horologist" }
 play-services-wearable = { group = "com.google.android.gms", name = "play-services-wearable", version = "19.0.0" }
 play-services-osslicenses = { group = "com.google.android.gms", name = "play-services-oss-licenses", version = "17.1.0" }
-dagger = { module = "com.google.dagger:dagger", version = "2.56.1" }
+dagger = { module = "com.google.dagger:dagger", version = "2.56.2" }
 okio = { module = "com.squareup.okio:okio", version = "3.10.2" }
 junit = { module = "junit:junit", version = "4.13.2" }
 truth = { module = "com.google.truth:truth", version = "1.4.4" }
