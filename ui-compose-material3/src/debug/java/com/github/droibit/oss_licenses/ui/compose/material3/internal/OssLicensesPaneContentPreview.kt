@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
 import androidx.compose.material3.adaptive.layout.ListDetailPaneScaffoldRole
+import androidx.compose.material3.adaptive.layout.ThreePaneScaffoldDestinationItem
 import androidx.compose.material3.adaptive.navigation.rememberListDetailPaneScaffoldNavigator
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -41,8 +42,14 @@ internal fun OssLicensesPaneContentPreview() {
           """.trimIndent(),
       ),
     )
-    val navigator = rememberListDetailPaneScaffoldNavigator<OssLicenseUiState>()
-    navigator.navigateTo(ListDetailPaneScaffoldRole.Detail, licenses.last())
+    val navigator = rememberListDetailPaneScaffoldNavigator(
+      initialDestinationHistory = listOf(
+        ThreePaneScaffoldDestinationItem(
+          pane = ListDetailPaneScaffoldRole.Detail,
+          contentKey = licenses.last(),
+        ),
+      ),
+    )
 
     Scaffold(
       topBar = {

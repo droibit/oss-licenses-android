@@ -5,18 +5,21 @@ import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
+import androidx.compose.material3.adaptive.layout.ListDetailPaneScaffoldRole
 import androidx.compose.material3.adaptive.layout.PaneAdaptedValue.Companion.Hidden
 import androidx.compose.material3.adaptive.navigation.ThreePaneScaffoldNavigator
 import androidx.compose.material3.adaptive.navigation.rememberListDetailPaneScaffoldNavigator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.github.droibit.oss_licenses.ui.OssLicenseUiState
 import com.github.droibit.oss_licenses.ui.viewmodel.OssLicenseViewModel
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3AdaptiveApi::class)
 @Composable
@@ -31,9 +34,12 @@ internal fun OssLicensesApp(
 
   val activity = LocalActivity.current
   val navigator = rememberListDetailPaneScaffoldNavigator<OssLicenseUiState>()
+  val scope = rememberCoroutineScope()
   val navigateBack: () -> Unit = {
     if (navigator.canNavigateBack()) {
-      navigator.navigateBack()
+      scope.launch {
+        navigator.navigateBack()
+      }
     } else {
       activity?.finish()
     }
@@ -53,6 +59,11 @@ internal fun OssLicensesApp(
     OssLicensesPaneContent(
       licenses = licenses,
       navigator = navigator,
+      onListItemClick = { license ->
+        scope.launch {
+          navigator.navigateTo(ListDetailPaneScaffoldRole.Detail, license)
+        }
+      },
       modifier = Modifier.padding(innerPadding),
     )
   }

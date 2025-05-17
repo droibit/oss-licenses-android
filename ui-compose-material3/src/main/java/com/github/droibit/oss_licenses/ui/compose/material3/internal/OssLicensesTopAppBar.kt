@@ -27,7 +27,7 @@ internal fun OssLicensesTopAppBar(
     title = {
       Text(
         text = navigator.currentDestination
-          ?.content
+          ?.contentKey
           ?.library
           ?.takeIf { navigator.isSinglePane() }
           ?: stringResource(id = R.string.oss_licenses_title),
