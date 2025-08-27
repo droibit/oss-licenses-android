@@ -1,6 +1,6 @@
 # Licensee Bridge Gradle Plugin
 
-[![Download](https://img.shields.io/maven-central/v/io.github.droibit.oss-licenses-android/licensee-bridge-gradle-plugin/0.8.0)](https://central.sonatype.com/artifact/io.github.droibit.oss-licenses-android/licensee-bridge-gradle-plugin/0.8.0)
+[![Download](https://img.shields.io/maven-central/v/io.github.droibit.oss-licenses-android/licensee-bridge-gradle-plugin/0.9.0)](https://central.sonatype.com/artifact/io.github.droibit.oss-licenses-android/licensee-bridge-gradle-plugin/0.9.0)
 [![Gradle Plugin CI](https://github.com/droibit/oss-licenses-android/actions/workflows/gradle-plugin.yml/badge.svg)](https://github.com/droibit/oss-licenses-android/actions/workflows/gradle-plugin.yml)
 [![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/droibit/prefbinding/blob/develop/LICENSE)
 
