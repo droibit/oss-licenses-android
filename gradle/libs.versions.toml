@@ -57,7 +57,7 @@ play-services-osslicenses = { group = "com.google.android.gms", name = "play-ser
 dagger = { module = "com.google.dagger:dagger", version = "2.57.1" }
 okio = { module = "com.squareup.okio:okio", version = "3.11.0" }
 junit = { module = "junit:junit", version = "4.13.2" }
-truth = { module = "com.google.truth:truth", version = "1.4.4" }
+truth = { module = "com.google.truth:truth", version = "1.4.5" }
 mockk = { group = "io.mockk", name = "mockk", version = "1.14.5" }
 turbine = { group = "app.cash.turbine", name = "turbine", version = "1.2.1" }
 ktlint-compose-rules = { module = "io.nlopez.compose.rules:ktlint", version = "0.4.27" }
