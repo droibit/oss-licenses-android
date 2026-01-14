@@ -9,8 +9,14 @@ android {
 
   defaultConfig {
     applicationId = "com.github.droibit.oss_licenses.sample"
-    targetSdk = 35
-    minSdk = 26
+
+    targetSdk {
+      version = release(36)
+    }
+
+    minSdk {
+      version = release(26)
+    }
   }
 }
 
