@@ -1,7 +1,7 @@
 plugins {
   alias(libs.plugins.osslicenses.android.application)
   alias(libs.plugins.osslicenses.android.compose)
-  alias(libs.plugins.osslicenses)
+  alias(libs.plugins.play.services.osslicenses)
 }
 
 android {
