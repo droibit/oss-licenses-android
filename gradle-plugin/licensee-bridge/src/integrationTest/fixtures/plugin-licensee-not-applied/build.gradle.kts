@@ -5,7 +5,7 @@ plugins {
 
 android {
   namespace = "com.example.integration_test.licensee.not_applied"
-  compileSdk = 35
+  compileSdk = 36
 
   defaultConfig.minSdk = 21
 
