@@ -25,7 +25,7 @@ import org.robolectric.annotation.GraphicsMode
 
 @RunWith(ParameterizedRobolectricTestRunner::class)
 @Config(
-  sdk = [34],
+  sdk = [36],
   qualifiers = RobolectricDeviceQualifiers.WearOSSmallRound,
 )
 @GraphicsMode(GraphicsMode.Mode.NATIVE)
