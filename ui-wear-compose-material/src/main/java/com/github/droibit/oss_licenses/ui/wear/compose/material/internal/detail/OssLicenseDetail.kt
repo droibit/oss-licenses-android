@@ -18,7 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.wear.compose.foundation.ExperimentalWearFoundationApi
-import androidx.wear.compose.foundation.rememberActiveFocusRequester
+import androidx.wear.compose.foundation.requestFocusOnHierarchyActive
 import androidx.wear.compose.foundation.rotary.RotaryScrollableDefaults
 import androidx.wear.compose.foundation.rotary.rotaryScrollable
 import androidx.wear.compose.material.ListHeader
@@ -33,7 +33,7 @@ internal fun OssLicenseDetail(
   license: OssLicenseUiState,
   modifier: Modifier = Modifier,
   listState: LazyListState = rememberLazyListState(),
-  focusRequester: FocusRequester = rememberActiveFocusRequester(),
+  focusRequester: FocusRequester = remember { FocusRequester() },
 ) {
   val configuration = LocalConfiguration.current
   val inset = remember(configuration) {
@@ -50,6 +50,7 @@ internal fun OssLicenseDetail(
   LazyColumn(
     modifier = modifier
       .fillMaxSize()
+      .requestFocusOnHierarchyActive()
       .rotaryScrollable(
         RotaryScrollableDefaults.behavior(
           listState,
