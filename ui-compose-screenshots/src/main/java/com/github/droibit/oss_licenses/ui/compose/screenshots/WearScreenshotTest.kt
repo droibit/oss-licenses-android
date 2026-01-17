@@ -42,14 +42,17 @@ abstract class WearScreenshotTest(private val device: WearDevice) {
     )
   }${suffix}_${device.name.lowercase()}.png"
 
-  open val roborazziOptions = RoborazziOptions(
-    recordOptions = RoborazziOptions.RecordOptions(
-      applyDeviceCrop = true,
-    ),
-    compareOptions = RoborazziOptions.CompareOptions(
-      resultValidator = ThresholdValidator(0.02f),
-    ),
-  )
+  open val comparisonThreshold: Float = 0.02f
+
+  open val roborazziOptions: RoborazziOptions
+    get() = RoborazziOptions(
+      recordOptions = RoborazziOptions.RecordOptions(
+        applyDeviceCrop = true,
+      ),
+      compareOptions = RoborazziOptions.CompareOptions(
+        resultValidator = ThresholdValidator(comparisonThreshold),
+      ),
+    )
 
   fun runScreenshotTest(
     captureEnd: (() -> Unit)? = null,
