@@ -10,8 +10,14 @@ android {
 
   defaultConfig {
     applicationId = "com.github.droibit.oss_licenses.licensee_bridge.sample"
-    targetSdk = 35
-    minSdk = 24
+
+    targetSdk {
+      version = release(36)
+    }
+
+    minSdk {
+      version = release(24)
+    }
   }
 }
 
