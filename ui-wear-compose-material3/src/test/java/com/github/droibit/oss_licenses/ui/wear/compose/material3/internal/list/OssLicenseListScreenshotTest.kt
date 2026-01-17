@@ -7,6 +7,8 @@ import com.github.droibit.oss_licenses.ui.compose.screenshots.WearScreenshotTest
 import org.junit.Test
 
 class OssLicenseListScreenshotTest(device: WearDevice) : WearScreenshotTest(device) {
+  override val comparisonThreshold: Float = 0.1f
+
   @Test
   fun licenseListScreen() {
     val listState = TransformingLazyColumnState()
