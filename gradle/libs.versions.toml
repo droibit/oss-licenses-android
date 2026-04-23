@@ -1,6 +1,6 @@
 [versions]
 android-gradle-plugin = "8.13.2"
-kotlin = "2.1.10"
+kotlin = "2.3.21"
 androidx-lifecycle = "2.10.0"
 androidx-navigation = "2.8.9"
 androidx-wear-compose = "1.5.6"
